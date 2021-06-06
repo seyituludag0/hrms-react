@@ -14,7 +14,11 @@ export default function Navi() {
               <Button primary>İş İlanları</Button>
             </Menu.Item>
             <Menu.Item>
-              <Button primary>Sign Up</Button>
+            <Button.Group>
+              <Button positive>Giriş Yap</Button>
+              <Button.Or />
+              <Button basic color='red'>Çıkış Yap</Button>
+            </Button.Group>
             </Menu.Item>
           </Menu.Menu>
         </Container>

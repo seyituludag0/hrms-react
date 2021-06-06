@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import JobPostingService from "../services/JobPostingService";
-import { Icon, Label, Menu, Table } from "semantic-ui-react";
+import { Icon,  Menu, Table } from "semantic-ui-react";
 
 export default function JobPosting() {
-  const [jobPosting, setJobPosting] = useState([]);
+  const [jobPostings, setJobPosting] = useState([]);
 
   useEffect(() => {
     let jobPostingService = new JobPostingService();
@@ -27,7 +27,7 @@ export default function JobPosting() {
 
     <Table.Body>
     {
-        jobPosting.map(jobPosting=>(
+        jobPostings.map(jobPosting=>(
             <Table.Row key="id">
                 <Table.Cell>{jobPosting.employer.companyName}</Table.Cell>
                 <Table.Cell>{jobPosting.jobTitle.title}</Table.Cell>

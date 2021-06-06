@@ -1,18 +1,16 @@
 import React from 'react';
-import JobPosting from './JobPosting';
-import Navi from './Navi';
+import Candidate from '../pages/Candidate';
+import Employer from '../pages/Employer';
+import JobPosting from '../pages/JobPosting';
 
 export default function Dashboard() {
   return (
     <div>
-        <Navi />
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+      
+     
         <JobPosting />
+        <Employer />
+        <Candidate />
     </div>
   );
 }
