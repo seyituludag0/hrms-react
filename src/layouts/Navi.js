@@ -1,11 +1,13 @@
 import React from 'react';
-import { Button, Container,  Menu } from "semantic-ui-react";
+import { Button, Container,  Menu, Image} from "semantic-ui-react";
 
 export default function Navi() {
   return (
     <div>
           <Menu inverted fixed="top">
         <Container>
+        <Image src='https://res.cloudinary.com/hrms-project/image/upload/v1623091360/free-logo-2ye432qlrl-idpzauzgux-removebg-preview_xzjkon.png'
+         size='small' style={{width:"8 rem"}} />
           <Menu.Item name="Ana Sayfa" />
           <Menu.Item name="İş Arayanlar" />
          
