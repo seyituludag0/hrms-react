@@ -19,7 +19,7 @@ export default function Navi() {
             <Button.Group>
               <Button positive>Giriş Yap</Button>
               <Button.Or />
-              <Button basic color='red'>Çıkış Yap</Button>
+              <Button basic color='red'>Üye Ol</Button>
             </Button.Group>
             </Menu.Item>
           </Menu.Menu>

@@ -12,7 +12,7 @@ export default function City() {
   });
 
   return (
-    <div>
+    <div className="SearchCityText">
       <Dropdown
         text="Şehirlere göre filtrele"
         icon="filter"
@@ -20,7 +20,7 @@ export default function City() {
         labeled
         button
         className="icon"
-        style={{ marginLeft: "-7rem" }}
+        
       >
         <Dropdown.Menu>
           <Input icon="search" iconPosition="left" className="search" />

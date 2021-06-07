@@ -13,3 +13,22 @@
   margin-top: 1em;
 }
 
+.jobs{
+  width: 95% !important;
+}
+
+.myCards{
+  margin-left: 5rem;
+  margin-top: -3.3rem;
+}
+
+.jobTitle{
+  font-size: "17px";
+  color: "#000000";
+  margin-left: 10rem;
+}
+
+.SearchCityText{
+  width: 16rem;
+  margin-top: -2.4rem;
+}
