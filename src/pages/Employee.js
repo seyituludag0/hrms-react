@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import CandidateService from "../services/CandidateService";
+import React, { useEffect, useState } from "react";
+import EmployeeService from "../services/EmployeeService";
 import { Icon, Menu, Table, Button, Card } from "semantic-ui-react";
 
-export default function Candidate() {
-  const [candidates, setCandidates] = useState([]);
+export default function Employee() {
+  const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    let candidateService = new CandidateService();
-    candidateService
-      .getCandidates()
-      .then((result) => setCandidates(result.data.data));
-  }, []);
+    let employeeService = new EmployeeService();
+    employeeService
+      .getEmployees()
+      .then((result) => setEmployees(result.data.data));
+  });
 
   return (
     <div>
-      <Card.Group>
-        <Card fluid color="blue" header="İŞ ARAYANLAR" />
-      </Card.Group>
+    <Card.Group>
+      <Card fluid color="blue" header="SİSTEM ÇALIŞANLARI" />
+    </Card.Group>
 
       <Table celled>
         <Table.Header>
@@ -29,11 +29,11 @@ export default function Candidate() {
         </Table.Header>
 
         <Table.Body>
-          {candidates.map((candidate) => (
-            <Table.Row key={candidate.id}>
-              <Table.Cell>{candidate.firstName}</Table.Cell>
-              <Table.Cell>{candidate.lastName}</Table.Cell>
-              <Table.Cell>{candidate.email}</Table.Cell>
+          {employees.map((employee) => (
+            <Table.Row key={employee.id}>
+              <Table.Cell>{employee.firstName}</Table.Cell>
+              <Table.Cell>{employee.lastName}</Table.Cell>
+              <Table.Cell>{employee.email}</Table.Cell>
               <Table.Cell>
                 <Button basic color="orange">
                   Detay

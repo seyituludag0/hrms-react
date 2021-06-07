@@ -6,9 +6,9 @@ export default function Navi() {
     <div>
           <Menu inverted fixed="top">
         <Container>
-          <Menu.Item name="home" />
-          <Menu.Item name="messages" />
-
+          <Menu.Item name="Ana Sayfa" />
+          <Menu.Item name="İş Arayanlar" />
+         
           <Menu.Menu position="right">
           <Menu.Item>
               <Button primary>İş İlanları</Button>

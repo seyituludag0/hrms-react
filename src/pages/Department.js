@@ -1,39 +1,34 @@
-import React, { useState, useEffect } from "react";
-import CandidateService from "../services/CandidateService";
+import React, { useEffect, useState } from 'react'
+import DepartmentService from "../services/DepartmentService";
 import { Icon, Menu, Table, Button, Card } from "semantic-ui-react";
 
-export default function Candidate() {
-  const [candidates, setCandidates] = useState([]);
+export default function Department() {
 
-  useEffect(() => {
-    let candidateService = new CandidateService();
-    candidateService
-      .getCandidates()
-      .then((result) => setCandidates(result.data.data));
-  }, []);
+    const [departments, setDepartments] = useState([])
 
-  return (
-    <div>
-      <Card.Group>
-        <Card fluid color="blue" header="İŞ ARAYANLAR" />
-      </Card.Group>
+    useEffect(()=>{
+        let departmentService = new DepartmentService();
+        departmentService.getDepartments().then(result=>setDepartments(result.data.data)) 
+    })
+
+    return (
+        <div>
+            
+            <Card.Group>
+      <Card fluid color="blue" header="DEPARTMAN İSİMLERİ" />
+    </Card.Group>
 
       <Table celled>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Ad</Table.HeaderCell>
-            <Table.HeaderCell>Soyad</Table.HeaderCell>
-            <Table.HeaderCell>Email</Table.HeaderCell>
-            <Table.HeaderCell>Detay</Table.HeaderCell>
+            <Table.HeaderCell>Departman İsmi</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
-          {candidates.map((candidate) => (
-            <Table.Row key={candidate.id}>
-              <Table.Cell>{candidate.firstName}</Table.Cell>
-              <Table.Cell>{candidate.lastName}</Table.Cell>
-              <Table.Cell>{candidate.email}</Table.Cell>
+          {departments.map((department) => (
+            <Table.Row key={department.id}>
+              <Table.Cell>{department.departmentName}</Table.Cell>
               <Table.Cell>
                 <Button basic color="orange">
                   Detay
@@ -62,6 +57,9 @@ export default function Candidate() {
           </Table.Row>
         </Table.Footer>
       </Table>
-    </div>
-  );
+  
+
+
+        </div>
+    )
 }
