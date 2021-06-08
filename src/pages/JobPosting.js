@@ -86,17 +86,9 @@ export default function JobPosting() {
                         <h3>{jobPosting.maxWage}₺</h3>
                         </Card.Meta>
 
-
-
-
                         <Dropdown.Header style={{ float: "left", marginTop:"2.7rem", marginLeft:"1rem"}}>
-                        <span style={{color:"#999999"}}>Açık Pozisyon Sayısı: </span> <h3 style={{ marginTop:"-1.4  rem", marginLeft:"14rem", color:"#999999" }}>{jobPosting.numberOfOpenPositions}</h3>
+                        <span style={{color:"#999999"}}>Açık Pozisyon Sayısı: </span> <h3 style={{ marginTop:"-1.4rem", marginLeft:"14rem", color:"#999999" }}>{jobPosting.numberOfOpenPositions}</h3>
                         </Dropdown.Header>
-
-                          {/* <Card.Meta className="maxWage">
-                          <h3>{jobPosting.maxWage}₺</h3>
-                          </Card.Meta> */}
-
 
 
                       <Card.Description>
