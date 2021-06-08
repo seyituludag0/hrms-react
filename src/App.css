@@ -32,3 +32,23 @@
   width: 16rem;
   margin-top: -2.4rem;
 }
+
+.cityName{
+  margin-left: 5px;
+  margin-top: -5px;
+  float:left;
+ }
+
+
+ .postedDate{
+  margin-left: -5rem;
+  margin-top: 2.7rem;
+  float:left;
+ }
+
+ .lastApplyDate{
+  margin-left: -8rem;
+  margin-top: 4.7rem;
+  float:left;
+  padding: 1rem;
+ }

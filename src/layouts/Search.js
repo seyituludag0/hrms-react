@@ -1,6 +1,7 @@
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 
+
 const options = [
   { key: 'angular', text: 'Angular', value: 'angular' },
   { key: 'css', text: 'CSS', value: 'css' },
@@ -23,8 +24,7 @@ const options = [
 ]
 
 const DropdownExampleMultipleSelection = () => (
-  <Dropdown className="drop" placeholder='Skills' fluid multiple selection options={options} />
+  <Dropdown placeholder='Skills' fluid multiple selection options={options} />
 )
 
 export default DropdownExampleMultipleSelection
-

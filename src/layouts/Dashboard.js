@@ -16,8 +16,7 @@ export default function Dashboard() {
             <Search />
           </Grid.Column>
           <Grid.Column width={14}>
-            
-             <JobPosting />
+            <JobPosting />
             {/*<Candidate />
             <Employee /> 
             <Department />*/}
