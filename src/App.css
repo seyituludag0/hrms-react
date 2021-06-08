@@ -4,51 +4,64 @@
   margin-right: 1rem;
 }
 
-.ui.main.container{
+.ui.main.container {
   margin-top: 8em;
 }
 
-.jobPostingCard{
+.jobPostingCard {
   width: 95% !important;
   margin-top: 1em;
 }
 
-.jobs{
+.jobs {
   width: 95% !important;
 }
 
-.myCards{
+.myCards {
   margin-left: 5rem;
   margin-top: -3.3rem;
 }
 
-.jobTitle{
+.jobTitle {
   font-size: "17px";
   color: "#000000";
   margin-left: 10rem;
 }
 
-.SearchCityText{
+.SearchCityText {
   width: 16rem;
   margin-top: -2.4rem;
 }
 
-.cityName{
+.cityName {
   margin-left: 5px;
   margin-top: -5px;
-  float:left;
- }
+  float: left;
+}
 
-
- .postedDate{
+.postedDate {
   margin-left: -5rem;
   margin-top: 2.7rem;
-  float:left;
- }
+  float: left;
+}
 
- .lastApplyDate{
+.lastApplyDate {
   margin-left: -8rem;
   margin-top: 4.7rem;
-  float:left;
+  float: left;
   padding: 1rem;
- }
+}
+
+.minWage {
+  margin-left: 0.4rem;
+  margin-top: 1.7rem;
+  float: left;
+  padding: 1rem;
+}
+
+.maxWage {
+  margin-left: -5.6rem;
+  margin-top: 4.5rem;
+  float: left;
+  padding: 1rem;
+}

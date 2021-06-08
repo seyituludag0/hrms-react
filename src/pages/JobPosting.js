@@ -58,20 +58,46 @@ export default function JobPosting() {
                       {/* <span style={{float:"left", marginTop:"2rem"}}></span><h3 style={{float:"left"}}>İstanbul</h3> */}
                       {/* <span style={{float:"left", marginTop:"2rem"}}></span><h3 style={{float:"left"}} icon="location arrow">İstanbul</h3> */}
                       <Dropdown.Header icon="location arrow" style={{ float: "left"}}></Dropdown.Header>
-                      <Card.Meta className="cityName">
-                        <h3>{jobPosting.city.name}</h3>
-                        <Dropdown.Header icon="calendar outline" style={{ float: "left", fontSize:"19px", marginTop:"0.5rem", marginLeft:"-1.9rem", color:"black"}}></Dropdown.Header>
+                        <Card.Meta className="cityName">
+                          <h3>{jobPosting.city.name}</h3>
+                        <Dropdown.Header icon="calendar check outline" style={{ float: "left", fontSize:"19px", marginTop:"0.5rem", marginLeft:"-1.9rem", color:"black"}}></Dropdown.Header>
                         </Card.Meta>
                         
                         <Card.Meta className="postedDate">
                         <h3>{jobPosting.postedDate}</h3>
                         </Card.Meta>
 
-                        <Dropdown.Header icon="calendar outline" style={{ float: "left", marginTop:"5.5rem", marginLeft:"-8.9rem", color:"black"}}></Dropdown.Header>
+                        <Dropdown.Header icon="calendar times outline" style={{ float: "left", marginTop:"5.5rem", marginLeft:"-8.9rem", color:"black"}}></Dropdown.Header>
 
                         <Card.Meta className="lastApplyDate">
                         <h3>{jobPosting.lastApplyDate}</h3>
                         </Card.Meta>
+
+                        <Dropdown.Header icon="money" style={{ float: "left", marginTop:"2.7rem", marginLeft:"3rem"}}></Dropdown.Header>
+
+                        <Card.Meta className="minWage">
+                        <h3>{jobPosting.minWage}₺</h3>
+                        </Card.Meta>
+
+
+                         <Dropdown.Header icon="money" style={{ float: "left", marginTop:"5.7rem", marginLeft:"-8rem"}}></Dropdown.Header>
+
+                        <Card.Meta className="maxWage">
+                        <h3>{jobPosting.maxWage}₺</h3>
+                        </Card.Meta>
+
+
+
+
+                        <Dropdown.Header style={{ float: "left", marginTop:"2.7rem", marginLeft:"1rem"}}>
+                        <span style={{color:"#999999"}}>Açık Pozisyon Sayısı: </span> <h3 style={{ marginTop:"-1.4  rem", marginLeft:"14rem", color:"#999999" }}>{jobPosting.numberOfOpenPositions}</h3>
+                        </Dropdown.Header>
+
+                          {/* <Card.Meta className="maxWage">
+                          <h3>{jobPosting.maxWage}₺</h3>
+                          </Card.Meta> */}
+
+
 
                       <Card.Description>
                         {jobPosting.jobDetails}
