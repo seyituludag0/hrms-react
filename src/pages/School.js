@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from "react";
-import JobTitleService from "../services/JobTitleService";
+import SchoolService from "../services/SchoolService";
 import { Icon, Menu, Table } from "semantic-ui-react";
 
-export default function JobTitle() {
-  const [jobTitles, setJobTitles] = useState([]);
+export default function School() {
+  const [schools, setSchools] = useState([]);
 
   useEffect(() => {
-    let jobTitleService = new JobTitleService();
-    jobTitleService
-      .getJobTitles()
-      .then((result) => setJobTitles(result.data.data));
+    let schoolService = new SchoolService(); 
+    schoolService.getSchools().then((result) => setSchools(result.data.data));
   });
 
   return (
     <div>
       <Table celled>
-       <Table.Body>
-          {jobTitles.map((jobTitle) => (
-            <Table.Row key={jobTitle.id}>
-              <Table.Cell>{jobTitle.title}</Table.Cell>
+        <Table.Body>
+          {schools.map((school) => (
+            <Table.Row key={school.id}>
+              <Table.Cell>{school.schoolName}</Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
