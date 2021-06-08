@@ -1,11 +1,13 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
 //import Department from "../pages/Department";
- import JobPosting from "../pages/JobPosting"
+//  import JobPosting from "../pages/JobPosting" 
 // import Employee from "../pages/Employee";
 // import Candidate from "../pages/Candidate"
+// import Home from "../layouts/Home"
+import Search from "./Search";
 
-import Search from "../layouts/Search"
+// import Search from "../layouts/Search"
 // import School from "../pages/School";
 
 export default function Dashboard() {
@@ -13,12 +15,15 @@ export default function Dashboard() {
     <div>
       <Grid>
         <Grid.Row>
-          <Grid.Column width={2} style={{marginLeft:"95rem"}}>
+          {/* <Grid.Column width={2} style={{marginLeft:"95rem"}}>
             <Search />
-          </Grid.Column>
+          </Grid.Column> */}
+          
           <Grid.Column width={14}>
+          <Search />
+            {/* <Home /> */}
             {/* <School /> */}
-            <JobPosting />
+            {/* <JobPosting /> */}
             {/*<Candidate />
             <Employee /> 
             <Department />*/}

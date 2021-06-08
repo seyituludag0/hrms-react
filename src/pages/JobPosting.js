@@ -18,9 +18,13 @@ export default function JobPosting() {
     <div>
       <Grid>
         <Grid.Row>
-          <Grid.Column width={2} floated="left">
+        <Grid.Column width={2} floated="left">
             <Filter />
           </Grid.Column>
+
+          {/* <Grid.Column width={2} floated="left">
+            <Search />
+          </Grid.Column> */}
 
           <Grid.Column width={14}>
             <div className="myCards">
