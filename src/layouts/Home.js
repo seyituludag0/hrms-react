@@ -376,11 +376,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* <img src="../img/banners/bg_1.jpg" /> */}
         </section>
 
+        {/* -------------------------------------------------------------------------------------------------------------------------- */}
+
         <section className="ftco-section img" style={{ backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623242140/react-hrms/bg_1_pkbh8a.jpg)', backgroundPosition: 'top center' }}>
-    	<div className="container">
+      <div className="container">
     		<div className="row">
     			<div className="col-md-6">
     				<div className="browse-job p-5">
@@ -393,6 +394,241 @@ export default function Home() {
     		</div>
     	</div>
     </section>
+
+      {/* ---------------------------------------------------------------------------------------------------------------------- */}
+
+      <section className="ftco-section bg-light hotjobs">
+        <div className="container" style={{marginLeft:"15rem"}}>
+          <div className="row">
+            <div className=" pr-lg-5">
+              <div className="row justify-content-center pb-3">
+                <div className="col-md-12 heading-section ">
+                  <span className="subheading">Son Eklenen İşler</span>
+                  <h2 className="mb-4">Yeni Eklenen İlanlar</h2>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12 ">
+                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                    <div className="one-third mb-4 mb-md-0">
+                      <div className="job-post-item-header d-flex align-items-center">
+                        <h2 className="mr-3 text-black"><a href="#">Frontend Development</a></h2>
+                        <div className="badge-wrap">
+                          <span className="bg-primary text-white badge py-2 px-3">Partime</span>
+                        </div>
+                      </div>
+                      <div className="job-post-item-body d-block d-md-flex">
+                        <div className="mr-3"><span className="icon-layers" /> <a href="#">Facebook, Inc.</a></div>
+                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
+                      </div>
+                    </div>
+                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                      <div>
+                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
+                          <span className="icon-heart" />
+                        </a>
+                      </div>
+                      <a href="job-single.html" className="btn btn-primary ">İşe Başvur</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                    <div className="one-third mb-4 mb-md-0">
+                      <div className="job-post-item-header d-flex align-items-center">
+                        <h2 className="mr-3 text-black"><a href="#">Full Stack Developer</a></h2>
+                        <div className="badge-wrap">
+                          <span className="bg-warning text-white badge py-2 px-3">Fulltime</span>
+                        </div>
+                      </div>
+                      <div className="job-post-item-body d-block d-md-flex">
+                        <div className="mr-3"><span className="icon-layers" /> <a href="#">Google, Inc.</a></div>
+                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
+                      </div>
+                    </div>
+                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                      <div>
+                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
+                          <span className="icon-heart" />
+                        </a>
+                      </div>
+                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                    <div className="one-third mb-4 mb-md-0">
+                      <div className="job-post-item-header d-flex align-items-center">
+                        <h2 className="mr-3 text-black"><a href="#">Open Source Interactive Developer</a></h2>
+                        <div className="badge-wrap">
+                          <span className="bg-info text-white badge py-2 px-3">Freelance</span>
+                        </div>
+                      </div>
+                      <div className="job-post-item-body d-block d-md-flex">
+                        <div className="mr-3"><span className="icon-layers" /> <a href="#">New York Times</a></div>
+                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
+                      </div>
+                    </div>
+                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                      <div>
+                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
+                          <span className="icon-heart" />
+                        </a>
+                      </div>
+                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                    <div className="one-third mb-4 mb-md-0">
+                      <div className="job-post-item-header d-flex align-items-center">
+                        <h2 className="mr-3 text-black"><a href="#">Frontend Development</a></h2>
+                        <div className="badge-wrap">
+                          <span className="bg-secondary text-white badge py-2 px-3">Internship</span>
+                        </div>
+                      </div>
+                      <div className="job-post-item-body d-block d-md-flex">
+                        <div className="mr-3"><span className="icon-layers" /> <a href="#">Facebook, Inc.</a></div>
+                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
+                      </div>
+                    </div>
+                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                      <div>
+                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
+                          <span className="icon-heart" />
+                        </a>
+                      </div>
+                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                    <div className="one-third mb-4 mb-md-0">
+                      <div className="job-post-item-header d-flex align-items-center">
+                        <h2 className="mr-3 text-black"><a href="#">Open Source Interactive Developer</a></h2>
+                        <div className="badge-wrap">
+                          <span className="bg-danger text-white badge py-2 px-3">Temporary</span>
+                        </div>
+                      </div>
+                      <div className="job-post-item-body d-block d-md-flex">
+                        <div className="mr-3"><span className="icon-layers" /> <a href="#">New York Times</a></div>
+                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
+                      </div>
+                    </div>
+                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                      <div>
+                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
+                          <span className="icon-heart" />
+                        </a>
+                      </div>
+                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                    <div className="one-third mb-4 mb-md-0">
+                      <div className="job-post-item-header d-flex align-items-center">
+                        <h2 className="mr-3 text-black"><a href="#">Full Stack Developer</a></h2>
+                        <div className="badge-wrap">
+                          <span className="bg-warning text-white badge py-2 px-3">Fulltime</span>
+                        </div>
+                      </div>
+                      <div className="job-post-item-body d-block d-md-flex">
+                        <div className="mr-3"><span className="icon-layers" /> <a href="#">Google, Inc.</a></div>
+                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
+                      </div>
+                    </div>
+                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                      <div>
+                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
+                          <span className="icon-heart" />
+                        </a>
+                      </div>
+                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                    <div className="one-third mb-4 mb-md-0">
+                      <div className="job-post-item-header d-flex align-items-center">
+                        <h2 className="mr-3 text-black"><a href="#">Open Source Interactive Developer</a></h2>
+                        <div className="badge-wrap">
+                          <span className="bg-info text-white badge py-2 px-3">Freelance</span>
+                        </div>
+                      </div>
+                      <div className="job-post-item-body d-block d-md-flex">
+                        <div className="mr-3"><span className="icon-layers" /> <a href="#">New York Times</a></div>
+                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
+                      </div>
+                    </div>
+                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                      <div>
+                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
+                          <span className="icon-heart" />
+                        </a>
+                      </div>
+                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                    <div className="one-third mb-4 mb-md-0">
+                      <div className="job-post-item-header d-flex align-items-center">
+                        <h2 className="mr-3 text-black"><a href="#">Frontend Development</a></h2>
+                        <div className="badge-wrap">
+                          <span className="bg-secondary text-white badge py-2 px-3">Internship</span>
+                        </div>
+                      </div>
+                      <div className="job-post-item-body d-block d-md-flex">
+                        <div className="mr-3"><span className="icon-layers" /> <a href="#">Facebook, Inc.</a></div>
+                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
+                      </div>
+                    </div>
+                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                      <div>
+                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
+                          <span className="icon-heart" />
+                        </a>
+                      </div>
+                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                    <div className="one-third mb-4 mb-md-0">
+                      <div className="job-post-item-header d-flex align-items-center">
+                        <h2 className="mr-3 text-black"><a href="#">Open Source Interactive Developer</a></h2>
+                        <div className="badge-wrap">
+                          <span className="bg-danger text-white badge py-2 px-3">Temporary</span>
+                        </div>
+                      </div>
+                      <div className="job-post-item-body d-block d-md-flex">
+                        <div className="mr-3"><span className="icon-layers" /> <a href="#">New York Times</a></div>
+                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
+                      </div>
+                    </div>
+                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                      <div>
+                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
+                          <span className="icon-heart" />
+                        </a>
+                      </div>
+                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+      </section>
 
       </div>
     </div>
