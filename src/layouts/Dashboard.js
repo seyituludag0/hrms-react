@@ -4,8 +4,8 @@ import { Grid } from "semantic-ui-react";
 //  import JobPosting from "../pages/JobPosting" 
 // import Employee from "../pages/Employee";
 // import Candidate from "../pages/Candidate"
-// import Home from "../layouts/Home"
-import Search from "./Search";
+import Home from "../layouts/Home"
+// import Search from "./Search";
 
 // import Search from "../layouts/Search"
 // import School from "../pages/School";
@@ -20,8 +20,8 @@ export default function Dashboard() {
           </Grid.Column> */}
           
           <Grid.Column width={14}>
-          <Search />
-            {/* <Home /> */}
+          
+            <Home />
             {/* <School /> */}
             {/* <JobPosting /> */}
             {/*<Candidate />

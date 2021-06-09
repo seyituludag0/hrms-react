@@ -1,23 +1,26 @@
-import React from "react";
-import banner from "../img/banners/homepagebanner.png";
-import userIcon from '../img/icon/user.svg'
-import network from '../img/icon/network.svg'
-import career from '../img/icon/career.svg'
-import businessman from '../img/icon/businessman.svg'
+import React, { useState, useEffect } from "react";
 import "../css/style.css";
+import banner from "../img/banners/homepagebanner.png";
+import userIcon from "../img/icon/user.svg";
+import network from "../img/icon/network.svg";
+import career from "../img/icon/career.svg";
+import businessman from "../img/icon/businessman.svg";
+import nextIcon from "../img/icon/next.svg";
+import JobPostingService from "../services/JobPostingService";
 
 export default function Home() {
+  const [jobPostings, setjobPostings] = useState([]);
+
+  useEffect(() => {
+    let jobPostingService = new JobPostingService();
+    jobPostingService
+      .getJobPosting()
+      .then((result) => setjobPostings(result.data.data));
+  });
+
   return (
     <div>
       <div className="img">
-        {/* <Image className="imgg"
-        src="img/banners/homepagebanner.png"
-        style={{
-          marginLeft: "60rem",
-          width: "50%",
-          position: "relative",
-          zIndex: "-1",
-        }}/> */}
         <img
           src={banner}
           width="100"
@@ -234,77 +237,146 @@ export default function Home() {
             backgroundColor: "#6c63ff",
             width: "110rem",
             height: "410px",
-            marginTop: "2rem"
+            marginTop: "2rem",
           }}
         >
-          <div className="row"> 
-            <div className="col-5t" style={{marginLeft: "3rem",marginTop:"8rem"}}>
-              <img src={userIcon} style={{width:"5rem"}} alt="" />
+          <div className="row">
+            <div
+              className="col-5t"
+              style={{ marginLeft: "3rem", marginTop: "8rem" }}
+            >
+              <img src={userIcon} style={{ width: "5rem" }} alt="" />
               <h4
                 className="elementor-heading-title elementor-size-default title"
-                style={{ marginLeft: "4rem", marginTop:"1rem" }}
+                style={{ marginLeft: "4rem", marginTop: "1rem" }}
               >
                 Milyonlarca İş Arayın
               </h4>
               <div className="elementor-widget-container">
                 <div className="elementor-text-editor elementor-clearfix">
-                  <p style={{ textAlign: "center", fontFamily: "cursive" }}>
+                  <p
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "cursive",
+                      color: "#fff",
+                    }}
+                  >
                     İş aramanda yardımcı olabilirim <br />
                     Öncelikle pozisyonunu seçmelisin
                   </p>
                 </div>
               </div>
             </div>
-            <div className="col-3" style={{marginLeft: "5rem", marginTop:"8rem"}}>
-              <img src={network} style={{width:"5rem"}} alt="" />
-              <h4 style={{ marginLeft: "3rem", marginTop:"1rem" }}>
-              Ağını güçlendirebilirsin
+            <div
+              className="col-3"
+              style={{ marginLeft: "5rem", marginTop: "8rem" }}
+            >
+              <img src={network} style={{ width: "5rem" }} alt="" />
+              <h4 style={{ marginLeft: "3rem", marginTop: "1rem" }}>
+                Ağını güçlendirebilirsin
               </h4>
               <div className="elementor-widget-container">
                 <div className="elementor-text-editor elementor-clearfix">
-                  <p style={{ textAlign: "center", fontFamily: "cursive" }}>
-                  Böylelikle işverenlere daha çabuk ulaşabilirsin
+                  <p
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "cursive",
+                      color: "#fff",
+                    }}
+                  >
+                    Böylelikle işverenlere daha çabuk ulaşabilirsin
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="col-3" style={{ marginTop:"8rem"}}>
-              <img src={career} style={{width: "5rem"}} alt="" />
+            <div className="col-3" style={{ marginTop: "8rem" }}>
+              <img src={career} style={{ width: "5rem" }} alt="" />
               <h4
                 className="elementor-heading-title elementor-size-default title"
-                style={{ fontSize: "1.5rem", marginTop:"1rem"}}
+                style={{ fontSize: "1.5rem", marginTop: "1rem" }}
               >
-                En İyi Kariyere Adım Adım 
+                En İyi Kariyere Adım Adım
               </h4>
               <div className="elementor-widget-container">
                 <div className="elementor-text-editor elementor-clearfix">
-                  <p style={{ textAlign: "center", fontFamily: "cursive" }}>
+                  <p
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "cursive",
+                      color: "#fff",
+                    }}
+                  >
                     Kariyerinde zirveye doğru adım adım ilerle
                   </p>
                 </div>
               </div>
             </div>
 
-             <div className="col-3" style={{marginLeft: "82rem", marginTop:"-11rem"}}>
-              <img src={businessman} style={{width: "5rem"}} alt="" />
+            <div
+              className="col-3"
+              style={{ marginLeft: "82rem", marginTop: "-11rem" }}
+            >
+              <img src={businessman} style={{ width: "5rem" }} alt="" />
               <h4
                 className="elementor-heading-title elementor-size-default title"
-                style={{ fontSize: "1.5rem", marginTop:"1rem"}}
+                style={{ fontSize: "1.5rem", marginTop: "1rem" }}
               >
                 En İyi Kariyer
               </h4>
               <div className="elementor-widget-container">
                 <div className="elementor-text-editor elementor-clearfix">
-                  <p style={{ textAlign: "center", fontFamily: "cursive" }}>
+                  <p
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "cursive",
+                      color: "#fff",
+                    }}
+                  >
                     Kiraladığın araç gün içerisinde sana gelsin
                   </p>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
+
+        {/* -------------------------------------------------------------------------------------------------------------------------- */}
+
+        <section className="ftco-section">
+          <div className="container">
+            <div className="row justify-content-center mb-5 pb-3">
+              <div
+                className="col-md-7 heading-section text-center"
+                style={{ marginLeft: "10rem" }}
+              >
+                <span className="subheading">Job Titles</span>
+                <h2 className="mb-4">Top Titles</h2>
+              </div>
+            </div>
+
+            <div className="jobs" style={{ display: "inline-flex" }}>
+              {jobPostings.map((jobPosting) => (
+                <div className="row">
+                  <div className="col-md-3">
+                    <ul className="category">
+                      <li>
+                        <a href="/">
+                          {jobPosting.jobTitle.title} <br />
+                          <span>Açık Pozisyon</span>
+                          <span className="number">
+                            {jobPosting.numberOfOpenPositions}
+                          </span>
+                          <img src={nextIcon} alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
