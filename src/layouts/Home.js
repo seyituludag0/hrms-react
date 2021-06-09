@@ -5,10 +5,6 @@ import userIcon from "../img/icon/user.svg";
 import network from "../img/icon/network.svg";
 import career from "../img/icon/career.svg";
 import businessman from "../img/icon/businessman.svg";
-import personal1 from "../img/system-personals/person_1.jpg"
-import personal2 from "../img/system-personals/person_2.jpg"
-import personal3 from "../img/system-personals/person_3.jpg"
-import personal4 from "../img/system-personals/person_4.jpg"
 import JobPostingService from "../services/JobPostingService";
 import { Icon } from "semantic-ui-react";
 
@@ -424,34 +420,39 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-12 ">
+
+                  {
+                    jobPostings.map((jobPosting)=>(
+                      <div className="col-md-12 ">
                     <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
                       <div className="one-third mb-4 mb-md-0">
                         <div className="job-post-item-header d-flex align-items-center">
                           <h2 className="mr-3 text-black">
-                            <a href="#">Frontend Development</a>
+                            <a href="/">{jobPosting.jobTitle.title}</a>
                           </h2>
-                          <div className="badge-wrap">
+                          {/* <div className="badge-wrap">
                             <span className="bg-primary text-white badge py-2 px-3">
                               Partime
                             </span>
-                          </div>
+                          </div> */}
                         </div>
                         <div className="job-post-item-body d-block d-md-flex">
                           <div className="mr-3">
                             <span className="icon-layers" />{" "}
-                            <a href="#">Facebook, Inc.</a>
+                            <a href="/">{jobPosting.employer.companyName}</a>
                           </div>
                           <div>
-                            <span className="icon-my_location" />{" "}
-                            <span>Western City, UK</span>
+                            <span>|</span>
+                            <span className="icon-my_location" />{" "} 
+                              &nbsp;
+                            <span> {jobPosting.city.name}</span>
                           </div>
                         </div>
                       </div>
                       <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
                         <div>
                           <a
-                            href="#"
+                            href="/"
                             className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
                           >
                             <span className="icon-heart" />
@@ -463,48 +464,10 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-12 ">
-                    <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
-                      <div className="one-third mb-4 mb-md-0">
-                        <div className="job-post-item-header d-flex align-items-center">
-                          <h2 className="mr-3 text-black">
-                            <a href="#">Full Stack Developer</a>
-                          </h2>
-                          <div className="badge-wrap">
-                            <span className="bg-warning text-white badge py-2 px-3">
-                              Fulltime
-                            </span>
-                          </div>
-                        </div>
-                        <div className="job-post-item-body d-block d-md-flex">
-                          <div className="mr-3">
-                            <span className="icon-layers" />{" "}
-                            <a href="#">Google, Inc.</a>
-                          </div>
-                          <div>
-                            <span className="icon-my_location" />{" "}
-                            <span>Western City, UK</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                        <div>
-                          <a
-                            href="#"
-                            className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
-                          >
-                            <span className="icon-heart" />
-                          </a>
-                        </div>
-                        <a
-                          href="job-single.html"
-                          className="btn btn-primary py-2"
-                        >
-                          Apply Job
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+             
+                    ))
+                  }
+
                 </div>
               </div>
             </div>
@@ -576,8 +539,7 @@ export default function Home() {
                 className="elementor-heading-title elementor-size-default title"
                 style={{
                   fontSize: "1.5rem",
-                  marginTop: "1rem",
-                  fontSize: "2.5rem",
+                  marginTop: "1rem"
                 }}
               >
                 30,000
@@ -606,8 +568,7 @@ export default function Home() {
                 className="elementor-heading-title elementor-size-default title"
                 style={{
                   fontSize: "1.5rem",
-                  marginTop: "1rem",
-                  fontSize: "2.5rem",
+                  marginTop: "1rem"
                 }}
               >
                 10,500
@@ -647,7 +608,7 @@ export default function Home() {
             <div className="col-md-12">
               <div className="carousel-candidates owl-carousel">
               <div className="item item-one" style={{marginLeft:"-60rem"}}>
-                  <a href="#" className="team text-center">
+                  <a href="/" className="team text-center">
                     <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623257938/react-hrms/person_2_k4sj1i.jpg)'}} />
                     <h2>Danica Lewis</h2>
                     <span className="position">Western City, UK</span>
@@ -657,7 +618,7 @@ export default function Home() {
                 {/* -------------------------------------------------------------------------------- */}
 
                 <div className="item item-two" style={{marginLeft:"-15rem", marginTop:"-18rem"}}>
-                  <a href="#" className="team text-center">
+                  <a href="/" className="team text-center">
                     <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623259270/react-hrms/person_4_vi5rpa.jpg)'}} />
                     <h2>Danica Lewis</h2>
                     <span className="position">Western City, UK</span>
@@ -667,7 +628,7 @@ export default function Home() {
                 {/* -------------------------------------------------------------------------------- */}
 
                 <div className="item item-three" style={{marginLeft:"27rem", marginTop:"-18rem"}}>
-                  <a href="#" className="team text-center">
+                  <a href="/" className="team text-center">
                     <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623259293/react-hrms/person_5_mdbadz.jpg)'}} />
                     <h2>Danica Lewis</h2>
                     <span className="position">Western City, UK</span>
@@ -677,7 +638,7 @@ export default function Home() {
                   {/* -------------------------------------------------------------------------------- */}
 
                   <div className="item item-four" style={{marginLeft:"68rem", marginTop:"-18rem"}}>
-                  <a href="#" className="team text-center">
+                  <a href="/" className="team text-center">
                     <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623251069/react-hrms/person_1_zoqwmc.jpg)'}} />
                     <h2>Danica Lewis</h2>
                     <span className="position">Western City, UK</span>
