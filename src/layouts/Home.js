@@ -5,8 +5,8 @@ import userIcon from "../img/icon/user.svg";
 import network from "../img/icon/network.svg";
 import career from "../img/icon/career.svg";
 import businessman from "../img/icon/businessman.svg";
-import nextIcon from "../img/icon/next.svg";
 import JobPostingService from "../services/JobPostingService";
+import { Icon } from "semantic-ui-react";
 
 export default function Home() {
   const [jobPostings, setjobPostings] = useState([]);
@@ -55,7 +55,7 @@ export default function Home() {
           }}
         >
           <p style={{ color: "black" }}>Dünyanın En Büyük</p>{" "}
-          <p className="asd" style={{ marginLeft: "-21rem", color: "black" }}>
+          <p className="asd" style={{ marginLeft: "-25rem", color: "black" }}>
             İş Sitesi
           </p>
         </div>
@@ -237,7 +237,7 @@ export default function Home() {
             backgroundColor: "#6c63ff",
             width: "110rem",
             height: "410px",
-            marginTop: "2rem",
+            marginTop: "3rem",
           }}
         >
           <div className="row">
@@ -322,7 +322,7 @@ export default function Home() {
                 className="elementor-heading-title elementor-size-default title"
                 style={{ fontSize: "1.5rem", marginTop: "1rem" }}
               >
-                En İyi Kariyer
+                Ve işinin başına geç
               </h4>
               <div className="elementor-widget-container">
                 <div className="elementor-text-editor elementor-clearfix">
@@ -351,32 +351,49 @@ export default function Home() {
                 style={{ marginLeft: "10rem" }}
               >
                 <span className="subheading">Job Titles</span>
-                <h2 className="mb-4">Top Titles</h2>
+                <h2 className="mb-4" style={{ fontSize: "52px" }}>
+                  Top Titles
+                </h2>
               </div>
             </div>
 
             <div className="jobs" style={{ display: "inline-flex" }}>
-              {jobPostings.map((jobPosting) => (
-                <div className="row">
-                  <div className="col-md-3">
+              <div className="row">
+                {jobPostings.map((jobPosting) => (
+                  <div className="col-md-3" style={{ width: "100rem" }}>
                     <ul className="category">
-                      <li>
+                      <li key={jobPosting.id}>
                         <a href="/">
                           {jobPosting.jobTitle.title} <br />
-                          <span>Açık Pozisyon</span>
-                          <span className="number">
-                            {jobPosting.numberOfOpenPositions}
-                          </span>
-                          <img src={nextIcon} alt="" />
+                          <span>Açık Pozisyon Sayısı</span>{" "}
+                          <span className="number">1</span>
+                          <Icon name="angle right" />
                         </a>
                       </li>
                     </ul>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
+          {/* <img src="../img/banners/bg_1.jpg" /> */}
         </section>
+
+        <section className="ftco-section img" style={{ backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623242140/react-hrms/bg_1_pkbh8a.jpg)', backgroundPosition: 'top center' }}>
+    	<div className="container">
+    		<div className="row">
+    			<div className="col-md-6">
+    				<div className="browse-job p-5">
+    					<span className="icon-search2 icon"></span>
+    					<span className="subheading">Search Job</span>
+    					<h2>Browse Job by Specialism</h2>
+    					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
       </div>
     </div>
   );
