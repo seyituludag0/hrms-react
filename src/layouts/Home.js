@@ -5,6 +5,10 @@ import userIcon from "../img/icon/user.svg";
 import network from "../img/icon/network.svg";
 import career from "../img/icon/career.svg";
 import businessman from "../img/icon/businessman.svg";
+import personal1 from "../img/system-personals/person_1.jpg"
+import personal2 from "../img/system-personals/person_2.jpg"
+import personal3 from "../img/system-personals/person_3.jpg"
+import personal4 from "../img/system-personals/person_4.jpg"
 import JobPostingService from "../services/JobPostingService";
 import { Icon } from "semantic-ui-react";
 
@@ -380,256 +384,318 @@ export default function Home() {
 
         {/* -------------------------------------------------------------------------------------------------------------------------- */}
 
-        <section className="ftco-section img" style={{ backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623242140/react-hrms/bg_1_pkbh8a.jpg)', backgroundPosition: 'top center' }}>
-      <div className="container">
-    		<div className="row">
-    			<div className="col-md-6">
-    				<div className="browse-job p-5">
-    					<span className="icon-search2 icon"></span>
-    					<span className="subheading">Search Job</span>
-    					<h2>Browse Job by Specialism</h2>
-    					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
+        <section
+          className="ftco-section img"
+          style={{
+            backgroundImage:
+              "url(https://res.cloudinary.com/hrms-project/image/upload/v1623242140/react-hrms/bg_1_pkbh8a.jpg)",
+            backgroundPosition: "top center",
+          }}
+        >
+          <div className="container">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="browse-job p-5">
+                  <span className="icon-search2 icon"></span>
+                  <span className="subheading">Search Job</span>
+                  <h2>Browse Job by Specialism</h2>
+                  <p>
+                    Far far away, behind the word mountains, far from the
+                    countries Vokalia and Consonantia, there live the blind
+                    texts. Separated they live in Bookmarksgrove right at the
+                    coast of the Semantics, a large language ocean.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* ---------------------------------------------------------------------------------------------------------------------- */}
+        {/* ---------------------------------------------------------------------------------------------------------------------- */}
 
-      <section className="ftco-section bg-light hotjobs">
-        <div className="container" style={{marginLeft:"15rem"}}>
+        <section className="ftco-section bg-light hotjobs">
+          <div className="container" style={{ marginLeft: "15rem" }}>
+            <div className="row">
+              <div className=" pr-lg-5">
+                <div className="row justify-content-center pb-3">
+                  <div className="col-md-12 heading-section ">
+                    <span className="subheading">Son Eklenen İşler</span>
+                    <h2 className="mb-4">Yeni Eklenen İlanlar</h2>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-12 ">
+                    <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                      <div className="one-third mb-4 mb-md-0">
+                        <div className="job-post-item-header d-flex align-items-center">
+                          <h2 className="mr-3 text-black">
+                            <a href="#">Frontend Development</a>
+                          </h2>
+                          <div className="badge-wrap">
+                            <span className="bg-primary text-white badge py-2 px-3">
+                              Partime
+                            </span>
+                          </div>
+                        </div>
+                        <div className="job-post-item-body d-block d-md-flex">
+                          <div className="mr-3">
+                            <span className="icon-layers" />{" "}
+                            <a href="#">Facebook, Inc.</a>
+                          </div>
+                          <div>
+                            <span className="icon-my_location" />{" "}
+                            <span>Western City, UK</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                        <div>
+                          <a
+                            href="#"
+                            className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
+                          >
+                            <span className="icon-heart" />
+                          </a>
+                        </div>
+                        <a href="job-single.html" className="btn btn-primary ">
+                          İşe Başvur
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-12 ">
+                    <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                      <div className="one-third mb-4 mb-md-0">
+                        <div className="job-post-item-header d-flex align-items-center">
+                          <h2 className="mr-3 text-black">
+                            <a href="#">Full Stack Developer</a>
+                          </h2>
+                          <div className="badge-wrap">
+                            <span className="bg-warning text-white badge py-2 px-3">
+                              Fulltime
+                            </span>
+                          </div>
+                        </div>
+                        <div className="job-post-item-body d-block d-md-flex">
+                          <div className="mr-3">
+                            <span className="icon-layers" />{" "}
+                            <a href="#">Google, Inc.</a>
+                          </div>
+                          <div>
+                            <span className="icon-my_location" />{" "}
+                            <span>Western City, UK</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                        <div>
+                          <a
+                            href="#"
+                            className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
+                          >
+                            <span className="icon-heart" />
+                          </a>
+                        </div>
+                        <a
+                          href="job-single.html"
+                          className="btn btn-primary py-2"
+                        >
+                          Apply Job
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------------------------------------------------------------------------- */}
+
+        <div
+          style={{
+            backgroundColor: "#6c63ff",
+            width: "110rem",
+            height: "410px",
+            marginTop: "3rem",
+          }}
+        >
           <div className="row">
-            <div className=" pr-lg-5">
-              <div className="row justify-content-center pb-3">
-                <div className="col-md-12 heading-section ">
-                  <span className="subheading">Son Eklenen İşler</span>
-                  <h2 className="mb-4">Yeni Eklenen İlanlar</h2>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-md-12 ">
-                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
-                    <div className="one-third mb-4 mb-md-0">
-                      <div className="job-post-item-header d-flex align-items-center">
-                        <h2 className="mr-3 text-black"><a href="#">Frontend Development</a></h2>
-                        <div className="badge-wrap">
-                          <span className="bg-primary text-white badge py-2 px-3">Partime</span>
-                        </div>
-                      </div>
-                      <div className="job-post-item-body d-block d-md-flex">
-                        <div className="mr-3"><span className="icon-layers" /> <a href="#">Facebook, Inc.</a></div>
-                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
-                      </div>
-                    </div>
-                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                      <div>
-                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
-                          <span className="icon-heart" />
-                        </a>
-                      </div>
-                      <a href="job-single.html" className="btn btn-primary ">İşe Başvur</a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
-                    <div className="one-third mb-4 mb-md-0">
-                      <div className="job-post-item-header d-flex align-items-center">
-                        <h2 className="mr-3 text-black"><a href="#">Full Stack Developer</a></h2>
-                        <div className="badge-wrap">
-                          <span className="bg-warning text-white badge py-2 px-3">Fulltime</span>
-                        </div>
-                      </div>
-                      <div className="job-post-item-body d-block d-md-flex">
-                        <div className="mr-3"><span className="icon-layers" /> <a href="#">Google, Inc.</a></div>
-                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
-                      </div>
-                    </div>
-                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                      <div>
-                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
-                          <span className="icon-heart" />
-                        </a>
-                      </div>
-                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
-                    <div className="one-third mb-4 mb-md-0">
-                      <div className="job-post-item-header d-flex align-items-center">
-                        <h2 className="mr-3 text-black"><a href="#">Open Source Interactive Developer</a></h2>
-                        <div className="badge-wrap">
-                          <span className="bg-info text-white badge py-2 px-3">Freelance</span>
-                        </div>
-                      </div>
-                      <div className="job-post-item-body d-block d-md-flex">
-                        <div className="mr-3"><span className="icon-layers" /> <a href="#">New York Times</a></div>
-                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
-                      </div>
-                    </div>
-                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                      <div>
-                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
-                          <span className="icon-heart" />
-                        </a>
-                      </div>
-                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
-                    <div className="one-third mb-4 mb-md-0">
-                      <div className="job-post-item-header d-flex align-items-center">
-                        <h2 className="mr-3 text-black"><a href="#">Frontend Development</a></h2>
-                        <div className="badge-wrap">
-                          <span className="bg-secondary text-white badge py-2 px-3">Internship</span>
-                        </div>
-                      </div>
-                      <div className="job-post-item-body d-block d-md-flex">
-                        <div className="mr-3"><span className="icon-layers" /> <a href="#">Facebook, Inc.</a></div>
-                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
-                      </div>
-                    </div>
-                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                      <div>
-                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
-                          <span className="icon-heart" />
-                        </a>
-                      </div>
-                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
-                    <div className="one-third mb-4 mb-md-0">
-                      <div className="job-post-item-header d-flex align-items-center">
-                        <h2 className="mr-3 text-black"><a href="#">Open Source Interactive Developer</a></h2>
-                        <div className="badge-wrap">
-                          <span className="bg-danger text-white badge py-2 px-3">Temporary</span>
-                        </div>
-                      </div>
-                      <div className="job-post-item-body d-block d-md-flex">
-                        <div className="mr-3"><span className="icon-layers" /> <a href="#">New York Times</a></div>
-                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
-                      </div>
-                    </div>
-                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                      <div>
-                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
-                          <span className="icon-heart" />
-                        </a>
-                      </div>
-                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
-                    <div className="one-third mb-4 mb-md-0">
-                      <div className="job-post-item-header d-flex align-items-center">
-                        <h2 className="mr-3 text-black"><a href="#">Full Stack Developer</a></h2>
-                        <div className="badge-wrap">
-                          <span className="bg-warning text-white badge py-2 px-3">Fulltime</span>
-                        </div>
-                      </div>
-                      <div className="job-post-item-body d-block d-md-flex">
-                        <div className="mr-3"><span className="icon-layers" /> <a href="#">Google, Inc.</a></div>
-                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
-                      </div>
-                    </div>
-                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                      <div>
-                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
-                          <span className="icon-heart" />
-                        </a>
-                      </div>
-                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
-                    <div className="one-third mb-4 mb-md-0">
-                      <div className="job-post-item-header d-flex align-items-center">
-                        <h2 className="mr-3 text-black"><a href="#">Open Source Interactive Developer</a></h2>
-                        <div className="badge-wrap">
-                          <span className="bg-info text-white badge py-2 px-3">Freelance</span>
-                        </div>
-                      </div>
-                      <div className="job-post-item-body d-block d-md-flex">
-                        <div className="mr-3"><span className="icon-layers" /> <a href="#">New York Times</a></div>
-                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
-                      </div>
-                    </div>
-                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                      <div>
-                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
-                          <span className="icon-heart" />
-                        </a>
-                      </div>
-                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
-                    <div className="one-third mb-4 mb-md-0">
-                      <div className="job-post-item-header d-flex align-items-center">
-                        <h2 className="mr-3 text-black"><a href="#">Frontend Development</a></h2>
-                        <div className="badge-wrap">
-                          <span className="bg-secondary text-white badge py-2 px-3">Internship</span>
-                        </div>
-                      </div>
-                      <div className="job-post-item-body d-block d-md-flex">
-                        <div className="mr-3"><span className="icon-layers" /> <a href="#">Facebook, Inc.</a></div>
-                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
-                      </div>
-                    </div>
-                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                      <div>
-                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
-                          <span className="icon-heart" />
-                        </a>
-                      </div>
-                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
-                    <div className="one-third mb-4 mb-md-0">
-                      <div className="job-post-item-header d-flex align-items-center">
-                        <h2 className="mr-3 text-black"><a href="#">Open Source Interactive Developer</a></h2>
-                        <div className="badge-wrap">
-                          <span className="bg-danger text-white badge py-2 px-3">Temporary</span>
-                        </div>
-                      </div>
-                      <div className="job-post-item-body d-block d-md-flex">
-                        <div className="mr-3"><span className="icon-layers" /> <a href="#">New York Times</a></div>
-                        <div><span className="icon-my_location" /> <span>Western City, UK</span></div>
-                      </div>
-                    </div>
-                    <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                      <div>
-                        <a href="#" className="icon text-center d-flex justify-content-center align-items-center icon mr-2">
-                          <span className="icon-heart" />
-                        </a>
-                      </div>
-                      <a href="job-single.html" className="btn btn-primary py-2">Apply Job</a>
-                    </div>
-                  </div>
+            <div className="col-3" style={{ marginTop: "8rem" }}>
+              <img src={businessman} style={{ width: "5rem" }} alt="" />
+              <h4
+                className="elementor-heading-title elementor-size-default title"
+                style={{ marginTop: "1rem", fontSize: "2.5rem" }}
+              >
+                435,000
+              </h4>
+              <div className="elementor-widget-container">
+                <div className="elementor-text-editor elementor-clearfix">
+                  <p
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "cursive",
+                      color: "#fff",
+                    }}
+                  >
+                    İş
+                  </p>
                 </div>
               </div>
             </div>
+            <div className="col-3" style={{ marginTop: "8rem" }}>
+              <img src={network} style={{ width: "5rem" }} alt="" />
+              <h4
+                style={{
+                  marginLeft: "3rem",
+                  marginTop: "1rem",
+                  fontSize: "2.5rem",
+                }}
+              >
+                40,000
+              </h4>
+              <div className="elementor-widget-container">
+                <div className="elementor-text-editor elementor-clearfix">
+                  <p
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "cursive",
+                      color: "#fff",
+                    }}
+                  >
+                    Üyeler
+                  </p>
+                </div>
+              </div>
             </div>
+
+            <div className="col-3" style={{ marginTop: "8rem" }}>
+              <img src={userIcon} style={{ width: "5rem" }} alt="" />
+              <h4
+                className="elementor-heading-title elementor-size-default title"
+                style={{
+                  fontSize: "1.5rem",
+                  marginTop: "1rem",
+                  fontSize: "2.5rem",
+                }}
+              >
+                30,000
+              </h4>
+              <div className="elementor-widget-container">
+                <div className="elementor-text-editor elementor-clearfix">
+                  <p
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "cursive",
+                      color: "#fff",
+                    }}
+                  >
+                    CV
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className="col-3"
+              style={{ marginLeft: "82rem", marginTop: "-11rem" }}
+            >
+              <img src={career} style={{ width: "5rem" }} alt="" />
+              <h4
+                className="elementor-heading-title elementor-size-default title"
+                style={{
+                  fontSize: "1.5rem",
+                  marginTop: "1rem",
+                  fontSize: "2.5rem",
+                }}
+              >
+                10,500
+              </h4>
+              <div className="elementor-widget-container">
+                <div className="elementor-text-editor elementor-clearfix">
+                  <p
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "cursive",
+                      color: "#fff",
+                    }}
+                  >
+                    Şirketler
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+
+        {/* ------------------------------------------------------------------------------------------------------------------------- */}
+
+
+        <section style={{backgroundColor:"#6c63ff", marginTop:"3rem"}}>
+        <div className="container">
+          <div className="row justify-content-center pb-3">
+            <div className="col-md-10 heading-section heading-section-white text-center">
+              <span className="subheading">Candidates</span>
+              <h2 className="mb-4">Latest Candidates</h2>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="carousel-candidates owl-carousel">
+              <div className="item item-one" style={{marginLeft:"-60rem"}}>
+                  <a href="#" className="team text-center">
+                    <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623257938/react-hrms/person_2_k4sj1i.jpg)'}} />
+                    <h2>Danica Lewis</h2>
+                    <span className="position">Western City, UK</span>
+                  </a>
+                </div>
+
+                {/* -------------------------------------------------------------------------------- */}
+
+                <div className="item item-two" style={{marginLeft:"-15rem", marginTop:"-18rem"}}>
+                  <a href="#" className="team text-center">
+                    <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623259270/react-hrms/person_4_vi5rpa.jpg)'}} />
+                    <h2>Danica Lewis</h2>
+                    <span className="position">Western City, UK</span>
+                  </a>
+                </div>
+
+                {/* -------------------------------------------------------------------------------- */}
+
+                <div className="item item-three" style={{marginLeft:"27rem", marginTop:"-18rem"}}>
+                  <a href="#" className="team text-center">
+                    <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623259293/react-hrms/person_5_mdbadz.jpg)'}} />
+                    <h2>Danica Lewis</h2>
+                    <span className="position">Western City, UK</span>
+                  </a>
+                </div>
+
+                  {/* -------------------------------------------------------------------------------- */}
+
+                  <div className="item item-four" style={{marginLeft:"68rem", marginTop:"-18rem"}}>
+                  <a href="#" className="team text-center">
+                    <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623251069/react-hrms/person_1_zoqwmc.jpg)'}} />
+                    <h2>Danica Lewis</h2>
+                    <span className="position">Western City, UK</span>
+                  </a>
+                </div>
+              
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
+
+        {/* ------------------------------------------------------------------------------------------------------------------------- */}
+
+
+
+    
       </div>
     </div>
   );
