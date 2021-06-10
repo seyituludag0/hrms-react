@@ -174,43 +174,16 @@ figure {
 p {
   margin-bottom: 0px; }
 
-h2 {
-  line-height: 2.5;
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-  color: #222;
-  font-family: Poppins;
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 40px; }
+
 
 .clear {
   clear: both; }
 
-body {
-  font-size: 14px;
-  line-height: 1.8;
-  color: #222;
-  background: #e7f0fd;
-  font-weight: 600;
-  font-family: Poppins;
-  margin: 0px; }
 
 .mainn {
   padding: 150px 0;
   position: relative; }
 
-h1 {
-  position: absolute;
-  font-weight: 700;
-  font-size: 174px;
-  color: #fff;
-  opacity: 0.5;
-  right: 105px;
-  top: 45px;
-  top: -149px;
-  z-index: 9; }
 
 .containerr {
   width: 520px;

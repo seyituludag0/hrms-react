@@ -71,27 +71,27 @@ export default function JobPosting() {
                         <h3>{jobPosting.postedDate}</h3>
                         </Card.Meta>
 
-                        <Dropdown.Header icon="calendar times outline" style={{ float: "left", marginTop:"5.5rem", marginLeft:"-8.9rem", color:"black"}}></Dropdown.Header>
+                        <Dropdown.Header icon="calendar times outline" style={{ float: "left", marginTop:"5.9rem", marginLeft:"-13.1rem", color:"black"}}></Dropdown.Header>
 
                         <Card.Meta className="lastApplyDate">
-                        <h3>{jobPosting.lastApplyDate}</h3>
+                        <h3 style={{marginLeft:"-2.3rem"}}>{jobPosting.lastApplyDate}</h3>
                         </Card.Meta>
 
-                        <Dropdown.Header icon="money" style={{ float: "left", marginTop:"2.7rem", marginLeft:"3rem"}}></Dropdown.Header>
+                        <Dropdown.Header icon="money" style={{ float: "left", marginTop:"3rem", marginLeft:"2.5rem"}}></Dropdown.Header>
 
                         <Card.Meta className="minWage">
                         <h3>{jobPosting.minWage}₺</h3>
                         </Card.Meta>
 
 
-                         <Dropdown.Header icon="money" style={{ float: "left", marginTop:"5.7rem", marginLeft:"-8rem"}}></Dropdown.Header>
+                         <Dropdown.Header icon="money" style={{ float: "left", marginTop:"5.7rem", marginLeft:"-9.4rem"}}></Dropdown.Header>
 
                         <Card.Meta className="maxWage">
-                        <h3>{jobPosting.maxWage}₺</h3>
+                        <h3 style={{marginLeft:"-1.3rem"}}>{jobPosting.maxWage}₺</h3>
                         </Card.Meta>
 
                         <Dropdown.Header style={{ float: "left", marginTop:"2.7rem", marginLeft:"1rem"}}>
-                        <span style={{color:"#999999"}}>Açık Pozisyon Sayısı: </span> <h3 style={{ marginTop:"-1.4rem", marginLeft:"14rem", color:"#999999" }}>{jobPosting.numberOfOpenPositions}</h3>
+                        <span style={{color:"#999999"}}>Açık Pozisyon Sayısı: </span> <h3 style={{ marginTop:"-2.1rem", marginLeft:"16rem", color:"#999999" }}>{jobPosting.numberOfOpenPositions}</h3>
                         </Dropdown.Header>
 
 
