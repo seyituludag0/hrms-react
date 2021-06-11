@@ -1,29 +1,21 @@
 import React from 'react'
-import '../registerStyles/css/style.css'
-import  '../registerStyles/fonts/material-icon/css/material-design-iconic-font.min.css'
 import { Link } from 'react-router-dom'
 
-export default function EmployerRegister() {
+export default function Login() {
     return (
        
-        <div className="myClass">
+             
+        <div className="myClass" style={{marginTop:"7rem"}}>
         <div className="main" style={{marginLeft:"-40rem"}}>
-        <div className="containerr" style={{marginLeft:"40rem"}}>
+        <div className="containerr">
           <div className="sign-up-content">
             <form method="POST" className="signup-form">
               <h2 className="form-title"> </h2>
               <div className="form-textbox">
-                <label htmlFor="name">Şirket İsmi</label>
-                <input type="text" name="name" id="name" />
-              </div>
-              <div className="form-textbox">
                 <label htmlFor="email">Email</label>
                 <input type="email" name="email" id="email" />
               </div>
-              <div className="form-textbox">
-                <label htmlFor="name">Telefon No</label>
-                <input type="text" name="name" id="name" />
-              </div>
+
               <div className="form-textbox">
                 <label htmlFor="pass">Password</label>
                 <input type="password" name="pass" id="pass" />
@@ -32,18 +24,19 @@ export default function EmployerRegister() {
                 <input type="submit" name="submit" id="submit" className="submit" />
               </div>
             </form>
+           
             <p className="loginhere">
-            Zaten hesabın var mı? Hemen giriş yap <br /><Link to="login"style={{textDecoration:"none"}} className="loginhere-link">Giriş Yap</Link>
+              Hesabın yok mu? Hemen üye ol <br /><Link to="register"style={{textDecoration:"none"}} className="loginhere-link">Üye Ol</Link>
             </p>
           </div>
         </div>
         <img src="" alt="" />
       </div>
         <div className="imagee" style={{marginRight:"-30rem", marginTop:"-30rem"}}>
-          <img style={{marginLeft:"10rem", marginTop:"-3.2rem", width:"52rem", height:"31rem"}}
-           src="https://res.cloudinary.com/hrms-project/image/upload/v1623329705/react-hrms/employerRegister_lbw6ah.png" alt="" />
+          <img style={{marginLeft:"10rem", marginTop:"-12rem", width:"52rem"}} src="https://res.cloudinary.com/hrms-project/image/upload/v1623352481/react-hrms/login_ggglwg.jpg" alt="" />
         </div>
     </div>
+     
        
     )
 }

@@ -8,7 +8,7 @@ export default function School() {
   useEffect(() => {
     let schoolService = new SchoolService(); 
     schoolService.getSchools().then((result) => setSchools(result.data.data));
-  });
+  },[]);
 
   return (
     <div>

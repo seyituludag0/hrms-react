@@ -361,8 +361,8 @@ export default function Home() {
               <div className="row">
                 {jobPostings.map((jobPosting) => (
                   <div className="col-md-3" style={{ width: "100rem" }}>
-                    <ul className="category">
-                      <li key={jobPosting.id}>
+                    <ul className="category" key={jobPosting.id}>
+                      <li>
                         <a href="/">
                           {jobPosting.jobTitle.title} <br />
                           <span>Açık Pozisyon Sayısı</span>{" "}

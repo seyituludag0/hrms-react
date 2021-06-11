@@ -10,7 +10,7 @@ export default function JobTitle() {
     jobTitleService
       .getJobTitles()
       .then((result) => setJobTitles(result.data.data));
-  });
+  },[]);
 
   return (
     <div>

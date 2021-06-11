@@ -8,7 +8,7 @@ export default function City() {
   useEffect(() => {
     let cityService = new CityService();
     cityService.getCities().then((result) => setCities(result.data.data));
-  });
+  },[]);
 
   return (
     <div className="SearchCityText">

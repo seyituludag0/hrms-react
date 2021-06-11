@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../registerStyles/css/style.css'
 import  '../registerStyles/fonts/material-icon/css/material-design-iconic-font.min.css'
 
@@ -40,7 +41,7 @@ export default function CandidateRegister() {
               </div>
             </form>
             <p className="loginhere">
-              Zaten hesabın var mı? Hemen giriş yap <br /><a href="/" style={{textDecoration:"none"}} className="loginhere-link"> Giriş Yap</a>
+            Zaten hesabın var mı? Hemen giriş yap <br /><Link to="login"style={{textDecoration:"none"}} className="loginhere-link">Giriş Yap</Link>
             </p>
           </div>
         </div>

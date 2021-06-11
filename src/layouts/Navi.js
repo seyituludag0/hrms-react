@@ -13,7 +13,9 @@ export default function Navi() {
           <Menu.Item>
               <Link to="/">Ana Sayfa</Link>
           </Menu.Item>
-          <Menu.Item name="İş Arayanlar" />
+          <Menu.Item>
+              <Link to="/candidates">İş Arayanlar</Link>
+          </Menu.Item>
          
           <Menu.Menu position="right">
           <Menu.Item>
@@ -21,7 +23,7 @@ export default function Navi() {
           </Menu.Item>
             <Menu.Item>
             <Button.Group>
-              <Button positive><Link to="/">Giriş Yap</Link></Button>
+              <Button positive><Link to="login">Giriş Yap</Link></Button>
               <Button.Or />
               <Button basic color='red'><Link to="register">Üye Ol</Link></Button>
             </Button.Group>

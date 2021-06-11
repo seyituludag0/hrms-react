@@ -10,7 +10,7 @@ export default function Employee() {
     employeeService
       .getEmployees()
       .then((result) => setEmployees(result.data.data));
-  });
+  },[]);
 
   return (
     <div>

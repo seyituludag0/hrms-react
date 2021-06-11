@@ -9,7 +9,7 @@ export default function Department() {
     useEffect(()=>{
         let departmentService = new DepartmentService();
         departmentService.getDepartments().then(result=>setDepartments(result.data.data)) 
-    })
+    },[])
 
     return (
         <div>

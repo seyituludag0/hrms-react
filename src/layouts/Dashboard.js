@@ -1,14 +1,16 @@
 import React from "react";
 import { Route } from "react-router";
 import { Grid } from "semantic-ui-react";
+import CvDetail from "../pages/CvDetail";
 // import Department from "../pages/Department";
  import JobPosting from "../pages/JobPosting" 
 // import Employee from "../pages/Employee";
-// import Candidate from "../pages/Candidate"
+import Candidate from "../pages/Candidate"
 import Home from "../layouts/Home"
 // import Search from "./Search";
 // import School from "../pages/School";
 import Register from "../pages/Register";
+import Login from "../pages/Login";
 
 export default function Dashboard() {
   return (
@@ -22,12 +24,20 @@ export default function Dashboard() {
           <Grid.Column width={14}>
              {/* <School /> */}
              {/* <JobPosting /> */}
-            {/* <Candidate />*/}
+            {/* <CvDetail /> */}
             {/* <Employee />  */}
             {/* <Department />   */}
-            <Route exact path="/" component={Home} />
-              <Route  path="/register" component={Register} />
-              <Route  path="/jobpostings" component={JobPosting} />
+        
+
+
+              <Route exact path="/" component={Home} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+              <Route exact  path="/jobpostings" component={JobPosting} />
+              <Route exact  path="/candidates" component={Candidate} />
+              <Route exact path="/candidate/:candidateId" component={CvDetail}/>
+
+
           </Grid.Column>
         </Grid.Row>
       </Grid>

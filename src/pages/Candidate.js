@@ -1,67 +1,45 @@
 import React, { useState, useEffect } from "react";
-import CandidateService from "../services/CandidateService";
-import { Icon, Menu, Table, Button, Card } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+// import CandidateService from "../services/CandidateService";
+import CvDetailService from "../services/CvDetailService";
+
 
 export default function Candidate() {
-  const [candidates, setCandidates] = useState([]);
+  const [cvDetails, setCvDetails] = useState([]);
 
   useEffect(() => {
-    let candidateService = new CandidateService();
-    candidateService
-      .getCandidates()
-      .then((result) => setCandidates(result.data.data));
+    let cvDetailService = new CvDetailService();
+    cvDetailService
+      .getAllCvDetails()
+      .then((result) => setCvDetails(result.data.data));
   }, []);
 
   return (
     <div>
-      <Card.Group>
-        <Card fluid color="blue" header="İŞ ARAYANLAR" />
-      </Card.Group>
+    
+    {
+          cvDetails.map((cvDetail)=>(
+            <div className="col-md-6">
+          <div className="team d-md-flex">
+            {/* <div className="img" style={{backgroundImage: 'url({cvDetail.cvPhotoUrl})', width:"26rem"}} /> */}
+            <div className="img">
+              <img src={cvDetail.cvPhotoUrl} style={{width:"19rem"}} alt=""/>
+            </div>
+            <div className="text pl-md-4">
+              {/* <span className="location mb-0" style={{marginRight:"12rem", fontSize:"15px"}}>Western City, UK</span> */}
+              <h2 style={{color:"#000000", marginRight:"12rem"}}>{cvDetail.candidate.firstName} {cvDetail.candidate.lastName}</h2>
+              {/* <span className="position" style={{color:"#ff6347", marginRight:"215px", fontSize:"11px"}}>Graduate</span> */}
+              <p style={{marginTop:"2rem"}}>{cvDetail.description}</p>
+              {/* <p><a href="/" className="btn btn-primary" style={{marginBottom:"-8rem"}}>Detay</a></p> */}
+              <p><Link to={`/candidate/${cvDetail.id}`} className="btn btn-primary" style={{marginBottom:"-8rem"}}>Detay</Link></p>
+            </div>
+            {/* {`/product/${product.productName}`} */}
+          </div>
+        </div>
+    
+          ))
+        }
 
-      <Table celled>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Ad</Table.HeaderCell>
-            <Table.HeaderCell>Soyad</Table.HeaderCell>
-            <Table.HeaderCell>Email</Table.HeaderCell>
-            <Table.HeaderCell>Detay</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-
-        <Table.Body>
-          {candidates.map((candidate) => (
-            <Table.Row key={candidate.id}>
-              <Table.Cell>{candidate.firstName}</Table.Cell>
-              <Table.Cell>{candidate.lastName}</Table.Cell>
-              <Table.Cell>{candidate.email}</Table.Cell>
-              <Table.Cell>
-                <Button basic color="orange">
-                  Detay
-                </Button>
-              </Table.Cell>
-            </Table.Row>
-          ))}
-        </Table.Body>
-
-        <Table.Footer>
-          <Table.Row>
-            <Table.HeaderCell colSpan="3">
-              <Menu floated="right" pagination>
-                <Menu.Item as="a" icon>
-                  <Icon name="chevron left" />
-                </Menu.Item>
-                <Menu.Item as="a">1</Menu.Item>
-                <Menu.Item as="a">2</Menu.Item>
-                <Menu.Item as="a">3</Menu.Item>
-                <Menu.Item as="a">4</Menu.Item>
-                <Menu.Item as="a" icon>
-                  <Icon name="chevron right" />
-                </Menu.Item>
-              </Menu>
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Footer>
-      </Table>
-    </div>
+     </div>
   );
 }
