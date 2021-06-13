@@ -37,6 +37,7 @@ export default function Dashboard() {
               <Route exact  path="/candidates" component={Candidate} />
               <Route exact path="/candidate/:candidateId" component={CvDetail}/>
 
+   
 
           </Grid.Column>
         </Grid.Row>

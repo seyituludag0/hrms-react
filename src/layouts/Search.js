@@ -12,7 +12,10 @@ export default function Search() {
   return (
     <div>
       
-      <Dropdown placeholder="asd" fluid multiple selection options={options}/>
+      <div style={{float:"right", marginRight:"-50rem"}}>
+      <Dropdown placeholder="İş Başlıkları" fluid multiple selection options={options}/>
+      </div>
+      
     </div>
   )
 }

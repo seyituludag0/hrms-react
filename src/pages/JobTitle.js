@@ -12,9 +12,11 @@ export default function JobTitle() {
       .then((result) => setJobTitles(result.data.data));
   },[]);
 
+  console.log(jobTitles)
+
   return (
     <div>
-      <Table celled>
+      <Table celled className="title">
        <Table.Body>
           {jobTitles.map((jobTitle) => (
             <Table.Row key={jobTitle.id}>

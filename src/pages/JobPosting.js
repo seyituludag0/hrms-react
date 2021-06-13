@@ -3,6 +3,7 @@ import JobPostingService from "../services/JobPostingService";
 import Filter from "../layouts/Filter";
 import { Grid } from "semantic-ui-react";
 import { Button, Card, Image, Icon, Dropdown } from "semantic-ui-react";
+import Search from "../layouts/Search"
 
 export default function JobPosting() {
   const [jobPostings, setJobPosting] = useState([]);
@@ -22,9 +23,9 @@ export default function JobPosting() {
             <Filter />
           </Grid.Column>
 
-          {/* <Grid.Column width={2} floated="left">
+          <Grid.Column width={2} floated="left">
             <Search />
-          </Grid.Column> */}
+          </Grid.Column>
 
           <Grid.Column width={14}>
             <div className="myCards">
@@ -59,8 +60,6 @@ export default function JobPosting() {
                       >
                         <strong>{jobPosting.employer.companyName}</strong>
                       </Card.Meta>
-                      {/* <span style={{float:"left", marginTop:"2rem"}}></span><h3 style={{float:"left"}}>İstanbul</h3> */}
-                      {/* <span style={{float:"left", marginTop:"2rem"}}></span><h3 style={{float:"left"}} icon="location arrow">İstanbul</h3> */}
                       <Dropdown.Header icon="location arrow" style={{ float: "left"}}></Dropdown.Header>
                         <Card.Meta className="cityName">
                           <h3>{jobPosting.city.name}</h3>

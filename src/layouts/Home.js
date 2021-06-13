@@ -4,6 +4,9 @@ import banner from "../img/banners/homepagebanner.png";
 import userIcon from "../img/icon/user.svg";
 import network from "../img/icon/network.svg";
 import career from "../img/icon/career.svg";
+import company from "../img/icon/company.svg";
+import location from "../img/icon/location.svg";
+import favorite from "../img/icon/favorite.svg";
 import businessman from "../img/icon/businessman.svg";
 import JobPostingService from "../services/JobPostingService";
 import { Icon } from "semantic-ui-react";
@@ -430,21 +433,26 @@ export default function Home() {
                           <h2 className="mr-3 text-black">
                             <a href="/">{jobPosting.jobTitle.title}</a>
                           </h2>
-                          {/* <div className="badge-wrap">
-                            <span className="bg-primary text-white badge py-2 px-3">
-                              Partime
+                          <div className="badge-wrap">
+                          <span className="bg-primary text-white badge py-2 px-3">
+                              {jobPosting.workType.type}
                             </span>
-                          </div> */}
+                            <span className="bg-primary text-white badge py-2 px-3" style={{marginLeft:"1rem", backgroundColor:"red !important"}}>
+                              {jobPosting.workingTimes.type}
+                            </span>
+                          </div>
                         </div>
                         <div className="job-post-item-body d-block d-md-flex">
                           <div className="mr-3">
                             <span className="icon-layers" />{" "}
-                            <a href="/">{jobPosting.employer.companyName}</a>
+                            <img src={company} width="20px" style={{marginTop:"-0.3rem"}} alt="" />
+                            <a href="/" style={{ marginLeft:"5px"}}>{jobPosting.employer.companyName}</a>
                           </div>
                           <div>
                             <span>|</span>
                             <span className="icon-my_location" />{" "} 
                               &nbsp;
+                            <img src={location} width="20px"  alt="" />
                             <span> {jobPosting.city.name}</span>
                           </div>
                         </div>
@@ -455,7 +463,7 @@ export default function Home() {
                             href="/"
                             className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
                           >
-                            <span className="icon-heart" />
+                            <span className="icon-heart"><img src={favorite} width="20px"  alt="" /></span>
                           </a>
                         </div>
                         <a href="job-single.html" className="btn btn-primary ">
