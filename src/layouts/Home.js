@@ -98,7 +98,7 @@ export default function Home() {
                   <form action="#" className="search-job">
                     <div className="row no-gutters">
                       <div className="col-md mr-md-2">
-                        <div className="form-group">
+                        <div className="form-groupx">
                           <div className="form-field">
                             <div className="icon">
                               <span className="icon-briefcase" />
@@ -112,7 +112,7 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="col-md mr-md-2">
-                        <div className="form-group">
+                        <div className="form-groupx">
                           <div className="form-field">
                             <div className="select-wrap">
                               <div className="icon">
@@ -131,7 +131,7 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="col-md mr-md-2">
-                        <div className="form-group">
+                        <div className="form-groupx">
                           <div className="form-field">
                             <div className="icon">
                               <span className="icon-map-marker" />
@@ -145,7 +145,7 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="col-md">
-                        <div className="form-group">
+                        <div className="form-groupx">
                           <div className="form-field">
                             <button
                               type="submit"
@@ -168,7 +168,7 @@ export default function Home() {
                   <form action="#" className="search-job">
                     <div className="row">
                       <div className="col-md">
-                        <div className="form-group">
+                        <div className="form-groupx">
                           <div className="form-field">
                             <div className="icon">
                               <span className="icon-user" />
@@ -182,7 +182,7 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="col-md">
-                        <div className="form-group">
+                        <div className="form-groupx">
                           <div className="form-field">
                             <div className="select-wrap">
                               <div className="icon">
@@ -201,7 +201,7 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="col-md">
-                        <div className="form-group">
+                        <div className="form-groupx">
                           <div className="form-field">
                             <div className="icon">
                               <span className="icon-map-marker" />
@@ -215,7 +215,7 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="col-md">
-                        <div className="form-group">
+                        <div className="form-groupx">
                           <div className="form-field">
                             <button
                               type="submit"

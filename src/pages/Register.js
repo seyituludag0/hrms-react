@@ -9,25 +9,25 @@ import EmployerRegister from './EmployerRegister';
 
 export default function Register() {
 
-  const tabs = [
-    {
-      menuItem: "Aday Girisi",
-      render: () => <CandidateRegister /> ,
-    },
-    {
-      menuItem: "İş Veren Girişi",
-      render: () => <EmployerRegister />,
-    },
-  ];
+  // const tabs = [
+  //   {
+  //     menuItem: "Aday Girisi",
+  //     render: () => <CandidateRegister /> ,
+  //   },
+  //   {
+  //     menuItem: "İş Veren Girişi",
+  //     render: () => <EmployerRegister />,
+  //   },
+  // ];
 
 
   return (
     <>
-     <Form size="large">
+     {/* <Form size="large">
             <Segment stacked>
               <Tab panes={tabs} menu={{ secondary: true }} />
             </Segment>
-          </Form>
+          </Form> */}
   </>
   
   )
