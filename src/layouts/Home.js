@@ -369,7 +369,7 @@ export default function Home() {
                         <a href="/">
                           {jobPosting.jobTitle.title} <br />
                           <span>Açık Pozisyon Sayısı</span>{" "}
-                          <span className="number">1</span>
+                          <span className="number">{jobPosting.numberOfOpenPositions}</span>
                           <Icon name="angle right" />
                         </a>
                       </li>

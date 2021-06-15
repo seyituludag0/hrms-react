@@ -14,10 +14,13 @@ export default function Navi() {
               <Link to="/">Ana Sayfa</Link>
           </Menu.Item>
           <Menu.Item>
-              <Link to="/candidates">İş Arayanlar</Link>
+              <Link to="/candidates">İş Arayan CV'leri</Link>
           </Menu.Item>
          
           <Menu.Menu position="right">
+          <Menu.Item>
+              <Link to="/jobpostingadd">İlan Ekle</Link>
+          </Menu.Item>
           <Menu.Item>
               <Link to="/jobpostings">İş İlanları</Link>
           </Menu.Item>

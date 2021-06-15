@@ -16,7 +16,7 @@ export default function Candidate() {
 
   return (
     <div>
-    
+     
     {
           cvDetails.map((cvDetail)=>(
             <div className="col-md-6">

@@ -15,13 +15,19 @@ export default function CvDetail() {
   useEffect(()=>{
     let candidateService = new CandidateService();
     candidateService.getCandidateCvByCandidateId(candidateId).then(result=>setCvDetail(result.data.data))
-  },[])
+  },[candidateId])
 
-  console.log(cvDetail)
-
+  // console.log(cvDetail.cvDetail?.candidate?.firstName);
+  // console.log(cvDetail.cvDetail?.cvPhotoUrl);
+console.log("********************************");
+console.log(cvDetail.schoolCandidates);
+  // console.log(cvDetail.cvDetail?.candidate?.firstName);
+  // console.log(cvDetail.languageCandidates?.language?.id);
   return (
 
-    <div>
+    <div className="ana div">
+
+<div>
     {/* --------------------------------------------------------------------------- */}
 
     <div
@@ -38,15 +44,15 @@ export default function CvDetail() {
           style={{ marginTop: "7rem", marginLeft: "40em" }}
         >
           <img
-            src="https://res.cloudinary.com/hrms-project/image/upload/v1623257938/react-hrms/person_2_k4sj1i.jpg"
-            style={{ width: "19rem" }}
+            src={cvDetail.cvDetail?.cvPhotoUrl}
+            style={{ width: "12rem", marginTop:"-2rem" }}
             alt=""
           />
         </div>
 
         <div className="text">
           <h1 style={{ marginTop: "21.3rem", marginLeft: "-117rem" }}>
-            Anthony Barnett
+            {cvDetail.cvDetail?.candidate?.firstName}
           </h1>
           <h6 style={{ marginLeft: "-117rem", color: "#000000" }}>
             WEB DEVELOPER, GRAPHIC DESIGNER, PHOTOGRAPHER
@@ -79,32 +85,26 @@ export default function CvDetail() {
 
     {/* --------------------------------------------------------------------------- */}
 
-    {/* <div className="linkedin">
-      <img src={linkedin1} alt="" />
-    </div>
 
-    <div className="github">
-    <img src={github} alt="" />
-    </div> */}
 
 <div className="linkedin">
       <a href="/" target="_blank">
-        <img src={linkedin} alt="Linkedin" />
+        <img src={linkedin} alt="Linkedin" style={{width:"4.5rem", marginTop:"-1rem", marginLeft:"-0.75rem"}} />
       </a>
     </div>
 
     <div className="github">
     <a href="/" target="_blank">
-        <img src={github} alt="Github" />
+        <img src={github} alt="Github" style={{width:"3.1rem"}} />
       </a>
     </div>
 
     {/* --------------------------------------------------------------------------- */}
 
-    <div className="info"
+    <div className="info-box"
       style={{
         width: "80rem",
-        height: "20rem",
+        height: "25rem",
         marginTop: "3rem",
         marginLeft: "10rem",
         color: "red",
@@ -113,68 +113,62 @@ export default function CvDetail() {
     >
       <div className="col-lg-6 col-md-12">
         <div className="card-body" style={{color:"#000000"}}>
-          <div className="h4 mt-0 title">About</div>
-          <p>
-            Hello! I am Anthony Barnett. Web Developer, Graphic Designer and
-            Photographer.
-          </p>
-          <p>
-            Creative CV is a HTML resume template for professionals. Built
-            with Bootstrap 4, Now UI Kit and FontAwesome, this modern and
-            responsive design template is perfect to showcase your portfolio,
-            skills and experience.{" "}
-            <a href="/">Learn More</a>
-          </p>
+          <div className="h4 mt-0 title">Hakkımda</div>
+          <p>{cvDetail.cvDetail?.description}</p>
         </div>
-
-
-
-
-
       </div>
 
       <div className="col-lg-6 col-md-12" style={{marginLeft:"40rem", marginTop:"-15rem"}}>
         <div className="card-body" style={{color:"#000000"}}>
-          <div className="h4 mt-0 title">Basic Information</div>
-          <div className="row">
+          <div className="h4 mt-0 title">Temel Bilgiler</div>
+          {/* <div className="row">
             <div className="col-sm-4"><strong className="text-uppercase">Age:</strong></div>
             <div className="col-sm-8">24</div>
+          </div> */}
+          <div className="row mt-3">
+            <div className="col-sm-4"><strong className="text-uppercase">Ad:</strong></div>
+            <div className="col-sm-8">{cvDetail.cvDetail?.candidate?.firstName}</div>
+          </div>
+          <div className="row mt-3">
+            <div className="col-sm-4"><strong className="text-uppercase">Soyad:</strong></div>
+            <div className="col-sm-8">{cvDetail.cvDetail?.candidate?.lastName}</div>
           </div>
           <div className="row mt-3">
             <div className="col-sm-4"><strong className="text-uppercase">Email:</strong></div>
-            <div className="col-sm-8">anthony@company.com</div>
+            <div className="col-sm-8">{cvDetail.cvDetail?.candidate?.email}</div>
           </div>
-          <div className="row mt-3">
-            <div className="col-sm-4"><strong className="text-uppercase">Phone:</strong></div>
-            <div className="col-sm-8">+1718-111-0011</div>
-          </div>
-          <div className="row mt-3">
+          {/* <div className="row mt-3">
+            <div className="col-sm-4"><strong className="text-uppercase">Telefon:</strong></div>
+            <div className="col-sm-8">{cvDetail.cvDetail?.candidate?.phoneNumber}</div>
+          </div> */}
+          {/* <div className="row mt-3">
             <div className="col-sm-4"><strong className="text-uppercase">Address:</strong></div>
             <div className="col-sm-8">140, City Center, New York, U.S.A</div>
-          </div>
+          </div> */}
           <div className="row mt-3">
-            <div className="col-sm-4"><strong className="text-uppercase">Language:</strong></div>
-            <div className="col-sm-8">English, German, French</div>
+            <div className="col-sm-4"><strong className="text-uppercase">Diller:</strong></div>
+            <div className="col-sm-8">{cvDetail.languageCandidates?.language?.languageName}</div>
           </div>
         </div>
       </div>
     
 
       <div className="section" id="experience" style={{marginTop:"5rem"}}>
-<div className="container cc-experience">
-  <div className="h4 text-center mb-4 title">Work Experience</div>
+<div className="container cc-experience" style={{marginTop:"10rem"}}>
+  <div className="h4 text-center mb-4 title">İş Deneyimlerim</div>
   <div className="card">
     <div className="row">
       <div className="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
         <div className="card-body cc-experience-header" style={{marginTop:"3rem"}}>
           <p>March 2016 - Present</p>
-          <div className="h5">CreativeM</div>
+          <div className="h5">{cvDetail.experiences?.id}</div>
         </div>
       </div>
       <div className="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
         <div className="card-body">
           <div className="h5" style={{marginLeft:"-39rem", fontSize:"1.8rem"}}>Front End Developer</div>
           <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+           
         </div>
       </div>
     </div>
@@ -221,58 +215,57 @@ export default function CvDetail() {
 
 <div className="section" id="school" style={{marginTop:"5rem"}}>
       <div className="container cc-school">
-        <div className="h4 text-center mb-4 title">Education</div>
+        <div className="h4 text-center mb-4 title">Okullarım</div>
+       
         <div className="card">
-          <div className="row">
-            <div className="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-              <div className="card-body cc-school-header" style={{marginTop:"3rem"}}>
-                <p>March 2016 - Present</p>
-                <div className="h5">Master's Degree</div>
-              </div>
-            </div>
-            <div className="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-        <div className="card-body">
-          <div className="h5" style={{marginLeft:"-30rem", fontSize:"1.8rem"}}>Master of Information Technology</div>
-          <p class="category" style={{color:"gray", marginLeft:"-39rem", marginTop:"-7px", marginBottom:"7px", fontWeight:"bold"}}>University of Computer Science</p>
-          <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-        </div>
-      </div>
-          </div>
-        </div>
-    
-        <div className="card">
-          <div className="row">
-            <div className="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-              <div className="card-body cc-school-header" style={{marginTop:"3rem"}}>
-                <p>March 2016 - Present</p>
-                <div className="h5">CreativeM</div>
-              </div>
-            </div>
-            <div className="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-              <div className="card-body">
-                <div className="h5" style={{marginLeft:"-43rem"}}>Front End Developer</div>
-                <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-    
-      <div className="card">
-          <div className="row">
-            <div className="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-              <div className="card-body cc-school-header" style={{marginTop:"3rem"}}>
-                <p>March 2016 - Present</p>
-                <div className="h5">CreativeM</div>
-              </div>
-            </div>
-            <div className="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-              <div className="card-body">
-                <div className="h5" style={{marginLeft:"-43rem"}}>Master of Information Technology</div>
-                <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+<div className="row">
+  <div className="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+    <div className="card-body cc-school-header" style={{marginTop:"3rem"}}>
+      <p>March 2016 - Present</p>
+      <div className="h5">Master's Degree</div>
+    </div>
+  </div>
+  <div className="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+<div className="card-body">
+<div className="h5" style={{marginLeft:"-30rem", fontSize:"1.8rem"}}>Master of Information Technology</div>
+<p className="category" style={{color:"gray", marginLeft:"-39rem", marginTop:"-7px", marginBottom:"7px", fontWeight:"bold"}}>University of Computer Science</p>
+<p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+</div>
+</div>
+</div>
+</div><div className="card">
+<div className="row">
+  <div className="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+    <div className="card-body cc-school-header" style={{marginTop:"3rem"}}>
+      <p>March 2016 - Present</p>
+      <div className="h5">Master's Degree</div>
+    </div>
+  </div>
+  <div className="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+<div className="card-body">
+<div className="h5" style={{marginLeft:"-30rem", fontSize:"1.8rem"}}>Master of Information Technology</div>
+<p className="category" style={{color:"gray", marginLeft:"-39rem", marginTop:"-7px", marginBottom:"7px", fontWeight:"bold"}}>University of Computer Science</p>
+<p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+</div>
+</div>
+</div>
+</div><div className="card">
+<div className="row">
+  <div className="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+    <div className="card-body cc-school-header" style={{marginTop:"3rem"}}>
+      <p>March 2016 - Present</p>
+      <div className="h5">Master's Degree</div>
+    </div>
+  </div>
+  <div className="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+<div className="card-body">
+<div className="h5" style={{marginLeft:"-30rem", fontSize:"1.8rem"}}>Master of Information Technology</div>
+<p className="category" style={{color:"gray", marginLeft:"-39rem", marginTop:"-7px", marginBottom:"7px", fontWeight:"bold"}}>University of Computer Science</p>
+<p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+</div>
+</div>
+</div>
+</div>
         
       
        </div>
@@ -285,6 +278,9 @@ export default function CvDetail() {
 
     
    
+     
+
+    </div>
 
    );
 }

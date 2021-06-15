@@ -4,6 +4,7 @@ import Filter from "../layouts/Filter";
 import { Grid } from "semantic-ui-react";
 import { Button, Card, Image, Icon, Dropdown } from "semantic-ui-react";
 import Search from "../layouts/Search"
+import { Link } from 'react-router-dom';
 
 export default function JobPosting() {
   const [jobPostings, setJobPosting] = useState([]);
@@ -107,9 +108,10 @@ export default function JobPosting() {
                           İlana Başvur
                         </Button>
 
-                        <Button basic color="orange">
-                          Detayları Gör
-                        </Button>
+                         <Button basic color="orange">
+                         <Link to={jobPosting.id}>Detayları Gör</Link>
+                        </Button> 
+                      
                         <Button as="div" labelPosition="right">
                           <Button color="red">
                             <Icon name="heart" />

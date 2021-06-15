@@ -7,6 +7,8 @@ import Candidate from "../pages/Candidate"
 import Home from "../layouts/Home"
 import Register from "../pages/Register";
 import Login from "../pages/Login";
+import JobPostingDetail from "../pages/JobPostingDetail";
+import JobPostingAdd from "../pages/JobPostingAdd";
 
 export default function Dashboard() {
   return (
@@ -27,6 +29,8 @@ export default function Dashboard() {
 
 
               <Route exact path="/" component={Home} />
+              <Route exact path="/jobpostingadd" component={JobPostingAdd} />
+              <Route exact path="/jobposting/:jobpostingid" component={JobPostingDetail} />
               {/* <Route exact path="/employerregister" component={EmployerRegister} /> */}
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
