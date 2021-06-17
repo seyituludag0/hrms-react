@@ -5,8 +5,9 @@ export default class CvDetailService{
         return axios.get("http://localhost:8080/api/cvDetails/getAll")
     }
 
-    getByCAndidateId(candidateId){
+    getByCandidateId(candidateId){
         return axios.get("http://localhost:8080/api/candidates/getCandidateCvByCandidateId?candidateId=" + candidateId)
     }
 }
+
 

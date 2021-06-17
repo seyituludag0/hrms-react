@@ -9,10 +9,15 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import JobPostingDetail from "../pages/JobPostingDetail";
 import JobPostingAdd from "../pages/JobPostingAdd";
+import AdminJobPostingList from "../pages/admin/jobPosting/AdminJobPostingList";
+import EmployerJobPostingList from "../pages/Employer/EmployerJobPostingList";
+import { ToastContainer } from "react-toastify";
+
 
 export default function Dashboard() {
   return (
     <div>
+      <ToastContainer position="top-right" />
       <Grid>
         <Grid.Row>
           <Grid.Column width={2} style={{marginLeft:"95rem"}}>
@@ -29,9 +34,10 @@ export default function Dashboard() {
 
 
               <Route exact path="/" component={Home} />
+              <Route path="/adminjobpostinglist" component={AdminJobPostingList}/>
+              <Route path="/employerjobpostinglist" component={EmployerJobPostingList}/>
               <Route exact path="/jobpostingadd" component={JobPostingAdd} />
-              <Route exact path="/jobposting/:jobpostingid" component={JobPostingDetail} />
-              {/* <Route exact path="/employerregister" component={EmployerRegister} /> */}
+              <Route exact path="/jobposting/:id" component={JobPostingDetail} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact  path="/jobpostings" component={JobPosting} />

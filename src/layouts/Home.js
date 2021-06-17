@@ -10,6 +10,7 @@ import favorite from "../img/icon/favorite.svg";
 import businessman from "../img/icon/businessman.svg";
 import JobPostingService from "../services/JobPostingService";
 import { Icon } from "semantic-ui-react";
+import Footer from "../layouts/Footer";
 
 export default function Home() {
   const [jobPostings, setjobPostings] = useState([]);
@@ -19,6 +20,8 @@ export default function Home() {
     jobPostingService
       .getJobPosting()
       .then((result) => setjobPostings(result.data.data));
+
+    //
   });
 
   return (
@@ -355,7 +358,7 @@ export default function Home() {
               >
                 <span className="subheading">Job Titles</span>
                 <h2 className="mb-4" style={{ fontSize: "52px" }}>
-                  Top Titles
+                  Yeni Eklenen İlanlar
                 </h2>
               </div>
             </div>
@@ -369,7 +372,9 @@ export default function Home() {
                         <a href="/">
                           {jobPosting.jobTitle.title} <br />
                           <span>Açık Pozisyon Sayısı</span>{" "}
-                          <span className="number">{jobPosting.numberOfOpenPositions}</span>
+                          <span className="number">
+                            {jobPosting.numberOfOpenPositions}
+                          </span>
                           <Icon name="angle right" />
                         </a>
                       </li>
@@ -389,6 +394,7 @@ export default function Home() {
             backgroundImage:
               "url(https://res.cloudinary.com/hrms-project/image/upload/v1623242140/react-hrms/bg_1_pkbh8a.jpg)",
             backgroundPosition: "top center",
+            width: "109rem",
           }}
         >
           <div className="container">
@@ -423,59 +429,71 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="row">
-
-                  {
-                    jobPostings.map((jobPosting)=>(
-                      <div className="col-md-12 ">
-                    <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
-                      <div className="one-third mb-4 mb-md-0">
-                        <div className="job-post-item-header d-flex align-items-center">
-                          <h2 className="mr-3 text-black">
-                            <a href="/">{jobPosting.jobTitle.title}</a>
-                          </h2>
-                          <div className="badge-wrap">
-                          <span className="bg-primary text-white badge py-2 px-3">
-                              {jobPosting.workType.type}
-                            </span>
-                            <span className="bg-primary text-white badge py-2 px-3" style={{marginLeft:"1rem", backgroundColor:"red !important"}}>
-                              {jobPosting.workingTimes.type}
-                            </span>
+                  {jobPostings.map((jobPosting) => (
+                    <div className="col-md-12 ">
+                      <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
+                        <div className="one-third mb-4 mb-md-0">
+                          <div className="job-post-item-header d-flex align-items-center">
+                            <h2 className="mr-3 text-black">
+                              <a href="/">{jobPosting.jobTitle.title}</a>
+                            </h2>
+                            <div className="badge-wrap">
+                              <span className="bg-primary text-white badge py-2 px-3">
+                                {jobPosting.workType.type}
+                              </span>
+                              <span
+                                className="bg-primary text-white badge py-2 px-3"
+                                style={{
+                                  marginLeft: "1rem",
+                                  backgroundColor: "red !important",
+                                }}
+                              >
+                                {jobPosting.workingTimes.type}
+                              </span>
+                            </div>
+                          </div>
+                          <div className="job-post-item-body d-block d-md-flex">
+                            <div className="mr-3">
+                              <span className="icon-layers" />{" "}
+                              <img
+                                src={company}
+                                width="20px"
+                                style={{ marginTop: "-0.3rem" }}
+                                alt=""
+                              />
+                              <a href="/" style={{ marginLeft: "5px" }}>
+                                {jobPosting.employer.companyName}
+                              </a>
+                            </div>
+                            <div>
+                              <span>|</span>
+                              <span className="icon-my_location" /> &nbsp;
+                              <img src={location} width="20px" alt="" />
+                              <span> {jobPosting.city.name}</span>
+                            </div>
                           </div>
                         </div>
-                        <div className="job-post-item-body d-block d-md-flex">
-                          <div className="mr-3">
-                            <span className="icon-layers" />{" "}
-                            <img src={company} width="20px" style={{marginTop:"-0.3rem"}} alt="" />
-                            <a href="/" style={{ marginLeft:"5px"}}>{jobPosting.employer.companyName}</a>
-                          </div>
+                        <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
                           <div>
-                            <span>|</span>
-                            <span className="icon-my_location" />{" "} 
-                              &nbsp;
-                            <img src={location} width="20px"  alt="" />
-                            <span> {jobPosting.city.name}</span>
+                            <a
+                              href="/"
+                              className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
+                            >
+                              <span className="icon-heart">
+                                <img src={favorite} width="20px" alt="" />
+                              </span>
+                            </a>
                           </div>
-                        </div>
-                      </div>
-                      <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                        <div>
                           <a
-                            href="/"
-                            className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
+                            href="job-single.html"
+                            className="btn btn-primary "
                           >
-                            <span className="icon-heart"><img src={favorite} width="20px"  alt="" /></span>
+                            İşe Başvur
                           </a>
                         </div>
-                        <a href="job-single.html" className="btn btn-primary ">
-                          İşe Başvur
-                        </a>
                       </div>
                     </div>
-                  </div>
-             
-                    ))
-                  }
-
+                  ))}
                 </div>
               </div>
             </div>
@@ -547,7 +565,7 @@ export default function Home() {
                 className="elementor-heading-title elementor-size-default title"
                 style={{
                   fontSize: "1.5rem",
-                  marginTop: "1rem"
+                  marginTop: "1rem",
                 }}
               >
                 30,000
@@ -576,7 +594,7 @@ export default function Home() {
                 className="elementor-heading-title elementor-size-default title"
                 style={{
                   fontSize: "1.5rem",
-                  marginTop: "1rem"
+                  marginTop: "1rem",
                 }}
               >
                 10,500
@@ -597,74 +615,110 @@ export default function Home() {
             </div>
           </div>
         </div>
-  
 
         {/* ------------------------------------------------------------------------------------------------------------------------- */}
 
-
-        <section style={{backgroundColor:"#6c63ff", marginTop:"3rem"}}>
-        <div className="container">
-          <div className="row justify-content-center pb-3">
-            <div className="col-md-10 heading-section heading-section-white text-center">
-              <span className="subheading">Candidates</span>
-              <h2 className="mb-4">Latest Candidates</h2>
-            </div>
-          </div>
-        </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="carousel-candidates owl-carousel">
-              <div className="item item-one" style={{marginLeft:"-60rem"}}>
-                  <a href="/" className="team text-center">
-                    <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623257938/react-hrms/person_2_k4sj1i.jpg)'}} />
-                    <h2>Danica Lewis</h2>
-                    <span className="position">Western City, UK</span>
-                  </a>
-                </div>
-
-                {/* -------------------------------------------------------------------------------- */}
-
-                <div className="item item-two" style={{marginLeft:"-15rem", marginTop:"-18rem"}}>
-                  <a href="/" className="team text-center">
-                    <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623259270/react-hrms/person_4_vi5rpa.jpg)'}} />
-                    <h2>Danica Lewis</h2>
-                    <span className="position">Western City, UK</span>
-                  </a>
-                </div>
-
-                {/* -------------------------------------------------------------------------------- */}
-
-                <div className="item item-three" style={{marginLeft:"27rem", marginTop:"-18rem"}}>
-                  <a href="/" className="team text-center">
-                    <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623259293/react-hrms/person_5_mdbadz.jpg)'}} />
-                    <h2>Danica Lewis</h2>
-                    <span className="position">Western City, UK</span>
-                  </a>
-                </div>
-
-                  {/* -------------------------------------------------------------------------------- */}
-
-                  <div className="item item-four" style={{marginLeft:"68rem", marginTop:"-18rem"}}>
-                  <a href="/" className="team text-center">
-                    <div className="img" style={{backgroundImage: 'url(https://res.cloudinary.com/hrms-project/image/upload/v1623251069/react-hrms/person_1_zoqwmc.jpg)'}} />
-                    <h2>Danica Lewis</h2>
-                    <span className="position">Western City, UK</span>
-                  </a>
-                </div>
-              
+        <section
+          style={{
+            backgroundColor: "#6c63ff",
+            marginTop: "3rem",
+            width: "109rem",
+          }}
+        >
+          <div className="container">
+            <div className="row justify-content-center pb-3">
+              <div className="col-md-10 heading-section heading-section-white text-center">
+                <span className="subheading">Adaylar</span>
+                <h2 className="mb-4">Yeni Adaylar</h2>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="carousel-candidates owl-carousel">
+                  <div
+                    className="item item-one"
+                    style={{ marginLeft: "-60rem" }}
+                  >
+                    <a href="/" className="team text-center">
+                      <div
+                        className="img"
+                        style={{
+                          backgroundImage:
+                            "url(https://res.cloudinary.com/hrms-project/image/upload/v1623257938/react-hrms/person_2_k4sj1i.jpg)",
+                        }}
+                      />
+                      <h2>Danica Lewis</h2>
+                      <span className="position">Western City, UK</span>
+                    </a>
+                  </div>
 
+                  {/* -------------------------------------------------------------------------------- */}
+
+                  <div
+                    className="item item-two"
+                    style={{ marginLeft: "-15rem", marginTop: "-18rem" }}
+                  >
+                    <a href="/" className="team text-center">
+                      <div
+                        className="img"
+                        style={{
+                          backgroundImage:
+                            "url(https://res.cloudinary.com/hrms-project/image/upload/v1623259270/react-hrms/person_4_vi5rpa.jpg)",
+                        }}
+                      />
+                      <h2>Danica Lewis</h2>
+                      <span className="position">Western City, UK</span>
+                    </a>
+                  </div>
+
+                  {/* -------------------------------------------------------------------------------- */}
+
+                  <div
+                    className="item item-three"
+                    style={{ marginLeft: "27rem", marginTop: "-18rem" }}
+                  >
+                    <a href="/" className="team text-center">
+                      <div
+                        className="img"
+                        style={{
+                          backgroundImage:
+                            "url(https://res.cloudinary.com/hrms-project/image/upload/v1623259293/react-hrms/person_5_mdbadz.jpg)",
+                        }}
+                      />
+                      <h2>Danica Lewis</h2>
+                      <span className="position">Western City, UK</span>
+                    </a>
+                  </div>
+
+                  {/* -------------------------------------------------------------------------------- */}
+
+                  <div
+                    className="item item-four"
+                    style={{ marginLeft: "68rem", marginTop: "-18rem" }}
+                  >
+                    <a href="/" className="team text-center">
+                      <div
+                        className="img"
+                        style={{
+                          backgroundImage:
+                            "url(https://res.cloudinary.com/hrms-project/image/upload/v1623251069/react-hrms/person_1_zoqwmc.jpg)",
+                        }}
+                      />
+                      <h2>Danica Lewis</h2>
+                      <span className="position">Western City, UK</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ------------------------------------------------------------------------------------------------------------------------- */}
 
-
-
-    
+        <Footer />
       </div>
     </div>
   );

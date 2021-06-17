@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Container,  Menu, Image} from "semantic-ui-react";
-
+import {  Container,  Menu, Image} from "semantic-ui-react";
+import SignedOut from './SignedOut';
+import SignedIn from './SignedIn';
 
 export default function Navi() {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+
+  function handleSignOut(params) {
+    setIsAuthenticated(false)
+  }
+
+  function handleSignedIn(params) {
+    setIsAuthenticated(true)
+  }
+
+
   return (
     <div>
           <Menu inverted fixed="top">
@@ -25,11 +38,7 @@ export default function Navi() {
               <Link to="/jobpostings">İş İlanları</Link>
           </Menu.Item>
             <Menu.Item>
-            <Button.Group>
-              <Button positive><Link to="login">Giriş Yap</Link></Button>
-              <Button.Or />
-              <Button basic color='red'><Link to="register">Üye Ol</Link></Button>
-            </Button.Group>
+                { isAuthenticated?<SignedIn signOut={handleSignOut}/>:<SignedOut signedIn={handleSignedIn} /> }
             </Menu.Item>
           </Menu.Menu>
         </Container>

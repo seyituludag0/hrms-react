@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import "../cvDetailStyles/style.css";
 
 import CandidateService from "../services/CandidateService"
 import linkedin from "../img/icon/linkedin.png"
@@ -17,12 +16,7 @@ export default function CvDetail() {
     candidateService.getCandidateCvByCandidateId(candidateId).then(result=>setCvDetail(result.data.data))
   },[candidateId])
 
-  // console.log(cvDetail.cvDetail?.candidate?.firstName);
-  // console.log(cvDetail.cvDetail?.cvPhotoUrl);
-console.log("********************************");
 console.log(cvDetail.schoolCandidates);
-  // console.log(cvDetail.cvDetail?.candidate?.firstName);
-  // console.log(cvDetail.languageCandidates?.language?.id);
   return (
 
     <div className="ana div">
