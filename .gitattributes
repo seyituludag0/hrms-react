@@ -1,4 +1,4 @@
-*.* linguist-language=JavaScript
+# *.* linguist-language=JavaScript
 
 
 *.css linguist-detectable=false
