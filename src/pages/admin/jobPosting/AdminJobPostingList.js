@@ -19,12 +19,13 @@ export default function AdminJobPostingList() {
     jobPostingService
       .changeActiveByEmployee(id)
       .then(result=>toast.success(result.data.message));
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (
     <div>
-      <Card fluid color="red" header="Tüm İş İlanları" />
+      <div className="my-div" style={{marginLeft:"7rem", marginRight:"-5rem"}}>
+      <Card fluid color="blue" header="Tüm İş İlanları" />
       <Table celled>
         <Table.Header>
           <Table.Row>
@@ -84,6 +85,8 @@ export default function AdminJobPostingList() {
          
         </Table.Body>
       </Table>
-    </div>
+    
+      </div>
+   </div>
   );
 }

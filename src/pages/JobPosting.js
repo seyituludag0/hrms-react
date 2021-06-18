@@ -27,7 +27,7 @@ export default function JobPosting() {
           </Grid.Column> */}
 
           <Grid.Column width={14}>
-            <div className="myCards">
+            <div className="myCards" style={{marginRight:"-12rem", marginLeft:"18rem"}}>
               <Card.Group>
                 <Card
                   className="jobs"

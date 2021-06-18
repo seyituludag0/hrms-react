@@ -356,7 +356,7 @@ export default function Home() {
                 className="col-md-7 heading-section text-center"
                 style={{ marginLeft: "10rem" }}
               >
-                <span className="subheading">Job Titles</span>
+                <span className="subheading">İş Başlıkları</span>
                 <h2 className="mb-4" style={{ fontSize: "52px" }}>
                   Yeni Eklenen İlanlar
                 </h2>
