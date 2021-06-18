@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router";
 import { Grid } from "semantic-ui-react";
+import Search from "../layouts/Search"
 import CvDetail from "../pages/CvDetail";
  import JobPosting from "../pages/JobPosting" 
 import Candidate from "../pages/Candidate"
@@ -12,6 +13,7 @@ import JobPostingAdd from "../pages/JobPostingAdd";
 import AdminJobPostingList from "../pages/admin/jobPosting/AdminJobPostingList";
 import EmployerJobPostingList from "../pages/Employer/EmployerJobPostingList";
 import { ToastContainer } from "react-toastify";
+import Footer from "./Footer";
 
 
 export default function Dashboard() {
@@ -21,18 +23,9 @@ export default function Dashboard() {
       <Grid>
         <Grid.Row>
           <Grid.Column width={2} style={{marginLeft:"95rem"}}>
-            {/* <Search /> */}
+            <Search />
           </Grid.Column>
-          {/* <Route exact path="/register" component={Register} /> */}
           <Grid.Column width={14}>
-             {/* <School /> */}
-             {/* <JobPosting /> */}
-            {/* <CvDetail /> */}
-            {/* <Employee />  */}
-            {/* <Department />   */}
-        
-
-
               <Route exact path="/" component={Home} />
               <Route path="/adminjobpostinglist" component={AdminJobPostingList}/>
               <Route path="/employerjobpostinglist" component={EmployerJobPostingList}/>
@@ -44,7 +37,7 @@ export default function Dashboard() {
               <Route exact  path="/candidates" component={Candidate} />
               <Route exact path="/candidate/:candidateId" component={CvDetail}/>
 
-   
+              <Footer />
 
           </Grid.Column>
         </Grid.Row>

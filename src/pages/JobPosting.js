@@ -10,10 +10,10 @@ export default function JobPosting() {
   useEffect(() => {
     let jobPostingService = new JobPostingService();
     jobPostingService
-      .getJobPosting()
+      .findAllByOrderByPostedDateDesc()
       .then((result) => setJobPosting(result.data.data));
   }, []);
-
+console.log(jobPostings);
   return (
     <div>
       <Grid>

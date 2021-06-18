@@ -3,7 +3,7 @@ import {
   Card,
   Image,
   Icon,
-  Dropdown,Header, Table, Rating, 
+  Dropdown,Header, Table,
 } from "semantic-ui-react";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
