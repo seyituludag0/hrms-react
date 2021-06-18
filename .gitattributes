@@ -1,4 +1,4 @@
-# *.* linguist-language=TypeScript
+*.* linguist-language=TypeScript
 
 
 *.css linguist-detectable=false
