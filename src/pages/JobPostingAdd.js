@@ -19,8 +19,8 @@ export default function JobPostingAdd() {
     workingTimeId: Yup.string().required("Bu alanın doldurulması zorunludur"),
     numberOfOpenPositions: Yup.string().required("Posizyon sayısı zorunludur").min(1,"Posizyon sayısı 1 den küçük olamaz"),
     cityId: Yup.string().required("Bu alanın doldurulması zorunludur"),
-    minWage: Yup.number().min(0,"0 Dan az olamaz").required("Bu alan zorunludur"),
-    maxWage: Yup.number().min(0,"0 Dan az olamaz").required("Bu alan zorunludur")
+    minWage: Yup.number().min(0,"0 Dan az olamaz"),
+    maxWage: Yup.number().min(0,"0 Dan az olamaz")
   });
 
 

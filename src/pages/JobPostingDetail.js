@@ -3,7 +3,7 @@ import {
   Card,
   Image,
   Icon,
-  Dropdown
+  Dropdown,Header, Table, Rating, 
 } from "semantic-ui-react";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
@@ -24,9 +24,10 @@ export default function JobPostingDetail() {
   console.log(jobPostingDetail.id);
   return (
     <div>
-      <div className="myCards">
+      <div className="myCards" style={{marginRight:"-5rem", marginLeft:"15rem"}}>
         <Card.Group>
-          <Card className="jobs" fluid color="blue" header="İŞ İLANLARI" />
+          {/* <Card className="jobs" fluid color="blue" header="İŞ İLANLARI" /> */}
+          <Card className="jobs" fluid color="blue" header="İŞ İLANININ DETAYI" />
         </Card.Group>
         <Card className="jobPostingCard">
           <Card.Content>
@@ -125,9 +126,45 @@ export default function JobPostingDetail() {
               </h3>
             </Dropdown.Header>
 
-            <Card.Description>{jobPostingDetail.jobDetails}</Card.Description>
           </Card.Content>
-          <Card.Content extra>
+        
+<hr/>
+{/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+<Card.Group>
+          <Card className="jobs" fluid color="blue" header="İŞVEREN ŞİRKET BİLGİLERİ" />
+        </Card.Group>
+<Table celled padded>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell singleLine>Şirket İsmi</Table.HeaderCell>
+        <Table.HeaderCell>Web Sitesi</Table.HeaderCell>
+        <Table.HeaderCell>Email</Table.HeaderCell>
+        <Table.HeaderCell>Telefon Numarası</Table.HeaderCell>
+        <Table.HeaderCell>İş Detayı</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>
+          <Header as='h2' textAlign='center'>
+            {jobPostingDetail.employer?.companyName}
+          </Header>
+        </Table.Cell>
+        <Table.Cell singleLine>{jobPostingDetail.employer?.webAddress}</Table.Cell>
+        <Table.Cell singleLine>{jobPostingDetail.employer?.email}</Table.Cell>
+        <Table.Cell>
+        {jobPostingDetail.employer?.phoneNumber}
+        </Table.Cell>
+        <Table.Cell>
+        {jobPostingDetail.jobDetails}
+        </Table.Cell>
+      </Table.Row>
+     </Table.Body>
+     
+  </Table>
+
+  <Card.Content extra>
             <div className="ui three buttons" style={{ padding: "10px" }}>
               <Button basic color="green">
                 İlana Başvur
@@ -141,9 +178,10 @@ export default function JobPostingDetail() {
               </Button>
             </div>
           </Card.Content>
+
         </Card>
-        <Card.Group></Card.Group>
-      </div>
+     
+     </div>
     </div>
   );
 }
