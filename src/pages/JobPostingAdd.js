@@ -21,18 +21,17 @@ export default function JobPostingAdd() {
   let jobPostingService = new JobPostingService();
   const JobPostingAddSchema = Yup.object().shape({
     lastApplyDate: Yup.date()
-      .nullable()
-      .required("Bu alanın doldurulması zorunludur"),
-    jobDetails: Yup.string().required("Bu alanın doldurulması zorunludur"),
-    jobTitleId: Yup.string().required("Bu alanın doldurulması zorunludur"),
-    workTypeId: Yup.string().required("Bu alanın doldurulması zorunludur"),
-    workingTimeId: Yup.string().required("Bu alanın doldurulması zorunludur"),
+      .nullable(),
+    jobDetails: Yup.string().required("Bu alan boş geçilemez. Lütfen doldurunuz"),
+    jobTitleId: Yup.string().required("Bu alan boş geçilemez. Lütfen doldurunuz"),
+    workTypeId: Yup.string().required("Bu alan boş geçilemez. Lütfen doldurunuz"),
+    workingTimeId: Yup.string().required("Bu alan boş geçilemez. Lütfen doldurunuz"),
     numberOfOpenPositions: Yup.string()
-      .required("Posizyon sayısı zorunludur")
-      .min(1, "Posizyon sayısı 1 den küçük olamaz"),
-    cityId: Yup.string().required("Bu alanın doldurulması zorunludur"),
-    minWage: Yup.number().min(0, "0 Dan az olamaz"),
-    maxWage: Yup.number().min(0, "0 Dan az olamaz"),
+      .required("Posizyon sayısı en az 1 zorunludur")
+      .min(1, "Posizyon sayısı olmalıdır"),
+    cityId: Yup.string().required("Bu alan boş geçilemez. Lütfen doldurunuz"),
+    minWage: Yup.number().min(1, "1 den az olamaz"),
+    maxWage: Yup.number().min(0, "1 den az olamaz"),
   });
 
   const formik = useFormik({
@@ -258,7 +257,6 @@ export default function JobPostingAdd() {
                             style={{ width: "100%" }}
                             id="numberOfOpenPositions"
                             name="numberOfOpenPositions"
-                            error={Boolean(formik.errors.numberOfOpenPositions)}
                             onChange={formik.handleChange}
                             value={formik.values.numberOfOpenPositions}
                             onBlur={formik.handleBlur}

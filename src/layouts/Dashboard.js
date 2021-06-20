@@ -14,6 +14,7 @@ import AdminJobPostingList from "../pages/admin/jobPosting/AdminJobPostingList";
 import EmployerJobPostingList from "../pages/Employer/EmployerJobPostingList";
 import { ToastContainer } from "react-toastify";
 import Footer from "./Footer";
+import About from "../pages/About";
 
 
 export default function Dashboard() {
@@ -36,7 +37,7 @@ export default function Dashboard() {
               <Route exact  path="/jobpostings" component={JobPosting} />
               <Route exact  path="/candidates" component={Candidate} />
               <Route exact path="/candidate/:candidateId" component={CvDetail}/>
-
+              <Route exact path="/about" component={About} />
               <Footer />
 
           </Grid.Column>

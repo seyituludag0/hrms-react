@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from "react";
 import "../css/style.css";
 import banner from "../img/banners/homepagebanner.png";
-import userIcon from "../img/icon/user.svg";
-import network from "../img/icon/network.svg";
-import career from "../img/icon/career.svg";
 import company from "../img/icon/company.svg";
 import location from "../img/icon/location.svg";
 import favorite from "../img/icon/favorite.svg";
 import businessman from "../img/icon/businessman.svg";
+import network from "../img/icon/network.svg";
+import userIcon from "../img/icon/user.svg";
+import career from "../img/icon/career.svg";
 import JobPostingService from "../services/JobPostingService";
+import WorkTypeService from "../services/WorkTypeService"
 import { Icon } from "semantic-ui-react";
-import Footer from "../layouts/Footer";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [jobPostings, setjobPostings] = useState([]);
+  const [workTypes, setWorkTypes] = useState([]);
 
   useEffect(() => {
     let jobPostingService = new JobPostingService();
     jobPostingService
       .getJobPosting()
       .then((result) => setjobPostings(result.data.data));
-
-    //
   });
+
 
   return (
     <div>
@@ -369,14 +370,14 @@ export default function Home() {
                   <div className="col-md-3" style={{ width: "100rem" }}>
                     <ul className="category" key={jobPosting.id}>
                       <li>
-                        <a href="/">
+                        <Link to={`/jobposting/${jobPosting.id}`}>
                           {jobPosting.jobTitle.title} <br />
                           <span>Açık Pozisyon Sayısı</span>{" "}
                           <span className="number">
                             {jobPosting.numberOfOpenPositions}
                           </span>
                           <Icon name="angle right" />
-                        </a>
+                        </Link> 
                       </li>
                     </ul>
                   </div>
@@ -435,7 +436,9 @@ export default function Home() {
                         <div className="one-third mb-4 mb-md-0">
                           <div className="job-post-item-header d-flex align-items-center">
                             <h2 className="mr-3 text-black">
-                              <a href="/">{jobPosting.jobTitle.title}</a>
+                              <Link to={`/jobposting/${jobPosting.id}`}>
+                                {jobPosting.jobTitle.title}
+                              </Link>
                             </h2>
                             <div className="badge-wrap">
                               <span className="bg-primary text-white badge py-2 px-3">
@@ -461,7 +464,7 @@ export default function Home() {
                                 style={{ marginTop: "-0.3rem" }}
                                 alt=""
                               />
-                              <a href="/" style={{ marginLeft: "5px" }}>
+                              <a href={`http://${jobPosting.employer?.webAddress}`} rel="noreferrer" target="_blank" style={{ marginLeft: "5px" }}>
                                 {jobPosting.employer.companyName}
                               </a>
                             </div>
@@ -715,8 +718,6 @@ export default function Home() {
         </section> */}
 
         {/* ------------------------------------------------------------------------------------------------------------------------- */}
-
-        
       </div>
     </div>
   );

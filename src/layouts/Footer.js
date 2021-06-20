@@ -17,7 +17,7 @@ export default function Footer() {
                 <ul className="center">
                   <li><Link to="/">Ana Sayfa</Link></li> <br />
                   <li><Link to="/jobpostings">İş İlanları</Link></li> <br />
-                  <li><Link to="/">Hakkımızda</Link></li>
+                  <li><Link to="/about">Hakkımızda</Link></li>
                 </ul>
               </div>
               <div className="col-sm-6 col-md-3 item" style={{marginTop: '40px'}}>

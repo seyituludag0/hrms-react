@@ -19,9 +19,8 @@ export default function JobPostingDetail() {
     jobPostingService
       .getJobPostingById(id)
       .then((result) => setJobPosting(result.data.data));
-  }, [id]);
+  }, [id]); 
 
-  console.log(jobPostingDetail.id);
   return (
     <div>
       <div className="myCards" style={{marginRight:"-5rem", marginLeft:"15rem"}}>
@@ -151,7 +150,7 @@ export default function JobPostingDetail() {
             {jobPostingDetail.employer?.companyName}
           </Header>
         </Table.Cell>
-        <Table.Cell singleLine>{jobPostingDetail.employer?.webAddress}</Table.Cell>
+        <Table.Cell singleLine><a href={`http://${jobPostingDetail.employer?.webAddress}`} rel="noreferrer" target="_blank">{jobPostingDetail.employer?.webAddress}</a></Table.Cell>
         <Table.Cell singleLine>{jobPostingDetail.employer?.email}</Table.Cell>
         <Table.Cell>
         {jobPostingDetail.employer?.phoneNumber}
