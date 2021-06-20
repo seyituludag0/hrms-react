@@ -1,8 +1,1 @@
-<<<<<<< HEAD
-# *.* linguist-language=TypeScript
-=======
-# *.* linguist-language=JavaScript
->>>>>>> ddc5378bd25943ff81e349d6fc3a241f32dc505f
-
-
 *.css linguist-detectable=false
