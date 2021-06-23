@@ -10,12 +10,9 @@
 ![E Yakala_2021_06_18_03_54_18_631](https://user-images.githubusercontent.com/76704724/122491541-e409a180-cfec-11eb-9c91-348e10c4a307.png)
 
 ## Home page - 4
-![E Yakala_2021_06_18_03_54_26_257](https://user-images.githubusercontent.com/76704724/122491655-0bf90500-cfed-11eb-95b9-b9ed7964019d.png)
-
-## Home page - 5
 ![E Yakala_2021_06_18_03_54_33_299](https://user-images.githubusercontent.com/76704724/122491698-2337f280-cfed-11eb-8068-97c622e1141c.png)
 
-## Home page - 6
+## Home page - 5
 ![E Yakala_2021_06_18_03_55_24_482](https://user-images.githubusercontent.com/76704724/122491812-5a0e0880-cfed-11eb-8c94-8718fdd23d3a.png)
 
 ## Job Posting Add - 1
