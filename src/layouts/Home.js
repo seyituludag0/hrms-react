@@ -9,13 +9,12 @@ import network from "../img/icon/network.svg";
 import userIcon from "../img/icon/user.svg";
 import career from "../img/icon/career.svg";
 import JobPostingService from "../services/JobPostingService";
-import WorkTypeService from "../services/WorkTypeService"
 import { Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 export default function Home() {
   const [jobPostings, setjobPostings] = useState([]);
-  const [workTypes, setWorkTypes] = useState([]);
+  // const [workTypes, setWorkTypes] = useState([]);
 
   useEffect(() => {
     let jobPostingService = new JobPostingService();

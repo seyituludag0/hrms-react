@@ -9,7 +9,5 @@ export default class CandidateService{
         return axios.get("http://localhost:8080/api/candidates/getCandidateCvByCandidateId?candidateId=" + candidateId)
     }
 
-    registerCandidate(candidate){
-        return axios.post("http://localhost:8080/api/auth/registerCandidate", candidate)
-    }
+   
 } 

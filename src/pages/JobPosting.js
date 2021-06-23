@@ -103,10 +103,12 @@ console.log(jobPostings);
                         style={{ padding: "10px" }}
                       >
                         <Button basic color="green">
+                        <Icon name="write square" style={{fontSize:"1.5rem"}} />
                           İlana Başvur
                         </Button>
 
                         <Button basic color="orange">
+                        <Icon name="info" style={{fontSize:"1.5rem"}} />
                           <Link to={`/jobposting/${jobPosting.id}`}>Detayları Gör</Link>
                         </Button>
 

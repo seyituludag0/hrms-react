@@ -1,6 +1,6 @@
 import React from 'react'
+import '../css/Footer.css'
 import { Link } from 'react-router-dom'
-import '../layouts/Footer.css'
 import { Icon } from "semantic-ui-react";
 
 
@@ -34,9 +34,9 @@ export default function Footer() {
                 <hr />
                 <div className="effect lavinia" style={{marginLeft: '0px', paddingTop: '0px'}}>
                   <div style={{paddingTop: '1px', display: 'flex'}}>
-                    <a href="https://www.instagram.com/seyituludag0/" target="_blank" title="Instagram'da bize katılın"><Icon style={{color:"#bbbdff"}} name="instagram" size="large"/></a>
-                    <a href="https://www.linkedin.com/in/seyituludag/" target="_blank"  title="Linkedin'de bize katılın"><Icon style={{color:"#bbbdff"}} name="linkedin" size="large"/></a>
-                    <a href="https://github.com/seyituludag0" target="_blank" title="Github'da bize katılın"><Icon style={{color:"#bbbdff"}} name="github" size="large"/></a>
+                    <a href="https://www.instagram.com/seyituludag0/" target="_blank" rel="noreferrer" title="Instagram'da bize katılın"><Icon style={{color:"#bbbdff", marginLeft:"3px"}} name="instagram" size="large"/></a>
+                    <a href="https://www.linkedin.com/in/seyituludag/" target="_blank" rel="noreferrer"  title="Linkedin'de bize katılın"><Icon style={{color:"#bbbdff", marginLeft:"3px"}} name="linkedin" size="large"/></a>
+                    <a href="https://github.com/seyituludag0" target="_blank" rel="noreferrer" title="Github'da bize katılın"><Icon style={{color:"#bbbdff", marginLeft:"3px"}} name="github" size="large"/></a>
                   </div>
                 </div>
               </div>

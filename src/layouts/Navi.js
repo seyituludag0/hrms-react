@@ -6,17 +6,17 @@ import SignedIn from './SignedIn';
 
 export default function Navi() {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  // const [isAuthenticated, setIsAuthenticated] = useState(true)
   const history = useHistory();
 
-  function handleSignOut(params) {
-    setIsAuthenticated(false)
-    history.push("/")
-  }
+  // function handleSignOut(params) {
+  //   setIsAuthenticated(false)
+  //   history.push("/")
+  // }
 
-  function handleSignedIn(params) {
-    setIsAuthenticated(true)
-  }
+  // function handleSignedIn(params) {
+  //   setIsAuthenticated(true)
+  // }
 
 
   return (
@@ -43,8 +43,12 @@ export default function Navi() {
               <Link to="/jobpostings">İş İlanları</Link>
           </Menu.Item>
          
-            <Menu.Item>
+            {/* <Menu.Item>
                 { isAuthenticated?<SignedIn signOut={handleSignOut}/>:<SignedOut signedIn={handleSignedIn} /> }
+            </Menu.Item> */}
+             <Menu.Item>
+                <SignedIn />
+                <SignedOut /> 
             </Menu.Item>
           </Menu.Menu>
         </Container>

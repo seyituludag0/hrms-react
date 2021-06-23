@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+// import { Link } from "react-router-dom";
 // import CandidateService from "../services/CandidateService";
-import CvDetailService from "../services/CvDetailService";
+// import CvDetailService from "../services/CvDetailService";
 
 
 export default function Candidate() {
-  const [cvDetails, setCvDetails] = useState([]);
+  // const [cvDetails, setCvDetails] = useState([]);
 
-  useEffect(() => {
-    let cvDetailService = new CvDetailService();
-    cvDetailService
-      .getAllCvDetails()
-      .then((result) => setCvDetails(result.data.data));
-  }, []);
+  // useEffect(() => {
+  //   let cvDetailService = new CvDetailService();
+  //   cvDetailService
+  //     .getAllCvDetails()
+  //     .then((result) => setCvDetails(result.data.data));
+  // }, []);
 
   return (
     <div>

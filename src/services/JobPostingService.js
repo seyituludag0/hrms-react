@@ -41,5 +41,9 @@ export default class JobPostingService{
         return axios.get("http://localhost:8080/api/jobposting/findAllByOrderByPostedDateDesc");
     }
     
+    getJobPostingByCompanyName(companyName){
+        return axios.get("http://localhost:8080/api/jobposting/getByisActiveTrueAndEmployer_companyName?companyName=" + companyName)
+    }
 
+    // http://localhost:8080/api/jobposting/getByisActiveTrueAndEmployer_companyName?companyName=Kodlama.io
 }

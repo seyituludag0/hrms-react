@@ -18,8 +18,7 @@ import CityService from "../services/CityService";
 import JobTitleService from "../services/JobTitleService";
 
 export default function JobPostingAdd() {
-  let jobPostingService = new JobPostingService();
-  const JobPostingAddSchema = Yup.object().shape({
+  const jobPostingAddSchema = Yup.object().shape({
     lastApplyDate: Yup.date()
       .nullable(),
     jobDetails: Yup.string().required("Bu alan boş geçilemez. Lütfen doldurunuz"),
@@ -34,6 +33,7 @@ export default function JobPostingAdd() {
     maxWage: Yup.number().min(0, "1 den az olamaz"),
   });
 
+  let jobPostingService = new JobPostingService();
   const formik = useFormik({
     initialValues: {
       lastApplyDate: "",
@@ -46,7 +46,7 @@ export default function JobPostingAdd() {
       minWage: "",
       maxWage: "",
     },
-    validationSchema: JobPostingAddSchema,
+    validationSchema: jobPostingAddSchema,
     onSubmit: (values) => {
       values.employerId = 2;
       jobPostingService
