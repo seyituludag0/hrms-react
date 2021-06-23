@@ -12,9 +12,6 @@
 ## Home page - 4
 ![E Yakala_2021_06_18_03_54_33_299](https://user-images.githubusercontent.com/76704724/122491698-2337f280-cfed-11eb-8068-97c622e1141c.png)
 
-## Home page - 5
-![E Yakala_2021_06_18_03_55_24_482](https://user-images.githubusercontent.com/76704724/122491812-5a0e0880-cfed-11eb-8c94-8718fdd23d3a.png)
-
 ## Job Posting Add - 1
 ![E Yakala_2021_06_18_04_02_38_108](https://user-images.githubusercontent.com/76704724/122491881-78740400-cfed-11eb-90a5-b01357d44149.png)
 
