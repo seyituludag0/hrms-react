@@ -3,9 +3,6 @@
 ## Home page - 1
 ![E Yakala_2021_06_18_04_19_49_396](https://user-images.githubusercontent.com/76704724/122491385-8bd29f80-cfec-11eb-8af1-94ef945e7fe0.png)
 
-## Home page - 2
-![E Yakala_2021_06_18_03_53_21_485](https://user-images.githubusercontent.com/76704724/122491466-bc1a3e00-cfec-11eb-823d-94965b7fc70c.png)
-
 ## Home page - 3
 ![E Yakala_2021_06_18_03_54_18_631](https://user-images.githubusercontent.com/76704724/122491541-e409a180-cfec-11eb-9c91-348e10c4a307.png)
 
