@@ -4,7 +4,7 @@ import {  Container,  Menu, Image} from "semantic-ui-react";
 import SignedOut from './SignedOut';
 import SignedIn from './SignedIn';
 import { useSelector } from 'react-redux'
-import CartSummary from './CartSummary';
+import Favorite from './Favorite';
 
 
 export default function Navi() {
@@ -48,7 +48,7 @@ export default function Navi() {
 
 
            <Menu.Item>
-           {favoriteItems.length>0&&<CartSummary/>}
+           {favoriteItems.length>0&&<Favorite/>}
           </Menu.Item>
          
             {/* <Menu.Item>

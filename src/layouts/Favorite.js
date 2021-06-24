@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from "react-redux";
 import { removeFromFavorite } from "../store/actions/favoriteActions";
 
-export default function CartSummary() { 
+export default function Favorite() { 
 
     const {favoriteItems} = useSelector(state => state.favorite)
     const dispatch = useDispatch()
