@@ -3,11 +3,14 @@ import { Link, useHistory } from 'react-router-dom';
 import {  Container,  Menu, Image} from "semantic-ui-react";
 import SignedOut from './SignedOut';
 import SignedIn from './SignedIn';
+import { useSelector } from 'react-redux'
+import CartSummary from './CartSummary';
+
 
 export default function Navi() {
-
+  const {favoriteItems} = useSelector(state => state.favorite)
   // const [isAuthenticated, setIsAuthenticated] = useState(true)
-  const history = useHistory();
+  // const history = useHistory();
 
   // function handleSignOut(params) {
   //   setIsAuthenticated(false)
@@ -42,13 +45,18 @@ export default function Navi() {
           <Menu.Item>
               <Link to="/jobpostings">İş İlanları</Link>
           </Menu.Item>
+
+
+           <Menu.Item>
+           {favoriteItems.length>0&&<CartSummary/>}
+          </Menu.Item>
          
             {/* <Menu.Item>
                 { isAuthenticated?<SignedIn signOut={handleSignOut}/>:<SignedOut signedIn={handleSignedIn} /> }
             </Menu.Item> */}
-             <Menu.Item>
+              <Menu.Item>
                 <SignedIn />
-                <SignedOut /> 
+                {/* <SignedOut />  */}
             </Menu.Item>
           </Menu.Menu>
         </Container>

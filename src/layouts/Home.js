@@ -11,10 +11,17 @@ import career from "../img/icon/career.svg";
 import JobPostingService from "../services/JobPostingService";
 import { Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToFavorite } from "../store/actions/favoriteActions";
+import { Button } from "semantic-ui-react";
+import { toast } from "react-toastify";
+
+
 
 export default function Home() {
   const [jobPostings, setjobPostings] = useState([]);
   // const [workTypes, setWorkTypes] = useState([]);
+  const dispatch = useDispatch()
 
   useEffect(() => {
     let jobPostingService = new JobPostingService();
@@ -23,6 +30,10 @@ export default function Home() {
       .then((result) => setjobPostings(result.data.data));
   });
 
+  const handleToFavorite = (jobPosting)=>{
+      dispatch(addToFavorite(jobPosting))
+      toast.success("Favorilere eklendi")
+    } 
 
   return (
     <div>
@@ -476,18 +487,29 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                          <div>
+                           {/* <div>
                             <a
-                              href="/"
+                               onClick={()=>{}}
                               className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
                             >
                               <span className="icon-heart">
                                 <img src={favorite} width="20px" alt="" />
                               </span>
                             </a>
-                          </div>
+                          </div>  */}
+
+                        <Button className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
+                        style={{borderRadius:"2rem"}} onClick={()=>{handleToFavorite(jobPosting)}}
+                        >
+                        <span className="icon-heart">
+                                <img src={favorite} width="20px" alt="" />
+                              </span>
+                          </Button>
+
+                            
+
                           <a
-                            href="job-single.html"
+                            href="/"
                             className="btn btn-primary "
                           >
                             İşe Başvur

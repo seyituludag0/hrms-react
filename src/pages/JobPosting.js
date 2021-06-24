@@ -5,6 +5,8 @@ import { Button, Card, Image, Icon, Dropdown } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 
 export default function JobPosting() {
+
+
   const [jobPostings, setJobPosting] = useState([]);
 
   useEffect(() => {
