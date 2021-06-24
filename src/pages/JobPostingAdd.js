@@ -16,6 +16,9 @@ import WorkingTimeService from "../services/WorkingTimeService";
 import WorkTypeService from "../services/WorkTypeService";
 import CityService from "../services/CityService";
 import JobTitleService from "../services/JobTitleService";
+import { toast } from "react-toastify";
+
+
 
 export default function JobPostingAdd() {
   const jobPostingAddSchema = Yup.object().shape({
@@ -51,7 +54,7 @@ export default function JobPostingAdd() {
       values.employerId = 2;
       jobPostingService
         .addJobPosting(values)
-        .then((result) => alert(result.data.message));
+        .then((result) => toast.success(result.data.message));
     },
   });
 

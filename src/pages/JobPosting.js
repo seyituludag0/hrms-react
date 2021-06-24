@@ -3,6 +3,9 @@ import JobPostingService from "../services/JobPostingService";
 import { Grid } from "semantic-ui-react";
 import { Button, Card, Image, Icon, Dropdown } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
+import  CityFilter  from "../layouts/CityFilter"
+import  WorkTypeFilter  from "../layouts/WorkTypeFilter"
+
 
 export default function JobPosting() {
 
@@ -20,16 +23,16 @@ console.log(jobPostings);
     <div>
       <Grid>
         <Grid.Row>
-        {/* <Grid.Column width={2} floated="left">
-            <Filter />
+         <Grid.Column width={2} className="cities" style={{marginLeft:"3rem"}}>
+         <CityFilter />
           </Grid.Column>
 
-          <Grid.Column width={2} floated="left">
-            <Search />
-          </Grid.Column> */}
+         <Grid.Column width={2} className="work-types" floated="right" style={{marginRight:"-10rem"}}>
+            <WorkTypeFilter />
+          </Grid.Column>
 
           <Grid.Column width={14}>
-            <div className="myCards" style={{marginRight:"-12rem", marginLeft:"18rem"}}>
+            <div className="myCards" style={{marginRight:"-14rem", marginLeft:"20rem", marginTop:"-4.3rem"}}>
               <Card.Group>
                 <Card
                   className="jobs"
