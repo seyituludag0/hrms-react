@@ -13,4 +13,4 @@ export function removeFromFavorite(jobPosting){
         type: REMOVE_FROM_FAVORITE,
         payload:jobPosting
     }
-} 
+}
