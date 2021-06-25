@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import WorkTypeService from "../services/WorkTypeService";
 import { Dropdown } from "semantic-ui-react";
 
-export default function WorkTypeFilter() {
+export default function WorkTypeFilter({onSelect}) {
 
     const [workTypes, setworkTypes] = useState([]);
 
   useEffect(() => {
     let workTypeService = new WorkTypeService();
     workTypeService.getWorkTypes().then((result) => setworkTypes(result.data.data));
-  });
+  },[]);
 
   const workTypeOption = workTypes.map((workType, index) => ({
     key: index,
@@ -25,7 +25,14 @@ export default function WorkTypeFilter() {
         placeholder="Çalışma Tipi Seçiniz"
         selection
         options={workTypeOption}
+        onChange={handleChange}
       />
         </div>
     )
+
+    function handleChange(event,data){
+      onSelect(data.value)
+      console.log(data.value);
+        }
+
 }

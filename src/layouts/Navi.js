@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {  Container,  Menu, Image} from "semantic-ui-react";
-import SignedOut from './SignedOut';
 import SignedIn from './SignedIn';
 import { useSelector } from 'react-redux'
 import Favorite from './Favorite';

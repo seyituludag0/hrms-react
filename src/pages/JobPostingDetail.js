@@ -148,7 +148,7 @@ export default function JobPostingDetail() {
                 marginLeft: "-28rem",
               }}
             >
-              <span style={{ color: "#333333" }}>Çalışma Zamanı Tipi: </span>{" "}
+              <span style={{ color: "#333333" }}>Çalışma Tipi: </span>{" "}
               <h3
                 style={{
                   marginTop: "-2.1rem",
@@ -156,7 +156,7 @@ export default function JobPostingDetail() {
                   color: "#333333",
                 }}
               >
-                {jobPostingDetail.workingTimes?.type}
+                {jobPostingDetail.workType?.type}
               </h3>
             </Dropdown.Header>
           </Card.Content>

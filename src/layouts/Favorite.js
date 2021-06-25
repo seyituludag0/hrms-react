@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Dropdown, Label, Icon, } from 'semantic-ui-react'
+import { Dropdown, Icon, } from 'semantic-ui-react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from "react-redux";
 import { removeFromFavorite } from "../store/actions/favoriteActions";
@@ -13,9 +12,7 @@ export default function Favorite() {
     const removeFavorite = (favoriteJobPosting)=>{
         dispatch(removeFromFavorite(favoriteJobPosting))
     }
-{/* <Link to={`/jobposting/${jobPosting.id}`}>
-                                {jobPosting.jobTitle.title}
-                              </Link> */}
+
     return (
         <div>
        <Dropdown pointing="top right" text="Favori İlanlarım">

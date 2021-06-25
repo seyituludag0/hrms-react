@@ -8,7 +8,6 @@ import {
   Card,
   Form,
   Grid,
-  Image,
 } from "semantic-ui-react";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router";

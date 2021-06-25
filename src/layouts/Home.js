@@ -28,7 +28,7 @@ export default function Home() {
     jobPostingService
       .getJobPosting()
       .then((result) => setjobPostings(result.data.data));
-  });
+  },[]);
 
   const handleToFavorite = (jobPosting)=>{
       dispatch(addToFavorite(jobPosting))

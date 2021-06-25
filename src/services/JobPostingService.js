@@ -45,5 +45,15 @@ export default class JobPostingService{
         return axios.get("http://localhost:8080/api/jobposting/getByisActiveTrueAndEmployer_companyName?companyName=" + companyName)
     }
 
-    // http://localhost:8080/api/jobposting/getByisActiveTrueAndEmployer_companyName?companyName=Kodlama.io
+    getAllByCityId(cityId){
+        return axios.get("http://localhost:8080/api/jobposting/getAllByCityId?cityId=" + cityId)
+    }
+
+    getAllByWorkTypeId(workTypeId){
+        return axios.get("http://localhost:8080/api/jobposting/getByWorkTypeId?workId=" + workTypeId)
+}
+
+    getByCityIdAndWorkTypeId(cityId, workTypeId){
+        return axios.get(`http://localhost:8080/api/jobposting/getByCityIdAndWorkTypeId?cityId=${cityId}&workTypeId=${workTypeId}`)
+    }
 }
