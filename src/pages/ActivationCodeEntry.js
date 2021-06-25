@@ -28,7 +28,6 @@ export default function ActivationCodeEntry() {
         },
         validationSchema: activationCodeScheme,
         onSubmit: (values) => {
-            console.log(values);
             activationCodeService
             .activationCodeEntry(values.code)
             .then((result) => toast.success(result.data.message))

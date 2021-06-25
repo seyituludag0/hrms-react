@@ -33,6 +33,5 @@ export default function CityFilter({onSelect}) {
 
   function handleChange(event,data){
     onSelect(data.value)
-    console.log(data);
       }
 }

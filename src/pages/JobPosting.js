@@ -9,9 +9,9 @@ import  WorkTypeFilter  from "../layouts/WorkTypeFilter"
 
 export default function JobPosting() {
   const [jobPostings, setJobPosting] = useState([]);
-  const [filteredJobPostings, setFilteredJobPostings] = useState(null);//filtrelenmiş state
-  const [selectedCity, setSelectedCity] = useState(null);
+  const [filteredJobPostings, setFilteredJobPostings] = useState(null);
   const [selectedWorkType, setSelectedWorkType] = useState(null);
+  const [selectedCity, setSelectedCity] = useState(null);
   
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function JobPosting() {
       filteredJobByJobPostings = null;
     }
     setFilteredJobPostings(filteredJobByJobPostings);
-  }, [ selectedCity,selectedWorkType]);
+  }, [ selectedWorkType, selectedCity]);
 
   return (
     <div>
@@ -126,6 +126,7 @@ export default function JobPosting() {
                       <Card.Description>
                         {jobPosting.jobDetails}
                       </Card.Description>
+                      
                     </Card.Content>
                     <Card.Content extra>
                       <div

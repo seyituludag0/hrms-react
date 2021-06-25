@@ -159,6 +159,25 @@ export default function JobPostingDetail() {
                 {jobPostingDetail.workType?.type}
               </h3>
             </Dropdown.Header>
+
+            <Dropdown.Header
+              style={{
+                float: "left",
+                marginTop: "8.7rem",
+                marginLeft: "-36rem",
+              }}
+            >
+              <span style={{ color: "#333333" }}>Çalışma Zamanı Tipi: </span>{" "}
+              <h3
+                style={{
+                  marginTop: "-2.1rem",
+                  marginLeft: "27rem",
+                  color: "#333333",
+                }}
+              >
+                {jobPostingDetail.workingTimes?.type}
+              </h3>
+            </Dropdown.Header>
           </Card.Content>
 
           <hr />

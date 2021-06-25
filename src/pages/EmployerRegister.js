@@ -29,7 +29,6 @@ export default function EmployerRegister() {
     },
     validationSchema: candidateRegisterScheme,
     onSubmit: (values) => {
-      console.log(values);
       authService.registerEmployer(values)
       .then((result) => toast.success(result.data.message));
     },

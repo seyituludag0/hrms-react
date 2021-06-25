@@ -16,7 +16,6 @@ export default function CvDetail() {
     candidateService.getCandidateCvByCandidateId(candidateId).then(result=>setCvDetail(result.data.data))
   },[candidateId])
 
-console.log(cvDetail.schoolCandidates);
   return (
 
     <div className="ana div">

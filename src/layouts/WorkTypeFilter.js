@@ -32,7 +32,6 @@ export default function WorkTypeFilter({onSelect}) {
 
     function handleChange(event,data){
       onSelect(data.value)
-      console.log(data.value);
         }
 
 }

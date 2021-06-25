@@ -399,36 +399,6 @@ export default function Home() {
 
         {/* -------------------------------------------------------------------------------------------------------------------------- */}
 
-        <section
-          className="ftco-section img"
-          style={{
-            backgroundImage:
-              "url(https://res.cloudinary.com/hrms-project/image/upload/v1623242140/react-hrms/bg_1_pkbh8a.jpg)",
-            backgroundPosition: "top center",
-            width: "109rem",
-          }}
-        >
-          <div className="container">
-            <div className="row">
-              <div className="col-md-6">
-                <div className="browse-job p-5">
-                  <span className="icon-search2 icon"></span>
-                  <span className="subheading">Search Job</span>
-                  <h2>Browse Job by Specialism</h2>
-                  <p>
-                    Far far away, behind the word mountains, far from the
-                    countries Vokalia and Consonantia, there live the blind
-                    texts. Separated they live in Bookmarksgrove right at the
-                    coast of the Semantics, a large language ocean.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ---------------------------------------------------------------------------------------------------------------------- */}
-
         <section className="ftco-section bg-light hotjobs">
           <div className="container" style={{ marginLeft: "15rem" }}>
             <div className="row">
