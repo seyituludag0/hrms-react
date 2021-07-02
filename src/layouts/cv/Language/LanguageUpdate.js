@@ -75,6 +75,8 @@ const [languageLevels, setLanguageLevels] = useState([]);
                 <Icon name="pencil"></Icon>Düzenle
               </Button>
             }
+            
+            style={{height:"18rem", marginLeft:"23rem", marginTop:"17rem"}}
           >
             <Modal.Header>Dil Güncelle</Modal.Header>
             <Modal.Description>

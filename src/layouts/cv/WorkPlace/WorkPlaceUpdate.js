@@ -69,6 +69,7 @@ export default function WorkPlaceUpdate({ workPlace }) {
             <Icon name="pencil"></Icon>Düzenle
           </Button>
         }
+        style={{height:"27rem", marginLeft:"23rem", marginTop:"17rem"}}
       >
         <Modal.Header>İş Deneyimini Güncelle</Modal.Header>
         <Modal.Description>

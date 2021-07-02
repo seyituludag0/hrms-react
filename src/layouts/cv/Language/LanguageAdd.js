@@ -64,12 +64,14 @@ useEffect(()=>{
         trigger={
           <Button
             floated="right"
-            positive
+            primary
             style={{ marginBottom: ".5em", marginRight: ".5em" }}
           >
             <Icon name="add"></Icon>Ekle
           </Button>
         }
+        
+        style={{height:"17rem", marginLeft:"23rem", marginTop:"17rem"}}
       >
         <Modal.Header>Dil Ekle</Modal.Header>
         <Modal.Description>

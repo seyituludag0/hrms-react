@@ -520,12 +520,12 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <Pagination
+            </div>
+            <Pagination
             activePage={activePage}
             onPageChange={onChange}
             totalPages={10}
           />
-            </div>
           </div>
         </section>
 

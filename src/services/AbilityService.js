@@ -16,5 +16,9 @@ export default class AbilityService{
     update(abilityCandidate){
         return axios.post("http://localhost:8080/api/abilityCandidates/update", abilityCandidate)
     }
+
+    delete(id){
+        return axios.post("http://localhost:8080/api/abilityCandidates/delete?id=" + id)
+    }
 }
 

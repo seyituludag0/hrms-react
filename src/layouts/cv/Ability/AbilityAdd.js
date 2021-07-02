@@ -67,12 +67,13 @@ export default function AbilityAdd({ability}) {
         trigger={
           <Button
             floated="right"
-            positive
+            primary
             style={{ marginBottom: ".5em", marginRight: ".5em" }}
           >
             <Icon name="add"></Icon>Ekle
           </Button>
         }
+                style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
       >
         <Modal.Header>Yetenek Ekle</Modal.Header>
         <Modal.Description>
@@ -86,7 +87,7 @@ export default function AbilityAdd({ability}) {
                 <Dropdown
                         clearable
                         item
-                        placeholder="Çalışma Süresi"
+                        placeholder="Yetenek"
                         search
                         selection
                         onChange={(event, data) =>

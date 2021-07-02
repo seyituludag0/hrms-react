@@ -17,6 +17,11 @@ export default class LanguageService{
         return axios.post("http://localhost:8080/api/LanguageCandidate/update", languageCandidate)
     }
 
+    delete(id){
+        return axios.post("http://localhost:8080/api/LanguageCandidate/delete?id=" + id)
+    }
+
+
 }
 
 

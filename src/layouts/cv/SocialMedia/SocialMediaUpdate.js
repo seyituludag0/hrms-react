@@ -48,15 +48,26 @@ export default function Update({socialMediaLink}) {
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
             open={open}
+            // trigger={
+            //   <Button
+            //     floated="right"
+            //     style={{ marginBottom: ".5em", marginRight: ".5em" }}
+            //   >
+            //     <Icon name="pencil"></Icon>Düzenle
+            //   </Button>
+            // }
+
             trigger={
-              <Button
+              <Icon
                 floated="right"
-                positive
-                style={{ marginBottom: ".5em", marginRight: ".5em" }}
+                primary
+                style={{ marginBottom: "0.5em", marginRight: "0.5em", height:"2rem", marginTop:"6px", marginLeft:"6px", fontSize:"1.3rem", color:"black" }}
               >
-                <Icon name="pencil"></Icon>Düzenle
-              </Button>
+                <Icon name="pencil"></Icon>
+              </Icon>
             }
+            
+            style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
           >
             <Modal.Header>Sosyal Medya Güncelle</Modal.Header>
             <Modal.Description>

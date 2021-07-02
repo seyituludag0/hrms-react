@@ -74,12 +74,14 @@ return (
         trigger={
           <Button
             floated="right"
-            positive
+            primary
             style={{ marginBottom: ".5em", marginRight: ".5em" }}
           >
             <Icon name="add"></Icon>Ekle
           </Button>
         }
+        
+        style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
       >
         <Modal.Header>Okul Adı Ekle</Modal.Header>
         <Modal.Description>

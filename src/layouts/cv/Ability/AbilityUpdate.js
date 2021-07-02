@@ -63,6 +63,7 @@ export default function AbilityUpdate({ability}) {
               <Icon name="pencil"></Icon>Düzenle
             </Button>
           }
+                style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
         >
           <Modal.Header>Yetenek Güncelle</Modal.Header>
           <Modal.Description>

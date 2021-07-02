@@ -53,6 +53,8 @@ export default function BasicInformations({basicInformation}) {
                 <Icon name="pencil"></Icon>Düzenle
               </Button>
             }
+            
+            style={{height:"30rem", marginLeft:"23rem", marginTop:"10rem"}}
           >
             <Modal.Header>Temel Bilgilerini Güncelle</Modal.Header>
             <Modal.Description>
@@ -60,27 +62,10 @@ export default function BasicInformations({basicInformation}) {
                 onSubmit={handleSubmit}
                 style={{ marginTop: "1em", marginLeft: "1em", marginBottom: "1em" }}
               >
-                <Grid stackable>
-                  <GridColumn width={7}>
-                    <Form.Field>
-                      <label>Açıklama Metni</label>
-                      <input
-                        name="description"
-                        placeholder="Açıklama Metni"
-                        value={values.description}
-                        onChange={handleChange}
-                      />
-                      {errors.description && touched.description && (
-                        <Label basic color="red" pointing>
-                          {errors.description}
-                        </Label>
-                      )}
-                    </Form.Field>
-                  </GridColumn>
-                </Grid>
+             
 
                 <Grid stackable>
-                  <GridColumn width={7}>
+                  <GridColumn width={12}>
                     <Form.Field>
                       <label>Resim Linki</label>
                       <input
@@ -92,6 +77,25 @@ export default function BasicInformations({basicInformation}) {
                       {errors.cvPhotoUrl && touched.cvPhotoUrl && (
                         <Label basic color="red" pointing>
                           {errors.cvPhotoUrl}
+                        </Label>
+                      )}
+                    </Form.Field>
+                  </GridColumn>
+                </Grid>
+
+                <Grid stackable>
+                  <GridColumn width={12}>
+                    <Form.Field>
+                      <label>Açıklama Metni</label>
+                      <textarea
+                        name="description"
+                        placeholder="Açıklama Metni"
+                        value={values.description}
+                        onChange={handleChange}
+                      />
+                      {errors.description && touched.description && (
+                        <Label basic color="red" pointing>
+                          {errors.description}
                         </Label>
                       )}
                     </Form.Field>

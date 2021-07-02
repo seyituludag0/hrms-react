@@ -64,6 +64,8 @@ export default function SchoolUpdate({ schoolCandidate }) {
                 <Icon name="pencil"></Icon>Düzenle
               </Button>
             }
+            
+            style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
           >
             <Modal.Header>Sosyal Medya Güncelle</Modal.Header>
             <Modal.Description>
