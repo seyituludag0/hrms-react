@@ -2,11 +2,11 @@ import axios from "axios"
 
 export default class JobPostingService{
     getJobPosting(){
-        return axios.get("http://localhost:8080/api/jobposting/getall");
+        return axios.get("http://localhost:8080/api/jobPosting/getall");
     }    
 
     addJobPosting(values){
-        return axios.post("http://localhost:8080/api/jobposting/add",values)
+        return axios.post("http://localhost:8080/api/jobPosting/add",values)
     }
 
     getCandidateCvByCandidateId(candidateId){
@@ -14,7 +14,7 @@ export default class JobPostingService{
     }
 
     getJobPostingById(id){
-        return axios.get("http://localhost:8080/api/jobposting/getById?id=" + id)
+        return axios.get("http://localhost:8080/api/jobPosting/getById?id=" + id)
     }
 
     // -------------------------------------------------------------------------------------------------------------------------
@@ -22,38 +22,51 @@ export default class JobPostingService{
     // aktif iş ilanlarını görmek için
 
     getAllOpenJobPosting(){
-        return axios.get("http://localhost:8080/api/jobposting/getAllOpenJobPostingList");
+        return axios.get("http://localhost:8080/api/jobPosting/getAllOpenJobPostingList");
     }
 
     changeActiveByEmployee(id){
-        return axios.post("http://localhost:8080/api/jobposting/changeActiveByEmployee?id=" + id)
+        return axios.post("http://localhost:8080/api/jobPosting/changeActiveByEmployee?id=" + id)
     }
 
     getAllByEmployerId(employerId){
-        return axios.get("http://localhost:8080/api/jobposting/getAllJobPostingByEmployer?id=" + employerId)
+        return axios.get("http://localhost:8080/api/jobPosting/getAllJobPostingByEmployer?id=" + employerId)
     }
 
     changeIsActiveByEmployer(id){
-        return axios.post("http://localhost:8080/api/jobposting/changeIsActiveByEmployer?id=" + id)
+        return axios.post("http://localhost:8080/api/jobPosting/changeIsActiveByEmployer?id=" + id)
     }
 
-    findAllByOrderByPostedDateDesc(){
-        return axios.get("http://localhost:8080/api/jobposting/findAllByOrderByPostedDateDesc");
+    findAllByOrderByPostedDateAsc(pageNo, size){
+        return axios.get(`http://localhost:8080/api/jobPosting/findAllByOrderByPostedDateAsc?pageNo=${pageNo}&size=${size}`); //Önceden Eklenen İlanlar
+    }
+  
+    // http://localhost:8080/api/jobPosting/findAllByOrderByPostedDateDesc?pageNo=1&size=1
+    findAllByOrderByPostedDateDesc(pageNo, size){
+        return axios.get(`http://localhost:8080/api/jobPosting/findAllByOrderByPostedDateDesc?pageNo=${pageNo}&size=${size}`); //Yeni Eklenen İlanlar
     }
     
     getJobPostingByCompanyName(companyName){
-        return axios.get("http://localhost:8080/api/jobposting/getByisActiveTrueAndEmployer_companyName?companyName=" + companyName)
+        return axios.get("http://localhost:8080/api/jobPosting/getByisActiveTrueAndEmployer_companyName?companyName=" + companyName)
     }
 
     getAllByCityId(cityId){
-        return axios.get("http://localhost:8080/api/jobposting/getAllByCityId?cityId=" + cityId)
+        return axios.get("http://localhost:8080/api/jobPosting/getAllByCityId?cityId=" + cityId)
     }
 
     getAllByWorkTypeId(workTypeId){
-        return axios.get("http://localhost:8080/api/jobposting/getByWorkTypeId?workId=" + workTypeId)
+        return axios.get("http://localhost:8080/api/jobPosting/getByWorkTypeId?workId=" + workTypeId)
 }
 
     getByCityIdAndWorkTypeId(cityId, workTypeId){
-        return axios.get(`http://localhost:8080/api/jobposting/getByCityIdAndWorkTypeId?cityId=${cityId}&workTypeId=${workTypeId}`)
+        return axios.get(`http://localhost:8080/api/jobPosting/getByCityIdAndWorkTypeId?cityId=${cityId}&workTypeId=${workTypeId}`)
     }
+
+    countByJobTitleId(jobTitleId){
+        return axios.get("http://localhost:8080/api/jobPosting/countByJobTitleId?jobTitleId="+jobTitleId)
+      }
+     
+     countGetAll(){
+       return axios.get("http://localhost:8080/api/jobPosting/countGetAll")
+     }
 }

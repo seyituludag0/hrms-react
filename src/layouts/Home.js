@@ -9,25 +9,39 @@ import network from "../img/icon/network.svg";
 import userIcon from "../img/icon/user.svg";
 import career from "../img/icon/career.svg";
 import JobPostingService from "../services/JobPostingService";
-import { Icon } from "semantic-ui-react";
+import { Icon, Table, Message} from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToFavorite } from "../store/actions/favoriteActions";
 import { Button } from "semantic-ui-react";
 import { toast } from "react-toastify";
-
+import { Pagination } from "semantic-ui-react";
 
 
 export default function Home() {
   const [jobPostings, setjobPostings] = useState([]);
   // const [workTypes, setWorkTypes] = useState([]);
+  const [activePage, setActivePage] = useState(1);
+  const [pageSize] = useState(3)
   const dispatch = useDispatch()
 
   useEffect(() => {
     let jobPostingService = new JobPostingService();
     jobPostingService
-      .getJobPosting()
-      .then((result) => setjobPostings(result.data.data));
+      .findAllByOrderByPostedDateDesc(activePage, pageSize) //Yeni Eklenen İlanlar
+      .then((result) => setjobPostings(result.data.data))
+       
+      // jobPostingService
+      // .findAllByOrderByPostedDateAsc() //Önceden Eklenen İlanlar
+      // .then((result) => setjobPostings(result.data.data));
+  },[activePage, pageSize]);
+
+  useEffect(() => {
+    let jobPostingService = new JobPostingService();
+    jobPostingService
+      .findAllByOrderByPostedDateAsc(activePage, pageSize)
+      .then((result) => setjobPostings(result.data.data)
+      );
   },[]);
 
   const handleToFavorite = (jobPosting)=>{
@@ -35,8 +49,13 @@ export default function Home() {
       toast.success("Favorilere eklendi")
     } 
 
+    const onChange = (e, pageInfo) => {
+      setActivePage(pageInfo.activePage);
+      // console.log(pageInfo.activePage)
+      //console.log(pageInfo)
+    };
+
   return (
-    <div>
       <div className="img">
         <img
           src={banner}
@@ -359,58 +378,19 @@ export default function Home() {
         </div>
 
         {/* -------------------------------------------------------------------------------------------------------------------------- */}
-
-        <section className="ftco-section">
-          <div className="container">
-            <div className="row justify-content-center mb-5 pb-3">
-              <div
-                className="col-md-7 heading-section text-center"
-                style={{ marginLeft: "10rem" }}
-              >
-                <span className="subheading">İş Başlıkları</span>
-                <h2 className="mb-4" style={{ fontSize: "52px" }}>
-                  Yeni Eklenen İlanlar
-                </h2>
-              </div>
-            </div>
-
-            <div className="jobs" style={{ display: "inline-flex" }}>
-              <div className="row">
-                {jobPostings.map((jobPosting) => (
-                  <div className="col-md-3" style={{ width: "100rem" }}>
-                    <ul className="category" key={jobPosting.id}>
-                      <li>
-                        <Link to={`/jobposting/${jobPosting.id}`}>
-                          {jobPosting.jobTitle.title} <br />
-                          <span>Açık Pozisyon Sayısı</span>{" "}
-                          <span className="number">
-                            {jobPosting.numberOfOpenPositions}
-                          </span>
-                          <Icon name="angle right" />
-                        </Link> 
-                      </li>
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* -------------------------------------------------------------------------------------------------------------------------- */}
-
-        <section className="ftco-section bg-light hotjobs">
+   <section className="ftco-section bg-light hotjobs">
           <div className="container" style={{ marginLeft: "15rem" }}>
             <div className="row">
               <div className=" pr-lg-5">
                 <div className="row justify-content-center pb-3">
                   <div className="col-md-12 heading-section ">
-                    <span className="subheading">Son Eklenen İşler</span>
-                    <h2 className="mb-4">Yeni Eklenen İlanlar</h2>
+                    {/* <span className="subheading">Son Eklenen İşler</span>
+                    <h2 className="mb-4">Yeni Eklenen İlanlar</h2> */}
                   </div>
                 </div>
                 <div className="row">
-                  {jobPostings.map((jobPosting) => (
+                  {jobPostings.length>0?(
+                  jobPostings.map((jobPosting) => (
                     <div className="col-md-12 ">
                       <div className="job-post-item py-4 d-block d-lg-flex align-items-center">
                         <div className="one-third mb-4 mb-md-0">
@@ -487,9 +467,64 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  ))}
+                  ))
+                  ):(<Table>
+            <Message info color="red" visible style={{paddingLeft:"33%"}} size="big">
+              Üzgünüz, Bu sayfada iş ilanı bulunamadı!
+            </Message>
+          </Table>)}
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <Pagination
+            activePage={activePage}
+            onPageChange={onChange}
+            totalPages={10}
+          />
+ 
+        {/* -------------------------------------------------------------------------------------------------------------------------- */}
+
+        <section className="ftco-section">
+          <div className="container">
+            <div className="row justify-content-center mb-5 pb-3">
+              <div
+                className="col-md-7 heading-section text-center"
+                style={{ marginLeft: "10rem" }}
+              >
+                <span className="subheading">İş Başlıkları</span>
+                <h2 className="mb-4" style={{ fontSize: "52px" }}>
+                  Geçmiş Tarihli İlanlar
+                </h2>
+              </div>
+            </div>
+
+            <div className="jobs" style={{ display: "inline-flex" }}>
+              <div className="row">
+                {jobPostings.map((jobPosting) => (
+                  <div className="col-md-3" style={{ width: "100rem" }}>
+                    <ul className="category" key={jobPosting.id}>
+                      <li>
+                        <Link to={`/jobposting/${jobPosting.id}`}>
+                          {jobPosting.jobTitle.title} <br />
+                          <span>Açık Pozisyon Sayısı</span>{" "}
+                          <span className="number">
+                            {jobPosting.numberOfOpenPositions}
+                          </span>
+                          <Icon name="angle right" />
+                        </Link> 
+                      </li>
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              <Pagination
+            activePage={activePage}
+            onPageChange={onChange}
+            totalPages={10}
+          />
             </div>
           </div>
         </section>
@@ -610,106 +645,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ------------------------------------------------------------------------------------------------------------------------- */}
 
-        {/* <section
-          style={{
-            backgroundColor: "#6c63ff",
-            marginTop: "3rem",
-            width: "109rem",
-          }}
-        >
-          <div className="container">
-            <div className="row justify-content-center pb-3">
-              <div className="col-md-10 heading-section heading-section-white text-center">
-                <span className="subheading">Adaylar</span>
-                <h2 className="mb-4">Yeni Adaylar</h2>
-              </div>
-            </div>
-          </div>
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="carousel-candidates owl-carousel">
-                  <div
-                    className="item item-one"
-                    style={{ marginLeft: "-60rem" }}
-                  >
-                    <a href="/" className="team text-center">
-                      <div
-                        className="img"
-                        style={{
-                          backgroundImage:
-                            "url(https://res.cloudinary.com/hrms-project/image/upload/v1623257938/react-hrms/person_2_k4sj1i.jpg)",
-                        }}
-                      />
-                      <h2>Danica Lewis</h2>
-                      <span className="position">Western City, UK</span>
-                    </a>
-                  </div>
-
-                  {/* --------------------------------------------------------------------------------
-
-                  <div
-                    className="item item-two"
-                    style={{ marginLeft: "-15rem", marginTop: "-18rem" }}
-                  >
-                    <a href="/" className="team text-center">
-                      <div
-                        className="img"
-                        style={{
-                          backgroundImage:
-                            "url(https://res.cloudinary.com/hrms-project/image/upload/v1623259270/react-hrms/person_4_vi5rpa.jpg)",
-                        }}
-                      />
-                      <h2>Danica Lewis</h2>
-                      <span className="position">Western City, UK</span>
-                    </a>
-                  </div>
-
-
-                  <div
-                    className="item item-three"
-                    style={{ marginLeft: "27rem", marginTop: "-18rem" }}
-                  >
-                    <a href="/" className="team text-center">
-                      <div
-                        className="img"
-                        style={{
-                          backgroundImage:
-                            "url(https://res.cloudinary.com/hrms-project/image/upload/v1623259293/react-hrms/person_5_mdbadz.jpg)",
-                        }}
-                      />
-                      <h2>Danica Lewis</h2>
-                      <span className="position">Western City, UK</span>
-                    </a>
-                  </div>
-
-
-                  <div
-                    className="item item-four"
-                    style={{ marginLeft: "68rem", marginTop: "-18rem" }}
-                  >
-                    <a href="/" className="team text-center">
-                      <div
-                        className="img"
-                        style={{
-                          backgroundImage:
-                            "url(https://res.cloudinary.com/hrms-project/image/upload/v1623251069/react-hrms/person_1_zoqwmc.jpg)",
-                        }}
-                      />
-                      <h2>Danica Lewis</h2>
-                      <span className="position">Western City, UK</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
-        {/* ------------------------------------------------------------------------------------------------------------------------- */}
+        
       </div>
-    </div>
   );
 }

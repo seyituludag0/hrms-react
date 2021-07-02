@@ -5,21 +5,21 @@ import { Button, Card, Image, Icon, Dropdown } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 import  CityFilter  from "../layouts/CityFilter"
 import  WorkTypeFilter  from "../layouts/WorkTypeFilter"
-
+import { Pagination } from "semantic-ui-react";
 
 export default function JobPosting() {
   const [jobPostings, setJobPosting] = useState([]);
   const [filteredJobPostings, setFilteredJobPostings] = useState(null);
   const [selectedWorkType, setSelectedWorkType] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
-  
+  const [activePage, setActivePage] = useState(1);
+  const [pageSize, setPageSize] = useState(3);
 
   useEffect(() => {
     let jobPostingService = new JobPostingService();
-    jobPostingService
-      .findAllByOrderByPostedDateDesc()
+    jobPostingService.findAllByOrderByPostedDateDesc(activePage, pageSize)
       .then((result) => setJobPosting(result.data.data));
-  }, []);
+  }, [activePage, pageSize]);
 
   useEffect(() => {
     let filteredJobByJobPostings;
@@ -43,6 +43,16 @@ export default function JobPosting() {
     setFilteredJobPostings(filteredJobByJobPostings);
   }, [ selectedWorkType, selectedCity]);
 
+  const onChange = (e, pageInfo) => {
+    setActivePage(pageInfo.activePage);
+    // console.log(pageInfo.activePage)
+    //console.log(pageInfo)
+  };
+  let pageAble=(pageNo)=>{
+    
+    setPageSize(pageNo);
+      
+  }
   return (
     <div>
       <Grid>
@@ -248,6 +258,22 @@ export default function JobPosting() {
           </Grid.Column>
         </Grid.Row>
       </Grid>
+      <Pagination
+            activePage={activePage}
+            onPageChange={onChange}
+            totalPages={10}
+          />
+
+{/* <Button.Group>
+    <Button  onClick={()=>pageAble(10)}>10</Button>
+    <Button.Or />
+    <Button onClick={()=>pageAble(20)}>20</Button>
+    <Button.Or />
+    <Button>50</Button>
+    <Button.Or />
+    <Button>100</Button>
+  </Button.Group> */}
+    
     </div>
   );
 

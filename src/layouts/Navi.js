@@ -1,25 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState }from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import {  Container,  Menu, Image} from "semantic-ui-react";
 import SignedIn from './SignedIn';
+import SignedOut from './SignedOut';
 import { useSelector } from 'react-redux'
 import Favorite from './Favorite';
 
 
 export default function Navi() {
   const {favoriteItems} = useSelector(state => state.favorite)
-  // const [isAuthenticated, setIsAuthenticated] = useState(true)
-  // const history = useHistory();
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const history = useHistory();
 
-  // function handleSignOut(params) {
-  //   setIsAuthenticated(false)
-  //   history.push("/")
-  // }
+  function handleSignOut(params) {
+    setIsAuthenticated(false)
+    history.push("/")
+  }
 
-  // function handleSignedIn(params) {
-  //   setIsAuthenticated(true)
-  // }
-
+  function handleSignedIn(params) {
+    setIsAuthenticated(true)
+  }
 
   return (
     <div>
@@ -45,16 +45,24 @@ export default function Navi() {
               <Link to="/jobpostings">İş İlanları</Link>
           </Menu.Item>
 
+          <Menu.Item>
+              <Link to="/employer">Şirketim</Link>
+          </Menu.Item>
+
+          <Menu.Item>
+              <Link to="/candidate/1">Öz Geçmiş</Link>
+          </Menu.Item>
+
 
            <Menu.Item>
            {favoriteItems.length>0&&<Favorite/>}
           </Menu.Item>
          
-            {/* <Menu.Item>
+            <Menu.Item>
                 { isAuthenticated?<SignedIn signOut={handleSignOut}/>:<SignedOut signedIn={handleSignedIn} /> }
-            </Menu.Item> */}
+            </Menu.Item>
               <Menu.Item>
-                <SignedIn />
+                {/* <SignedIn /> */}
                 {/* <SignedOut />  */}
             </Menu.Item>
           </Menu.Menu>

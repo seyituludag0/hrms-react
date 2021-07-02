@@ -12,9 +12,13 @@ import JobPostingAdd from "../pages/JobPostingAdd";
 import AdminJobPostingList from "../pages/admin/jobPosting/AdminJobPostingList";
 import EmployerJobPostingList from "../pages/Employer/EmployerJobPostingList";
 import { ToastContainer } from "react-toastify";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import About from "../pages/About";
 import ActivationCodeEntry from "../pages/ActivationCodeEntry";
+import ActiveEmployer from "../pages/Employer/ActiveEmployer";
+import EmployeeList from "../pages/Employee/EmployeeList";
+import AdminPaneli from "../pages/admin/AdminPaneli";
+import Employers from "../pages/admin/Employer/Employers";
 
 
 export default function Dashboard() {
@@ -26,6 +30,7 @@ export default function Dashboard() {
           <Grid.Column width={14}>
               <Route exact path="/" component={Home} />
               <Route path="/adminjobpostinglist" component={AdminJobPostingList}/>
+              <Route path="/admin" component={AdminPaneli}/>
               <Route path="/employerjobpostinglist" component={EmployerJobPostingList}/>
               <Route exact path="/jobpostingadd" component={JobPostingAdd} />
               <Route exact path="/jobposting/:id" component={JobPostingDetail} />
@@ -36,7 +41,10 @@ export default function Dashboard() {
               <Route exact path="/candidate/:candidateId" component={CvDetail}/>
               <Route exact path="/about" component={About} />
               <Route exact path="/activationcode" component={ActivationCodeEntry} />
-              <Footer />
+              <Route exact path="/employer" component={ActiveEmployer} />
+              <Route exact path="/employers" component={Employers} />
+              <Route exact path="/employee" component={EmployeeList} />
+              {/* <Footer /> */}
              
           </Grid.Column>
         </Grid.Row>
