@@ -21,7 +21,7 @@ export default function AbilityUpdate({ability}) {
     const formik = useFormik({
       initialValues: {
         id:ability?.id,
-        abilityId:1,
+        abilityId:ability?.ability.id,
         candidateId:1,
       },
       enableReinitialize:true,

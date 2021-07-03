@@ -5,11 +5,12 @@ export default class SchoolService {
     return axios.get("http://localhost:8080/api/schools/getAll");
   }
 
+  getSchools() {
+    return axios.get("http://localhost:8080/api/schools/getAll");
+  }
+
   update(schoolcandidate) {
-    return axios.post(
-      "http://localhost:8080/api/schoolcandidate/update",
-      schoolcandidate
-    );
+        return axios.post("http://localhost:8080/api/schoolcandidate/update",schoolcandidate);
   }
 
   delete(id) {

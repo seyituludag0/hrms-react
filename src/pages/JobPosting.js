@@ -13,11 +13,11 @@ export default function JobPosting() {
   const [selectedWorkType, setSelectedWorkType] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
   const [activePage, setActivePage] = useState(1);
-  const [pageSize, setPageSize] = useState(3);
+  const [pageSize, setPageSize] = useState(2);
 
   useEffect(() => {
     let jobPostingService = new JobPostingService();
-    jobPostingService.findAllByOrderByPostedDateDesc(activePage, pageSize)
+    jobPostingService.getJobPosting(activePage, pageSize)
       .then((result) => setJobPosting(result.data.data));
   }, [activePage, pageSize]);
 
@@ -45,8 +45,6 @@ export default function JobPosting() {
 
   const onChange = (e, pageInfo) => {
     setActivePage(pageInfo.activePage);
-    // console.log(pageInfo.activePage)
-    //console.log(pageInfo)
   };
   let pageAble=(pageNo)=>{
     
@@ -155,10 +153,8 @@ export default function JobPosting() {
 
                   
                         <Button as="div" labelPosition="right">
-                          <Button color="red">
                             <Icon name="heart" />
                             Favorilere Ekle
-                          </Button>
                         </Button>
                       </div>
                     </Card.Content>
@@ -249,11 +245,20 @@ export default function JobPosting() {
                       </div>
                     </Card.Content>
                   </Card>
-                  ))
-              
-              
+                  ))              
               }
               </Card.Group>
+              <p>Bir sayfada kaç iş ilanı görmek istersiniz</p>
+             
+       <Button.Group>
+    <Button  onClick={()=>pageAble(10)}>10</Button>
+    <Button.Or />
+    <Button onClick={()=>pageAble(20)}>20</Button>
+    <Button.Or />
+    <Button>50</Button>
+    <Button.Or />
+    <Button>100</Button>
+  </Button.Group>
             </div>
           </Grid.Column>
         </Grid.Row>
