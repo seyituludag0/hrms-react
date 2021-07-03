@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
@@ -10,37 +10,48 @@ import {
     Label,
     Modal,
     Icon,
+    Dropdown
   } from "semantic-ui-react";
-  import SocialMediaService from "../../../services/SocialMedia";
+  import SocialMediaService from "../../../services/SocialMediaService";
 
 
 export default function Update({socialMediaLink}) {
  
     const [open, setOpen] = useState(false)
+    const [linkTypes, setLinkTypes] = useState([])
+    const [candidateSocialMedias, setCandidateSocialMedias] = useState([])
 
-    // console.log(socialMediaLink);
+    const formik = useFormik({
+      initialValues: {
+        id:socialMediaLink?.id,
+        candidateId:socialMediaLink?.candidate.id,
+        link:socialMediaLink?.link,
+        linkTypeId: socialMediaLink?.linkType.id
+      },
+      enableReinitialize:true,
+      onSubmit: (values) => {
+        console.log(values);
+        let socialMediaLinkService = new SocialMediaService();
+        socialMediaLinkService.update(values).then(toast.success("Sosyal medya hesap bilgileri güncellendi!"));
+      },
+    })
 
-    const { values, errors, handleChange, handleSubmit, touched } = useFormik({
-        initialValues: {
-          id:socialMediaLink?.id,
-          candidate:socialMediaLink?.candidate,
-          link:socialMediaLink?.link,
-          // linkType: socialMediaLink?.linkType.id
-          linkType: {id:4}
-        },
-        enableReinitialize:true,
-        validationSchema: Yup.object({
-            // linkType:Yup.string().required(" LinkType boş bırakılamaz!"),
-            link:Yup.string().required("link boş bırakılamaz")
-        }),
-        onSubmit: (values) => {
-          let socialMediaService = new SocialMediaService();
-          console.log(socialMediaLink)
-          socialMediaService.update(values)
-            .then(toast.success("Sosyal medya bilgisi güncellendi!"));
-        },
-      });
+    const handleChangeSemantic = (value, fieldName) => {
+      formik.setFieldValue(fieldName, value);
+    };
 
+      useEffect(()=>{
+        let socialMediaService = new SocialMediaService();
+        socialMediaService.getSocialMediaLinkTypes().then(result=>setLinkTypes(result.data.data))
+        socialMediaService.getSocialMediaByCandidateId(1).then(result=>console.log(result.data.data))
+      },[])
+      
+      
+        const linkTypeOption = linkTypes.map((linkType, index) => ({
+          key: index,
+          text: linkType?.linkType,
+          value: linkType?.id,
+        }));
 
       return (
         <div>
@@ -48,15 +59,6 @@ export default function Update({socialMediaLink}) {
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
             open={open}
-            // trigger={
-            //   <Button
-            //     floated="right"
-            //     style={{ marginBottom: ".5em", marginRight: ".5em" }}
-            //   >
-            //     <Icon name="pencil"></Icon>Düzenle
-            //   </Button>
-            // }
-
             trigger={
               <Icon
                 floated="right"
@@ -67,48 +69,58 @@ export default function Update({socialMediaLink}) {
               </Icon>
             }
             
-            style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
+            style={{height:"35rem", marginLeft:"23rem", marginTop:"17rem"}}
           >
             <Modal.Header>Sosyal Medya Güncelle</Modal.Header>
             <Modal.Description>
               <Form
-                onSubmit={handleSubmit}
+                onSubmit={formik.handleSubmit}
                 style={{ marginTop: "1em", marginLeft: "1em", marginBottom: "1em" }}
               >
+                
                 <Grid stackable>
-                  {/* <GridColumn width={14}>
-                    <Form.Field>
-                      <label>Sosyal Medya Adı</label>
-                      <input
-                        name="linkType"
-                        placeholder="Sosyal Medya "
-                        value={values.linkType}
-                        onChange={handleChange}
-                      />
-                      {errors.linkType && touched.linkType && (
-                        <Label basic color="red" pointing>
-                          {errors.linkType}
-                        </Label>
+                <GridColumn width={7}>
+                <Form.Field>
+                    <label>Url Link</label>
+                    <input
+                      name="link"
+                      placeholder="site Adı"
+                      value={formik.values.link}
+                      onChange={formik.handleChange}
+                    />
+                    {formik.errors.link && formik.touched.link && (
+                      <Label basic color="red" pointing>
+                        {formik.errors}
+                      </Label>
+                    )}
+                  </Form.Field>
+                  <Form.Field>
+                    <label>Sosyal Medya Sitesi</label>
+                    <Dropdown
+                    name="linkTypeId"
+                      clearable
+                      item
+                      placeholder="Sosyal Medya Sitesi"
+                      search
+                      selection
+                      value={formik.values.linkTypeId}
+                      onChange={(event, data) =>
+                        handleChangeSemantic(data.value, "linkTypeId")
+                      }
+                      onBlur={formik.onBlur}
+                      id="linkTypeId"
+                      options={linkTypeOption}
+                    />
+                    {formik.errors.linkTypeId &&
+                      formik.touched.linkTypeId && (
+                        <div className={"ui pointing red basic label"}>
+                          {formik.errors.linkTypeId}
+                        </div>
                       )}
-                    </Form.Field>
-                  </GridColumn> */}
-                  <GridColumn width={7}>
-                    <Form.Field>
-                      <label>Url Link</label>
-                      <input
-                        name="link"
-                        placeholder="site Adı"
-                        value={values.link}
-                        onChange={handleChange}
-                      />
-                      {errors.link && touched.link && (
-                        <Label basic color="red" pointing>
-                          {errors.link}
-                        </Label>
-                      )}
-                    </Form.Field>
-                  </GridColumn>
-                </Grid>
+                  </Form.Field>
+                </GridColumn>
+              </Grid>
+              
                 <Modal.Actions>
                   <Button color="red" onClick={() => setOpen(false)}>
                     Vazgeç
