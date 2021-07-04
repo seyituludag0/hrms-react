@@ -46,9 +46,6 @@ export default function Navi() {
          
           <Menu.Menu position="right">
           <Menu.Item>
-              <Link to="/jobpostingadd">İlan Ekle</Link>
-          </Menu.Item>
-          <Menu.Item>
               <Link to="/jobpostings">İş İlanları</Link>
           </Menu.Item>
 
