@@ -18,6 +18,7 @@ import { toast } from "react-toastify";
 import { Pagination } from "semantic-ui-react";
 
 
+
 export default function Home() {
   const [jobPostings, setjobPostings] = useState([]);
   // const [workTypes, setWorkTypes] = useState([]);
@@ -30,10 +31,6 @@ export default function Home() {
     jobPostingService
       .findAllByOrderByPostedDateDesc(activePage, pageSize) //Yeni Eklenen İlanlar
       .then((result) => setjobPostings(result.data.data))
-       
-      // jobPostingService
-      // .findAllByOrderByPostedDateAsc() //Önceden Eklenen İlanlar
-      // .then((result) => setjobPostings(result.data.data));
   },[activePage, pageSize]);
 
   useEffect(() => {
@@ -44,15 +41,18 @@ export default function Home() {
       );
   },[]);
 
+
   const handleToFavorite = (jobPosting)=>{
-      dispatch(addToFavorite(jobPosting))
+      dispatch(addToFavorite(jobPosting));
+      // alert("Dbye eklendi")
       toast.success("Favorilere eklendi")
     } 
 
+
+    
+
     const onChange = (e, pageInfo) => {
       setActivePage(pageInfo.activePage);
-      // console.log(pageInfo.activePage)
-      //console.log(pageInfo)
     };
 
   return (
@@ -437,19 +437,10 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                           {/* <div>
-                            <a
-                               onClick={()=>{}}
-                              className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
-                            >
-                              <span className="icon-heart">
-                                <img src={favorite} width="20px" alt="" />
-                              </span>
-                            </a>
-                          </div>  */}
-
+                          
                         <Button className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
-                        style={{borderRadius:"2rem"}} onClick={()=>{handleToFavorite(jobPosting)}}
+                        style={{borderRadius:"2rem"}} 
+                        onClick={()=>{handleToFavorite(jobPosting)}}
                         >
                         <span className="icon-heart">
                                 <img src={favorite} width="20px" alt="" />

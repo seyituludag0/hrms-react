@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import JobPostingService from "../services/JobPostingService";
+import FavoriteJobPostingService from "../services/FavoriteJobPostingService"
 import { Grid } from "semantic-ui-react";
 import { Button, Card, Image, Icon, Dropdown } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 import  CityFilter  from "../layouts/CityFilter"
 import  WorkTypeFilter  from "../layouts/WorkTypeFilter"
 import { Pagination } from "semantic-ui-react";
+import { toast } from "react-toastify";
 
 export default function JobPosting() {
   const [jobPostings, setJobPosting] = useState([]);
+  const [favoriteJobPostings, setFavoriteJobPostings] = useState([])
+  const [candidate, setCandidate] = useState(null);
   const [filteredJobPostings, setFilteredJobPostings] = useState(null);
   const [selectedWorkType, setSelectedWorkType] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
@@ -47,10 +51,16 @@ export default function JobPosting() {
     setActivePage(pageInfo.activePage);
   };
   let pageAble=(pageNo)=>{
-    
     setPageSize(pageNo);
-      
   }
+  
+  let favoriteJobPostingService = new FavoriteJobPostingService();
+  const handleAddFavorite = (jobPostingId) => {
+    favoriteJobPostingService.addFavorites(1,jobPostingId).then((result) => {
+      toast.success(result.data.message)
+    })
+  }
+
   return (
     <div>
       <Grid>
@@ -236,7 +246,7 @@ export default function JobPosting() {
                         </Button>
 
                   
-                        <Button as="div" labelPosition="right">
+                        <Button as="div" labelPosition="right" onClick={()=>{handleAddFavorite(jobPosting.id)}}>
                           <Button color="red">
                             <Icon name="heart" />
                             Favorilere Ekle

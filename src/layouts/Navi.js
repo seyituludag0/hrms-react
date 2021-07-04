@@ -1,14 +1,16 @@
-import React, { useState }from 'react';
+import React, { useEffect, useState }from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import {  Container,  Menu, Image} from "semantic-ui-react";
 import SignedIn from './SignedIn';
 import SignedOut from './SignedOut';
 import { useSelector } from 'react-redux'
 import Favorite from './Favorite';
-
+import FavoriteJobPostingService from "../services/FavoriteJobPostingService";
+import { Table, Message } from 'semantic-ui-react';
 
 export default function Navi() {
-  const {favoriteItems} = useSelector(state => state.favorite)
+  // const {favoriteItems} = useSelector(state => state.favorite)
+  const [favoriteJobPostings, setFavoriteJobPostings] = useState([])
   const [isAuthenticated, setIsAuthenticated] = useState(true)
   const history = useHistory();
 
@@ -20,6 +22,11 @@ export default function Navi() {
   function handleSignedIn(params) {
     setIsAuthenticated(true)
   }
+
+  useEffect(()=>{
+    let favoriteJobPostingService = new FavoriteJobPostingService();
+    favoriteJobPostingService.getFavorites().then(result=>console.log(result.data.data))
+  })
 
   return (
     <div>
@@ -53,11 +60,20 @@ export default function Navi() {
               <Link to="/candidate/1">Öz Geçmiş</Link>
           </Menu.Item>
 
-
-           <Menu.Item>
-           {favoriteItems.length>0&&<Favorite/>}
+          <Menu.Item>
+              <Favorite />
           </Menu.Item>
-         
+
+
+                  {/* {favoriteJobPostings.length<0?(
+                 <Link>xvxdvsdx</Link>
+                  ):(<Table>
+            <Message info color="red" visible style={{paddingLeft:"33%"}} size="big">
+              Üzgünüz, Bu sayfada iş ilanı bulunamadı!
+            </Message>
+          </Table>)} */}
+              
+
             <Menu.Item>
                 { isAuthenticated?<SignedIn signOut={handleSignOut}/>:<SignedOut signedIn={handleSignedIn} /> }
             </Menu.Item>
