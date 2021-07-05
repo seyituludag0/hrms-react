@@ -68,4 +68,9 @@ export default class JobPostingService{
      countGetAll(){
        return axios.get("http://localhost:8080/api/jobPosting/countGetAll")
      }
+
+     
+  getByCityNameAndWorkTypeId(cityName, workTypeId){
+    return axios.get(`http://localhost:8080/api/jobPosting/getByCityNameAndWorkTypeId?cityName=${cityName}&workTypeId=${workTypeId}`) 
+  }
 }

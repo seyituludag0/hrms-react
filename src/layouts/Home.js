@@ -9,19 +9,20 @@ import network from "../img/icon/network.svg";
 import userIcon from "../img/icon/user.svg";
 import career from "../img/icon/career.svg";
 import JobPostingService from "../services/JobPostingService";
+import WorkTypeService from "../services/WorkTypeService";
 import { Icon, Table, Message} from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToFavorite } from "../store/actions/favoriteActions";
+// import { addToFavorite } from "../store/actions/favoriteActions";
 import { Button } from "semantic-ui-react";
-import { toast } from "react-toastify";
 import { Pagination } from "semantic-ui-react";
 
 
 
 export default function Home() {
   const [jobPostings, setjobPostings] = useState([]);
-  // const [workTypes, setWorkTypes] = useState([]);
+  const [workTypes, setWorkTypes] = useState([]);
+  const [city, setCity] = useState({});
   const [activePage, setActivePage] = useState(1);
   const [pageSize] = useState(3)
   const dispatch = useDispatch()
@@ -41,12 +42,22 @@ export default function Home() {
       );
   },[]);
 
+  useEffect(() => {
+    let workTypeService = new WorkTypeService();
+    workTypeService.getWorkTypes().then((result) => setWorkTypes(result.data.data));
+  },[]);
 
-  const handleToFavorite = (jobPosting)=>{
-      dispatch(addToFavorite(jobPosting));
-      // alert("Dbye eklendi")
-      toast.success("Favorilere eklendi")
-    } 
+  useEffect(() => {
+    let jobPostingService = new JobPostingService();
+    jobPostingService.getByCityNameAndWorkTypeId().then((result) => setjobPostings(result.data.data)
+      );
+  },[]);
+
+
+  // const handleToFavorite = (jobPosting)=>{
+  //     dispatch(addToFavorite(jobPosting));
+  //     toast.success("Favorilere eklendi")
+  //   } 
 
 
     
@@ -152,12 +163,12 @@ export default function Home() {
                                 <span className="ion-ios-arrow-down" />
                               </div>
                               <select name id className="form-control">
-                                <option value>Category</option>
-                                <option value>Full Time</option>
-                                <option value>Part Time</option>
-                                <option value>Freelance</option>
-                                <option value>Internship</option>
-                                <option value>Temporary</option>
+                              <option disabled>Çalışma Tipi</option>
+                                {
+                                  workTypes.map((workType)=>(
+                                    <option>{workType.type}</option>
+                                  ))
+                                }
                               </select>
                             </div>
                           </div>
@@ -384,8 +395,8 @@ export default function Home() {
               <div className=" pr-lg-5">
                 <div className="row justify-content-center pb-3">
                   <div className="col-md-12 heading-section ">
-                    {/* <span className="subheading">Son Eklenen İşler</span>
-                    <h2 className="mb-4">Yeni Eklenen İlanlar</h2> */}
+                    <span className="subheading">Son Eklenen İşler</span>
+                    <h2 className="mb-4">Yeni Eklenen İlanlar</h2>
                   </div>
                 </div>
                 <div className="row">
@@ -439,9 +450,7 @@ export default function Home() {
                         <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
                           
                         <Button className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
-                        style={{borderRadius:"2rem"}} 
-                        onClick={()=>{handleToFavorite(jobPosting)}}
-                        >
+                        style={{borderRadius:"2rem"}}>
                         <span className="icon-heart">
                                 <img src={favorite} width="20px" alt="" />
                               </span>
