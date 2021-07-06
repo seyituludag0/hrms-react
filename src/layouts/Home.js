@@ -22,13 +22,15 @@ import { Pagination } from "semantic-ui-react";
 export default function Home() {
   const [jobPostings, setjobPostings] = useState([]);
   const [workTypes, setWorkTypes] = useState([]);
-  const [city, setCity] = useState({});
+  // const [city, setCity] = useState({});
   const [activePage, setActivePage] = useState(1);
   const [pageSize] = useState(3)
   const dispatch = useDispatch()
 
+  let jobPostingService = new JobPostingService();
+
   useEffect(() => {
-    let jobPostingService = new JobPostingService();
+    
     jobPostingService
       .findAllByOrderByPostedDateDesc(activePage, pageSize) //Yeni Eklenen İlanlar
       .then((result) => setjobPostings(result.data.data))
@@ -60,6 +62,9 @@ export default function Home() {
   //   } 
 
 
+  const filtered = (cityName, workTypeId) =>{
+    jobPostingService.getByCityNameAndWorkTypeId(cityName, workTypeId).then(result=>console.log(result.data.data))
+  }
     
 
     const onChange = (e, pageInfo) => {
@@ -139,7 +144,7 @@ export default function Home() {
                   role="tabpanel"
                   aria-labelledby="v-pills-nextgen-tab"
                 >
-                  <form action="#" className="search-job">
+                  {/* <form className="search-job"> */}
                     <div className="row no-gutters">
                       <div className="col-md mr-md-2">
                         <div className="form-groupx">
@@ -163,7 +168,7 @@ export default function Home() {
                                 <span className="ion-ios-arrow-down" />
                               </div>
                               <select name id className="form-control">
-                              <option disabled>Çalışma Tipi</option>
+                              <option selected disabled>Çalışma Tipi</option>
                                 {
                                   workTypes.map((workType)=>(
                                     <option>{workType.type}</option>
@@ -192,6 +197,7 @@ export default function Home() {
                         <div className="form-groupx">
                           <div className="form-field">
                             <button
+                            onClick={()=>filtered()}
                               type="submit"
                               className="form-control btn btn-secondary"
                             >
@@ -201,79 +207,9 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </form>
+                  {/* </form> */}
                 </div>
-                <div
-                  className="tab-pane fade"
-                  id="v-pills-2"
-                  role="tabpanel"
-                  aria-labelledby="v-pills-performance-tab"
-                >
-                  <form action="#" className="search-job">
-                    <div className="row">
-                      <div className="col-md">
-                        <div className="form-groupx">
-                          <div className="form-field">
-                            <div className="icon">
-                              <span className="icon-user" />
-                            </div>
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="eg. Adam Scott"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md">
-                        <div className="form-groupx">
-                          <div className="form-field">
-                            <div className="select-wrap">
-                              <div className="icon">
-                                <span className="ion-ios-arrow-down" />
-                              </div>
-                              <select name id className="form-control">
-                                <option value>Category</option>
-                                <option value>Full Time</option>
-                                <option value>Part Time</option>
-                                <option value>Freelance</option>
-                                <option value>Internship</option>
-                                <option value>Temporary</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md">
-                        <div className="form-groupx">
-                          <div className="form-field">
-                            <div className="icon">
-                              <span className="icon-map-marker" />
-                            </div>
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="Location"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md">
-                        <div className="form-groupx">
-                          <div className="form-field">
-                            <button
-                              type="submit"
-                              className="form-control btn btn-secondary"
-                            >
-                              Search
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
                 </div>
-              </div>
             </div>
           </div>
         </div>

@@ -12,6 +12,7 @@ export default function SignedIn({signOut}) {
                     <Dropdown.Item  as={NavLink} to="/employee" text="Bilgilerim" icon="info"/>
                     <Dropdown.Item  as={NavLink} to="/admin" text="Admin Paneli" icon="user"/>
                      <Dropdown.Item as={NavLink} to="/jobpostingadd" text="İlan Ekle" icon="add" /> {/* Buradan kaldırılacak */}
+                     <Dropdown.Item as={NavLink} to="/adminbyfalseemployers" text="Onay Bekleyen Şirketler" />
                     <Dropdown.Item onClick={signOut} text="Çıkış Yap" icon="sign-out"/>
                 </Dropdown.Menu>
             </Dropdown>

@@ -19,7 +19,6 @@ export default function AdminJobPostingList() {
     jobPostingService
       .changeActiveByEmployee(id)
       .then(result=>toast.success(result.data.message));
-    // window.location.reload();
   };
 
   return (

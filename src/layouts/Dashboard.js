@@ -19,6 +19,7 @@ import ActiveEmployer from "../pages/Employer/ActiveEmployer";
 import EmployeeList from "../pages/Employee/EmployeeList";
 import AdminPaneli from "../pages/admin/AdminPaneli";
 import Employers from "../pages/admin/Employer/Employers";
+import AdminByFalseEmployers from "../pages/admin/Employer/AdminByFalseEmployers";
 
 
 export default function Dashboard() {
@@ -44,6 +45,7 @@ export default function Dashboard() {
               <Route exact path="/employer" component={ActiveEmployer} />
               <Route exact path="/employers" component={Employers} />
               <Route exact path="/employee" component={EmployeeList} />
+              <Route exact path="/adminbyfalseemployers" component={AdminByFalseEmployers} />
               {/* <Footer /> */}
              
           </Grid.Column>

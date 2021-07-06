@@ -12,11 +12,13 @@ import {
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import EmployerService from "../../services/EmployerService";
+import VerificationEmployerService from "../../services/VerificationEmployerService";
 
 export default function EmployerUpdate({ employer }) {
   const [open, setOpen] = useState(false);
 
   let employerService = new EmployerService();
+  let verifivationEmployerService = new VerificationEmployerService();
 
   const { values, errors, handleChange, handleSubmit, touched } = useFormik({
     initialValues: {
@@ -26,7 +28,7 @@ export default function EmployerUpdate({ employer }) {
       email: employer?.email,
       phoneNumber: employer?.phoneNumber,
       password: employer?.password,
-    //   verified: true,
+      //   verified: true,
     },
 
     enableReinitialize: true,
@@ -36,15 +38,39 @@ export default function EmployerUpdate({ employer }) {
       password: Yup.string().required("Şifre boş bırakılamaz"),
     }),
 
+    // onSubmit: (values) => {
+    //   console.log(values);
+    //   employerService.update(values).then((result) => {
+    //     toast.success(result.data.message)
+    //   });
+    // },
+
     onSubmit: (values) => {
-      console.log(values);
-      employerService.update(values).then((result) => {
-        toast.success(result.data.message)
-      });
+      console.log("güncellendi");
+
+      values.id = 106;
+      values.verified = false;
+      let verificationEmployerService = new VerificationEmployerService();
+      let verificationEmployer = {
+        companyName: values.companyName,
+        id: values.id,
+        email: values.email,
+        webAddress: values.webAddress,
+        phoneNumber: values.phoneNumber,
+        password: values.password,
+        verified: false,
+      };
+      console.log(verificationEmployer);
+      verificationEmployerService
+        .add(verificationEmployer)
+        .then(
+          toast(
+            "Kayıt alındı bilgileriniz personellerimiz tarafından onaylandığında güncellenecektir",
+            "success"
+          )
+        );
     },
   });
-
- 
 
   return (
     <div>
@@ -85,10 +111,8 @@ export default function EmployerUpdate({ employer }) {
                   )}
                 </Form.Field>
               </GridColumn>
-              <GridColumn width={7}>
-               
-              </GridColumn>
-              <GridColumn width={7}>
+
+              <GridColumn width={14}>
                 <Form.Field>
                   <label>Web Adresi</label>
                   <input
@@ -104,12 +128,12 @@ export default function EmployerUpdate({ employer }) {
                   )}
                 </Form.Field>
               </GridColumn>
-              <GridColumn width={7}>
+              <GridColumn width={14}>
                 <Form.Field>
                   <label>Email</label>
                   <input
                     name="email"
-                    placeholder="Email"
+                    placeholder="email"
                     value={values.email}
                     onChange={handleChange}
                   />
@@ -120,18 +144,37 @@ export default function EmployerUpdate({ employer }) {
                   )}
                 </Form.Field>
               </GridColumn>
-              <GridColumn width={7}>
+
+              <GridColumn width={14}>
                 <Form.Field>
                   <label>Telefon Numarası</label>
                   <input
                     name="phoneNumber"
-                    placeholder="phoneNumber"
+                    placeholder="Telefon Numarası"
                     value={values.phoneNumber}
                     onChange={handleChange}
                   />
                   {errors.phoneNumber && touched.phoneNumber && (
                     <Label basic color="red" pointing>
                       {errors.phoneNumber}
+                    </Label>
+                  )}
+                </Form.Field>
+              </GridColumn>
+
+              <GridColumn width={14}>
+                <Form.Field>
+                  <label>Şifre</label>
+                  <input
+                  type="password"
+                    name="password"
+                    placeholder="Şifre"
+                    value={values.password}
+                    onChange={handleChange}
+                  />
+                  {errors.password && touched.password && (
+                    <Label basic color="red" pointing>
+                      {errors.password}
                     </Label>
                   )}
                 </Form.Field>

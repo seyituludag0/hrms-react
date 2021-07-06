@@ -25,8 +25,8 @@ export default function Navi() {
 
   useEffect(()=>{
     let favoriteJobPostingService = new FavoriteJobPostingService();
-    favoriteJobPostingService.getFavorites().then(result=>console.log(result.data.data))
-  })
+    favoriteJobPostingService.getFavorites().then(result=>setFavoriteJobPostings(result.data.data))
+  },[])
 
   return (
     <div>
