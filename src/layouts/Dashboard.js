@@ -21,6 +21,7 @@ import AdminPaneli from "../pages/admin/AdminPaneli";
 import Employers from "../pages/admin/Employer/Employers";
 import AdminByFalseEmployers from "../pages/admin/Employer/AdminByFalseEmployers";
 import ViewCount from "./ViewCount";
+import FavoriteJobPosting from "../pages/FavoriteJobPosting";
 
 
 export default function Dashboard() {
@@ -47,6 +48,7 @@ export default function Dashboard() {
               <Route exact path="/employers" component={Employers} />
               <Route exact path="/employee" component={EmployeeList} />
               <Route exact path="/adminbyfalseemployers" component={AdminByFalseEmployers} />
+              <Route exact path="/myfavorites" component={FavoriteJobPosting} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

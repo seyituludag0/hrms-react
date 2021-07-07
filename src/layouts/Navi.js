@@ -60,13 +60,8 @@ export default function Navi() {
           </Menu.Item>
 
 
-                  {/* {favoriteJobPostings.length<0?(
-                 <Link>xvxdvsdx</Link>
-                  ):(<Table>
-            <Message info color="red" visible style={{paddingLeft:"33%"}} size="big">
-              Üzgünüz, Bu sayfada iş ilanı bulunamadı!
-            </Message>
-          </Table>)} */}
+  
+  
               
 
             <Menu.Item>

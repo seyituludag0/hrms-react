@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 
 export default function JobPosting() {
   const [jobPostings, setJobPosting] = useState([]);
-  const [favoriteJobPostings, setFavoriteJobPostings] = useState([])
   const [filteredJobPostings, setFilteredJobPostings] = useState(null);
   const [selectedWorkType, setSelectedWorkType] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
@@ -257,6 +256,7 @@ export default function JobPosting() {
                   ))              
               }
               </Card.Group>
+              
               <p>Bir sayfada kaç iş ilanı görmek istersiniz</p>
              
        <Button.Group>

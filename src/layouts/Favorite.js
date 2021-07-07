@@ -1,4 +1,5 @@
 import React,{ useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom';
 import { Dropdown } from 'semantic-ui-react';
 // import { useSelector } from 'react-redux'
 // import { useDispatch } from "react-redux";
@@ -32,6 +33,7 @@ useEffect(()=>{
                         </Dropdown.Item>
                     ))
                 }
+                <Dropdown.Item as={NavLink} to="/myfavorites">Favorilerime Git</Dropdown.Item>
             </Dropdown.Menu>
        </Dropdown>
         </div>

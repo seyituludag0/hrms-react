@@ -12,4 +12,9 @@ export default class CityService {
   addFavorites(candidateId, jobPostingId) {
     return axios.post(`http://localhost:8080/api/favoriteJobPostings/add?candidateId=${candidateId}&jobPostingId=${jobPostingId}`);
   }
+
+  getByCandidateIdFavorites(candidateId){
+    return axios.get("http://localhost:8080/api/favoriteJobPostings/getByCandidateId?candidateId=1")
+  }
+
 }
