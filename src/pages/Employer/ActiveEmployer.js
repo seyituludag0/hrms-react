@@ -16,7 +16,7 @@ export default function ActiveEmployer() {
   }, []);
 
  return (
-  <Card style={{ width: "75rem", marginLeft: "15rem" }}>
+  <Card style={{ width: "91rem", marginLeft: "8rem" }}>
     
     {!employer?.verified && (
            <Grid columns={2} padded>
@@ -45,7 +45,7 @@ export default function ActiveEmployer() {
                   >
                     {employer?.webAddress}
                   </a></Table.Cell>
-                <Table.Cell>{employer?.phoneNumber}</Table.Cell>
+                  <Table.Cell>{employer?.phoneNumber}</Table.Cell>
               </Table.Row>
             </Table.Body>
           </Table>
@@ -58,16 +58,17 @@ export default function ActiveEmployer() {
            {employer?.verified&&(
               <Grid columns={2} padded>
         <Grid.Column>
-          <Image src="https://asamco.com/wp-content/uploads/2021/02/company-icon-vector-isolated-white-background-company-transparent-sign-company-icon-vector-isolated-white-background-company-134078740.jpg" />
+          <Image src="https://asamco.com/wp-content/uploads/2021/02/company-icon-vector-isolated-white-background-company-transparent-sign-company-icon-vector-isolated-white-background-company-134078740.jpg" style={{width:"35rem"}} />
         </Grid.Column>
         <Grid.Column>
-          <Table celled inverted selectable style={{ marginLeft: "-7rem", marginTop:"13rem" }}>
+          <Table celled inverted selectable style={{ marginLeft: "-7rem", marginTop:"17rem" }}>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Şirket İsmi</Table.HeaderCell>
                 <Table.HeaderCell>Email</Table.HeaderCell>
                 <Table.HeaderCell>Web Adresi</Table.HeaderCell>
                 <Table.HeaderCell>Telefon Numarası</Table.HeaderCell>
+                
               </Table.Row>
             </Table.Header>
 

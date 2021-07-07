@@ -37,9 +37,7 @@ export default function Navi() {
           <Menu.Item>
               <Link to="/">Ana Sayfa</Link>
           </Menu.Item>
-          <Menu.Item>
-              <Link to="/candidates">İş Arayan CV'leri</Link>
-          </Menu.Item>
+
           <Menu.Item>
               <Link to="/about">Hakkımızda</Link>
           </Menu.Item>

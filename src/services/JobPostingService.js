@@ -63,14 +63,14 @@ export default class JobPostingService{
 
     countByJobTitleId(jobTitleId){
         return axios.get("http://localhost:8080/api/jobPosting/countByJobTitleId?jobTitleId="+jobTitleId)
-      }
+    }
      
-     countGetAll(){
-       return axios.get("http://localhost:8080/api/jobPosting/countGetAll")
-     }
+    countGetAll(){
+       return axios.get("http://localhost:8080/api/jobPosting/jobPostingAllCount")
+    }
 
      
-  getByCityNameAndWorkTypeId(cityName, workTypeId){
-    return axios.get(`http://localhost:8080/api/jobPosting/getByCityNameAndWorkTypeId?cityName=${cityName}&workTypeId=${workTypeId}`) 
+    getByJobTitleAndCityNameAndWorkTypeId(jobTitle, cityName, workTypeId){
+    return axios.get(`http://localhost:8080/api/jobPosting/getByJobTitleAndCityNameAndWorkTypeId?cityName=${cityName}&jobTitle=${jobTitle}&workTypeId=${workTypeId}`) 
   }
 }

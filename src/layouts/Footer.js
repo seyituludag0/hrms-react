@@ -7,7 +7,7 @@ import { Icon } from "semantic-ui-react";
 export default function Footer() {
   return (
     <div>
-      <div className="footer-dark">
+      <div className="footer-dark" style={{marginLeft:"-1rem"}}>
         <footer>
           <div className="container">
             <div className="row">

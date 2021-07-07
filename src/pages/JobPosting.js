@@ -12,7 +12,6 @@ import { toast } from "react-toastify";
 export default function JobPosting() {
   const [jobPostings, setJobPosting] = useState([]);
   const [favoriteJobPostings, setFavoriteJobPostings] = useState([])
-  const [candidate, setCandidate] = useState(null);
   const [filteredJobPostings, setFilteredJobPostings] = useState(null);
   const [selectedWorkType, setSelectedWorkType] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);

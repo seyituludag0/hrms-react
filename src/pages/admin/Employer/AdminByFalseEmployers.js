@@ -4,13 +4,12 @@ import { Table, Button } from "semantic-ui-react";
 import EmployerService from "../../../services/EmployerService";
 
 export default function AdminByFalseEmployers() {
-
+  let verificationEmployerService = new VerificationEmployerService();
 const [verificationEmployers, setVerificationEmployers] = useState([])
 
 useEffect(()=>{
-    let verificationEmployerService = new VerificationEmployerService();
     verificationEmployerService.getAllByVerifyFalse().then(result=>setVerificationEmployers(result.data.data))
-},[])
+},[verificationEmployers])
 
 let employerService = new EmployerService();
 let changeStatusVerified=(id)=>{
@@ -23,7 +22,9 @@ function handleVerifiedButtonClick(employer) {
     setVerificationEmployers(
       verificationEmployers.filter((emp) => emp.id === employer.id)
     );
+    verificationEmployerService.delete(employer.id).then("Silindi").catch("HATA!")
   }
+
 
 
 return (
