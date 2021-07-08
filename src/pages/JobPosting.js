@@ -52,8 +52,9 @@ export default function JobPosting() {
     setPageSize(pageNo);
   }
   
-  let favoriteJobPostingService = new FavoriteJobPostingService();
+  
   const handleAddFavorite = (jobPostingId) => {
+    let favoriteJobPostingService = new FavoriteJobPostingService();
     favoriteJobPostingService.addFavorites(1,jobPostingId).then((result) => {
       toast.success(result.data.message)
     })

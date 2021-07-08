@@ -18,14 +18,16 @@ import { Button } from "semantic-ui-react";
 import { Pagination } from "semantic-ui-react";
 import FilterJobPosting from "../pages/FilterJobPosting";
 import ViewCount from "./ViewCount";
+import FavoriteButton from "../layouts/FavoriteButton"
+import HomePageFavoriteButton from "./HomePageFavoriteButton";
 
 export default function Home() {
   const [jobPostings, setjobPostings] = useState([]);
   const [workTypes, setWorkTypes] = useState([]);
-  // const [city, setCity] = useState({});
   const [activePage, setActivePage] = useState(1);
   const [pageSize] = useState(3)
   const dispatch = useDispatch()
+  const [jobPostingCount, setJobPostingCount] = useState(0);
 
   let jobPostingService = new JobPostingService();
 
@@ -33,7 +35,10 @@ export default function Home() {
     
     jobPostingService
       .findAllByOrderByPostedDateDesc(activePage, pageSize) //Yeni Eklenen İlanlar
-      .then((result) => setjobPostings(result.data.data))
+      .then((result) => setjobPostings(result.data.data));
+      jobPostingService
+      .countGetAll()
+      .then((result) => setJobPostingCount(result.data));
   },[activePage, pageSize]);
 
   useEffect(() => {
@@ -94,7 +99,7 @@ export default function Home() {
           }}
         >
           <p style={{ color: "black" }}>
-            Hak ettiğiniz 200.000 harika iş teklifimiz var!
+            Hak ettiğiniz {jobPostingCount} harika iş ilanımız var!
           </p>
         </div>
 
@@ -289,16 +294,8 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                          
-                        <Button className="icon text-center d-flex justify-content-center align-items-center icon mr-2"
-                        style={{borderRadius:"2rem"}}>
-                        <span className="icon-heart">
-                                <img src={favorite} width="20px" alt="" />
-                              </span>
-                          </Button>
 
-                            
-
+                            <HomePageFavoriteButton jobPostingId={30} />
                           <a
                             href="/"
                             className="btn btn-primary "

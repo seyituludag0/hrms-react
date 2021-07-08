@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import FavoriteJobPostingService from "../services/FavoriteJobPostingService";
-import { Grid, Button, Card, Image, Icon, Dropdown } from "semantic-ui-react";
+import { Button, Card, Image, Icon, Dropdown } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import FavoriteButton from "../layouts/FavoriteButton"
 
 export default function FavoriteJobPosting() {
   let favoriteJobPostingService = new FavoriteJobPostingService();
@@ -13,13 +14,21 @@ export default function FavoriteJobPosting() {
     favoriteJobPostingService
       .getByCandidateIdFavorites(1)
       .then((result) => setFavorites(result.data.data));
-  }, []);
+  }, [favorites]);
   return (
-    <div>
-      <Card.Group>
+    <div style={{marginLeft:"20rem"}}>
+        {/* <Card fluid color='red' header='Option 1' /> */}
+        {favorites.length==0?<div>
+          <Card fluid color='red' header='Henüz favori iş ilanınız yok Hemen favorilerinize ilan eklemek için iş ilanlarına bakın' />
+          <Link to="/jobPostings">İş İlanlarına Göz At</Link>
+        </div>:<div>
+          <Card.Group>
         {favorites.map((favjob) => (
           <Card className="jobPostingCard" key={favorites.id}>
             <Card.Content>
+
+
+
               <Image
                 floated="right"
                 style={{ width: "10rem" }}
@@ -136,22 +145,21 @@ export default function FavoriteJobPosting() {
 
                 <Button basic color="orange">
                   <Icon name="info" style={{ fontSize: "1.5rem" }} />
-                  <Link to={`/jobposting/${favjob.jobPosting.id}`}>
+                  <Link to={`/jobposting/${favjob.jobPosting.id}`} style={{color:"orange"}}>
                     Detayları Gör
                   </Link>
                 </Button>
 
-                <Button as="div" labelPosition="right">
-                  <Button color="red">
-                    <Icon name="heartbeat" />
-                    Favorilerimden Çıkar
-                  </Button>
-                </Button>
+                <FavoriteButton jobPostingId={30}  />
+
               </div>
             </Card.Content>
           </Card>
         ))}
       </Card.Group>
+    
+          
+          </div>}
     </div>
   );
 }

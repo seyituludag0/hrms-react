@@ -38,11 +38,7 @@ export default function CvDetail() {
   return (
     <div className="ana div">
       <div>
-        {/* <EducationUpdate  education={jobSeekerCv?.educations} jobSeeker={jobSeekerCv?.jobSeeker}/> */}
-        {/* <EducationDelete id={jobSeekerCv?.educations[0].id}/> */}
-
-        {/* --------------------------------------------------------------------------- */}
-        {/* href={`http://${jobPostingDetail.employer?.webAddress}`} */}
+        
         <div
           style={{
             backgroundColor: "#6c63ff",
