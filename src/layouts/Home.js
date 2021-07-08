@@ -226,7 +226,7 @@ export default function Home() {
                       color: "#fff",
                     }}
                   >
-                    Kiraladığın araç gün içerisinde sana gelsin
+                    Ve işinin başına geç
                   </p>
                 </div>
               </div>

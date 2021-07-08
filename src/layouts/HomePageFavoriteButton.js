@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import favorite from "../img/icon/favorite.svg";
 
 export default function HomePageFavoriteButton({ jobPostingId }) {
-  const handleAddFavorite = (jobPostingId) => {
+  const handleFavorite = (jobPostingId) => {
     let favoriteJobPostingService = new FavoriteJobPostingService();
     favoriteJobPostingService.addFavorites(1, jobPostingId).then((result) => {
       toast.success(result.data.message);
@@ -21,7 +21,7 @@ export default function HomePageFavoriteButton({ jobPostingId }) {
         <span
           className="icon-heart"
           onClick={() => {
-            handleAddFavorite(jobPostingId);
+            handleFavorite(jobPostingId);
           }}
         >
           <img src={favorite} width="20px" alt="" />

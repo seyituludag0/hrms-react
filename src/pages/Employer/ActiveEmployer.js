@@ -21,7 +21,7 @@ export default function ActiveEmployer() {
     {!employer?.verified && (
            <Grid columns={2} padded>
         <Grid.Column>
-          <Image src="https://asamco.com/wp-content/uploads/2021/02/company-icon-vector-isolated-white-background-company-transparent-sign-company-icon-vector-isolated-white-background-company-134078740.jpg" />
+          <Image src={employer?.companyLogo} />
         </Grid.Column>
         <Grid.Column>
           <Table celled inverted selectable style={{ marginLeft: "-7rem", marginTop:"13rem" }}>
@@ -58,7 +58,7 @@ export default function ActiveEmployer() {
            {employer?.verified&&(
               <Grid columns={2} padded>
         <Grid.Column>
-          <Image src="https://asamco.com/wp-content/uploads/2021/02/company-icon-vector-isolated-white-background-company-transparent-sign-company-icon-vector-isolated-white-background-company-134078740.jpg" style={{width:"35rem"}} />
+          <Image src={employer?.companyLogo} style={{width:"35rem"}} />
         </Grid.Column>
         <Grid.Column>
           <Table celled inverted selectable style={{ marginLeft: "-7rem", marginTop:"17rem" }}>
