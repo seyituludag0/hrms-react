@@ -20,7 +20,7 @@ export default function Favorite() {
 useEffect(()=>{
     let favoriteJobPostingService = new FavoriteJobPostingService();
     favoriteJobPostingService.getFavorites().then(result=>setFavorites(result.data.data))
-},[favorites]
+},[]
 
 // [favorites]
 
@@ -33,7 +33,7 @@ useEffect(()=>{
                 {
                     favorites.map((favoriteJobPosting)=>(
                         <Dropdown.Item key={favoriteJobPosting.id}>
-                            {favoriteJobPosting.jobPosting.jobTitle.title} - {favoriteJobPosting.jobPosting.workingTimes.type} &nbsp;
+                            {favoriteJobPosting.jobPosting.jobTitle.title} - {favoriteJobPosting.jobPosting.city.name} - {favoriteJobPosting.jobPosting.workingTimes.type} &nbsp;
                         </Dropdown.Item>
                     ))
                 }

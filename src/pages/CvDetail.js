@@ -33,7 +33,7 @@ export default function CvDetail() {
     candidateService
       .getCandidateCvByCandidateId(candidateId)
       .then((result) => setCvDetail(result.data.data));
-  }, []);
+  }, [cvDetail]);
 
   return (
     <div className="ana div">
@@ -431,9 +431,7 @@ export default function CvDetail() {
 
           <div className="section" id="school" style={{ marginTop: "10rem" }}>
             <div className="container cc-school">
-              {/* <AbilityUpdate ability={cvDetail?.abilityCandidates[0]} /> */}
               <LanguageAdd language={cvDetail?.languageCandidates[0]} />
-              {/* <EducationAdd jobSeeker={jobSeekerCv?.jobSeeker} /> */}
               <div className="h4 text-center mb-4 title">Dillerim</div>
 
               {cvDetail?.languageCandidates.map((languageCandidate) => (

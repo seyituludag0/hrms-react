@@ -8,6 +8,7 @@ import {
   Label,
   Modal,
   Icon,
+  Image
 } from "semantic-ui-react";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
@@ -17,9 +18,6 @@ import VerificationEmployerService from "../../services/VerificationEmployerServ
 export default function EmployerUpdate({ employer }) {
   const [open, setOpen] = useState(false);
 
-  let employerService = new EmployerService();
-  let verifivationEmployerService = new VerificationEmployerService();
-
   const { values, errors, handleChange, handleSubmit, touched } = useFormik({
     initialValues: {
       id: employer?.id,
@@ -27,8 +25,8 @@ export default function EmployerUpdate({ employer }) {
       webAddress: employer?.webAddress,
       email: employer?.email,
       phoneNumber: employer?.phoneNumber,
-      password: employer?.password,
-      //   verified: true,
+      companyLogo: employer?.companyLogo,
+      password: employer?.password
     },
 
     enableReinitialize: true,
@@ -36,6 +34,7 @@ export default function EmployerUpdate({ employer }) {
       companyName: Yup.string().required(" Şirket ismi boş bırakılamaz"),
       webAddress: Yup.string().required("Web adresi adı boş bırakılamaz"),
       password: Yup.string().required("Şifre boş bırakılamaz"),
+      companyLogo: Yup.string().required("Resim linki boş bırakılamaz"),
     }),
 
     // onSubmit: (values) => {
@@ -46,11 +45,12 @@ export default function EmployerUpdate({ employer }) {
     // },
 
     onSubmit: (values) => {
-      console.log("güncellendi");
-
       values.id = 106;
       values.verified = false;
+      let employerService = new EmployerService();
+      employerService.uploadPhoto(values.id).then(result=>console.log(result.data)).catch("HATA!")
       let verificationEmployerService = new VerificationEmployerService();
+     
       let verificationEmployer = {
         companyName: values.companyName,
         id: values.id,
@@ -58,17 +58,13 @@ export default function EmployerUpdate({ employer }) {
         webAddress: values.webAddress,
         phoneNumber: values.phoneNumber,
         password: values.password,
+        companyLogo: values.companyLogo,
         verified: false,
       };
       console.log(verificationEmployer);
       verificationEmployerService
         .add(verificationEmployer)
-        .then(
-          toast(
-            "Kayıt alındı bilgileriniz personellerimiz tarafından onaylandığında güncellenecektir",
-            "success"
-          )
-        );
+        .then(toast("Kayıt alındı bilgileriniz personellerimiz tarafından onaylandığında güncellenecektir"));
     },
   });
 
@@ -94,7 +90,13 @@ export default function EmployerUpdate({ employer }) {
             onSubmit={handleSubmit}
             style={{ marginTop: "1em", marginLeft: "1em", marginBottom: "1em" }}
           >
-            <Grid stackable>
+             <Grid columns={2} padded>
+      <Grid.Column>
+        <Image src={employer?.companyLogo} />
+      </Grid.Column>
+      <Grid.Column>
+         
+      <Grid stackable>
               <GridColumn width={14}>
                 <Form.Field>
                   <label>Şirket Adı</label>
@@ -179,7 +181,31 @@ export default function EmployerUpdate({ employer }) {
                   )}
                 </Form.Field>
               </GridColumn>
+
+              <GridColumn width={14}>
+                <Form.Field>
+                  <label>Logo URL</label>
+                  <textarea
+                    name="companyLogo"
+                    placeholder="companyLogo"
+                    value={values.companyLogo}
+                    onChange={handleChange}
+                  />
+                  {errors.companyLogo && touched.companyLogo && (
+                    <Label basic color="red" pointing>
+                      {errors.companyLogo}
+                    </Label>
+                  )}
+                </Form.Field>
+              </GridColumn>
             </Grid>
+            
+      </Grid.Column>
+    </Grid>
+            
+            
+            
+            
             <Modal.Actions>
               <Button color="red" onClick={() => setOpen(false)}>
                 Vazgeç

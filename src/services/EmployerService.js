@@ -20,4 +20,9 @@ export default class EmployerService{
     countGetAll(){
         return axios.get("http://localhost:8080/api/employers/employerAllCount")
     }
+
+    uploadPhoto(employerId){
+        return axios.post("http://localhost:8080/api/employers/uploadPhoto?employerId=" + employerId)
+    }
 }
+

@@ -295,7 +295,7 @@ export default function Home() {
                         </div>
                         <div className="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
 
-                            <HomePageFavoriteButton jobPostingId={30} />
+                            <HomePageFavoriteButton jobPostingId={jobPosting.id} />
                           <a
                             href="/"
                             className="btn btn-primary "

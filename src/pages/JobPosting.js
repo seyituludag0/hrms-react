@@ -91,7 +91,7 @@ export default function JobPosting() {
                       <Image
                         floated="right"
                         style={{ width: "10rem" }}
-                        src="https://res.cloudinary.com/hrms-project/image/upload/v1623090912/free-logo-2ye432qlrl-idpzauzgux_pjqz4x.jpg"
+                        src={jobPosting.employer.companyLogo}
                       />
                       <Card.Header></Card.Header>
                       <Card.Meta
@@ -161,9 +161,11 @@ export default function JobPosting() {
                         </Button>
 
                   
-                        <Button as="div" labelPosition="right">
+                        <Button as="div" labelPosition="right" onClick={()=>{handleAddFavorite(jobPosting.id)}}>
+                          <Button color="red">
                             <Icon name="heart" />
                             Favorilere Ekle
+                          </Button>
                         </Button>
                       </div>
                     </Card.Content>
@@ -176,7 +178,7 @@ export default function JobPosting() {
                       <Image
                         floated="right"
                         style={{ width: "10rem" }}
-                        src="https://res.cloudinary.com/hrms-project/image/upload/v1623090912/free-logo-2ye432qlrl-idpzauzgux_pjqz4x.jpg"
+                        src={jobPosting.employer.companyLogo}
                       />
                       <Card.Header></Card.Header>
                       <Card.Meta
@@ -258,7 +260,7 @@ export default function JobPosting() {
               }
               </Card.Group>
               
-              <p>Bir sayfada kaç iş ilanı görmek istersiniz</p>
+              <p>Kaç adet iş ilanı görmek istiyorsunuz?</p>
              
        <Button.Group>
     <Button  onClick={()=>pageAble(10)}>10</Button>
@@ -270,6 +272,7 @@ export default function JobPosting() {
     <Button>100</Button>
   </Button.Group>
             </div>
+            <br />
           </Grid.Column>
         </Grid.Row>
       </Grid>

@@ -28,7 +28,7 @@ function handleVerifiedButtonClick(employer) {
 
 
 return (
-    <div>
+    <div style={{marginLeft:"20rem"}}>
       <Table singleLine>
         <Table.Header>
           <Table.Row>
