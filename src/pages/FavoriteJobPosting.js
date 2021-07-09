@@ -6,7 +6,7 @@ import FavoriteButton from "../layouts/FavoriteButton"
 
 export default function FavoriteJobPosting() {
   let favoriteJobPostingService = new FavoriteJobPostingService();
-
+ 
   const [favorites, setFavorites] = useState([]);
   console.log(favorites);
 
@@ -150,7 +150,7 @@ export default function FavoriteJobPosting() {
                   </Link>
                 </Button>
 
-                <FavoriteButton jobPostingId={30}  />
+                <FavoriteButton jobPostingId={favjob.jobPosting.id}  />
 
               </div>
             </Card.Content>

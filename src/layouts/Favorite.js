@@ -20,7 +20,7 @@ export default function Favorite() {
 useEffect(()=>{
     let favoriteJobPostingService = new FavoriteJobPostingService();
     favoriteJobPostingService.getFavorites().then(result=>setFavorites(result.data.data))
-},[]
+},[favorites]
 
 // [favorites]
 
