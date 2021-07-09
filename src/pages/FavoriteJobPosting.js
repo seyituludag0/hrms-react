@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import FavoriteJobPostingService from "../services/FavoriteJobPostingService";
 import { Button, Card, Image, Icon, Dropdown } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import FavoriteButton from "../layouts/FavoriteButton"
+import FavoriteRemoveButton from "../layouts/FavoriteRemoveButton"
 
 export default function FavoriteJobPosting() {
   let favoriteJobPostingService = new FavoriteJobPostingService();
@@ -19,7 +19,7 @@ export default function FavoriteJobPosting() {
     <div style={{marginLeft:"20rem"}}>
         {/* <Card fluid color='red' header='Option 1' /> */}
         {favorites.length==0?<div>
-          <Card fluid color='red' header='Henüz favori iş ilanınız yok Hemen favorilerinize ilan eklemek için iş ilanlarına bakın' />
+          <Card fluid color='red' header='Henüz favori iş ilanınız yok Hemen favorilerinize ilan eklemek için iş ilanlarına göz atın' />
           <Link to="/jobPostings">İş İlanlarına Göz At</Link>
         </div>:<div>
           <Card.Group>
@@ -150,7 +150,7 @@ export default function FavoriteJobPosting() {
                   </Link>
                 </Button>
 
-                <FavoriteButton jobPostingId={favjob.jobPosting.id}  />
+                <FavoriteRemoveButton jobPostingId={favjob.jobPosting.id}  />
 
               </div>
             </Card.Content>

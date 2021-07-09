@@ -45,8 +45,8 @@ export default class JobPostingService{
         return axios.get(`http://localhost:8080/api/jobPosting/findAllByOrderByPostedDateDesc?pageNo=${pageNo}&size=${size}`); //Yeni Eklenen İlanlar
     }
     
-    getJobPostingByCompanyName(companyName){
-        return axios.get("http://localhost:8080/api/jobPosting/getByisActiveTrueAndEmployer_companyName?companyName=" + companyName)
+    getJobPostingByEmployerId(employerId){
+        return axios.get("http://localhost:8080/api/jobPosting/getByEmployerId?employerId=" + employerId)
     }
 
     getAllByCityId(cityId){

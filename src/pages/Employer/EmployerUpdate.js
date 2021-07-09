@@ -48,7 +48,7 @@ export default function EmployerUpdate({ employer }) {
       values.id = 106;
       values.verified = false;
       let employerService = new EmployerService();
-      employerService.uploadPhoto(values.id).then(result=>console.log(result.data)).catch("HATA!")
+      employerService.uploadPhoto(values.id).then(result=>console.log(result.data))
       let verificationEmployerService = new VerificationEmployerService();
      
       let verificationEmployer = {

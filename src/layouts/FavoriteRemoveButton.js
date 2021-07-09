@@ -4,7 +4,7 @@ import { Button, Icon } from "semantic-ui-react";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
-export default function FavoriteButton({ jobPostingId }) {
+export default function FavoriteRemoveButton({ jobPostingId }) {
   const handleAddFavorite = (jobPostingId) => {
     let favoriteJobPostingService = new FavoriteJobPostingService();
     favoriteJobPostingService.addFavorites(1, jobPostingId).then((result) => {

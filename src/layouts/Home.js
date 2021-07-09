@@ -18,7 +18,7 @@ import { Button } from "semantic-ui-react";
 import { Pagination } from "semantic-ui-react";
 import FilterJobPosting from "../pages/FilterJobPosting";
 import ViewCount from "./ViewCount";
-import FavoriteButton from "../layouts/FavoriteButton"
+import FavoriteRemoveButton from "../layouts/FavoriteRemoveButton"
 import HomePageFavoriteButton from "./HomePageFavoriteButton";
 
 export default function Home() {
