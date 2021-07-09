@@ -33,7 +33,7 @@ export default function CvDetail() {
     candidateService
       .getCandidateCvByCandidateId(candidateId)
       .then((result) => setCvDetail(result.data.data));
-  }, [cvDetail]);
+  }, []);
 
   return (
     <div className="ana div">
@@ -328,10 +328,10 @@ export default function CvDetail() {
                     >
                       <div className="card-body">
                         <WorkPlaceDelete
-                          id={cvDetail?.workPlaceCandidate[0].id}
+                          id={workPlaceCandidate?.id}
                         />
                         <WorkPlaceUpdate
-                          workPlace={cvDetail?.workPlaceCandidate[0]}
+                          workPlace={workPlaceCandidate}
                         />
                         <div
                           className="h5"
@@ -399,9 +399,9 @@ export default function CvDetail() {
                       data-aos-duration="500"
                     >
                       <div className="card-body">
-                        <AbilityDelete id={cvDetail?.abilityCandidates[0].id} />
+                        <AbilityDelete id={ability?.id} />
                         <AbilityUpdate
-                          ability={cvDetail?.abilityCandidates[0]}
+                          ability={ability}
                           candidate={cvDetail?.candidate}
                         />
                         <div
@@ -459,9 +459,10 @@ export default function CvDetail() {
                     >
                       <div className="card-body">
                         <LanguageDelete
-                          id={cvDetail?.languageCandidates[0].id}
+                          id={languageCandidate?.id}
                         />
-                        <LanguageUpdate dil={cvDetail?.languageCandidates.id} />
+                        {/* <LanguageUpdate dil={cvDetail?.languageCandidates.id} /> */}
+                        <LanguageUpdate dil={languageCandidate} />
 
                         <div
                           className="h5"

@@ -32,7 +32,7 @@ export default function FavoriteJobPosting() {
               <Image
                 floated="right"
                 style={{ width: "10rem" }}
-                src="https://res.cloudinary.com/hrms-project/image/upload/v1623090912/free-logo-2ye432qlrl-idpzauzgux_pjqz4x.jpg"
+                src={favjob.jobPosting.employer.companyLogo}
               />
               <Card.Header></Card.Header>
               <Card.Meta

@@ -24,8 +24,8 @@ const [languageLevels, setLanguageLevels] = useState([]);
       initialValues: {
         id:dil?.id,
        
-        languageId:1,
-        languageLevelId:2,
+        languageId:dil?.language.id,
+        languageLevelId:dil?.languageLevel.id,
         candidateId:dil?.candidate.id,
       },
       enableReinitialize:true,

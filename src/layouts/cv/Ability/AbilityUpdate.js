@@ -48,7 +48,7 @@ export default function AbilityUpdate({ability}) {
     };
 
 
-    return (
+    return ( 
       <div>
         <Modal
           onClose={() => setOpen(false)}
