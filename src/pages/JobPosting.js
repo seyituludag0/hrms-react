@@ -260,37 +260,36 @@ export default function JobPosting() {
               }
               </Card.Group>
               
-              <p>Kaç adet iş ilanı görmek istiyorsunuz?</p>
-             
-       <Button.Group>
-    <Button  onClick={()=>pageAble(10)}>10</Button>
-    <Button.Or />
-    <Button onClick={()=>pageAble(20)}>20</Button>
-    <Button.Or />
-    <Button>50</Button>
-    <Button.Or />
-    <Button>100</Button>
-  </Button.Group>
+              
             </div>
             <br />
           </Grid.Column>
         </Grid.Row>
       </Grid>
-      <Pagination
-            activePage={activePage}
-            onPageChange={onChange}
-            totalPages={10}
-          />
+   
+               {jobPostings.length>0?(
+                  <div className="pageable">
 
-{/* <Button.Group>
-    <Button  onClick={()=>pageAble(10)}>10</Button>
-    <Button.Or />
-    <Button onClick={()=>pageAble(20)}>20</Button>
-    <Button.Or />
-    <Button>50</Button>
-    <Button.Or />
-    <Button>100</Button>
-  </Button.Group> */}
+<p>Kaç adet iş ilanı görmek istiyorsunuz?</p>
+
+<Button.Group>
+<Button  onClick={()=>pageAble(10)}>10</Button>
+<Button.Or />
+<Button onClick={()=>pageAble(20)}>20</Button>
+<Button.Or />
+<Button>50</Button>
+<Button.Or />
+<Button>100</Button>
+</Button.Group>
+<br /> <br />
+
+<Pagination
+activePage={activePage}
+onPageChange={onChange}
+totalPages={10}
+/>
+</div>
+               ):(<div></div>)}
     
     </div>
   );

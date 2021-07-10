@@ -239,13 +239,11 @@ export default function Home() {
           <div className="container" style={{ marginLeft: "15rem" }}>
             <div className="row">
               <div className=" pr-lg-5">
-                <div className="row justify-content-center pb-3">
-                  <div className="col-md-12 heading-section ">
+                <div className="row">
+                <div className="col-md-12 heading-section ">
                     <span className="subheading">Son Eklenen İşler</span>
                     <h2 className="mb-4">Yeni Eklenen İlanlar</h2>
-                  </div>
                 </div>
-                <div className="row">
                   {jobPostings.length>0?(
                   jobPostings.map((jobPosting) => (
                     <div className="col-md-12 ">
@@ -341,7 +339,8 @@ export default function Home() {
 
             <div className="jobs" style={{ display: "inline-flex" }}>
               <div className="row">
-                {jobPostings.map((jobPosting) => (
+                {jobPostings.length>0?(
+                  jobPostings.map((jobPosting) => (
                   <div className="col-md-3" style={{ width: "100rem" }}>
                     <ul className="category" key={jobPosting.id}>
                       <li>
@@ -356,7 +355,13 @@ export default function Home() {
                       </li>
                     </ul>
                   </div>
-                ))}
+                ))
+                ):(<Table>
+            <Message info color="red" visible style={{paddingLeft:"33%"}} size="big">
+              Üzgünüz, Bu sayfada iş ilanı bulunamadı!
+            </Message>
+          </Table>)}
+                
               </div>
             </div>
             <Pagination

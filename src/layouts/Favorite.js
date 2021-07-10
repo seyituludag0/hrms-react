@@ -22,7 +22,6 @@ useEffect(()=>{
     favoriteJobPostingService.getFavorites().then(result=>setFavorites(result.data.data))
 },[favorites]
 
-// [favorites]
 
 )
 
