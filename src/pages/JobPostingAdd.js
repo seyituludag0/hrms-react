@@ -51,6 +51,7 @@ export default function JobPostingAdd() {
     },
     validationSchema: jobPostingAddSchema,
     onSubmit: (values) => {
+      console.log(values);
       values.employerId = 2;
       jobPostingService
         .addJobPosting(values)

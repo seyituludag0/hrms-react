@@ -1,145 +1,178 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import JobTitleService from '../services/JobTitleService';
 import WorkTypeService from '../services/WorkTypeService';
+import CityService from '../services/CityService';
 import JobPostingService from '../services/JobPostingService';
 
+import { Grid, Card, Button, Dropdown, Form, Input } from "semantic-ui-react";
 
-export default function FilterJobPosting() {
+export default function FilterJobPosting({ handleOnFilter }) {
 
-    let workTypeService = new WorkTypeService();
-    let jobPostingService = new JobPostingService();
+  // const jobPostingSchema = Yup.object().shape({
+  //   searchText: Yup.string().required("Bu alan boş geçilemez. Lütfen doldurunuz"),
+  //   jobTitleId: Yup.string().required("Bu alan boş geçilemez. Lütfen doldurunuz"),
+  //   workTypeId: Yup.string().required("Bu alan boş geçilemez. Lütfen doldurunuz"),
+  //   cityId: Yup.string().required("Bu alan boş geçilemez. Lütfen doldurunuz"),
+  // });
 
+  let jobPostingService = new JobPostingService();
+  const formik = useFormik({
+    initialValues: {
+      searchText: "",
+      jobTitleId: "",
+      workTypeId: "",
+      cityId: "",
+    },
+    // validationSchema: jobPostingSchema,
+    onSubmit: (values) => {
+      // console.log(values);
+      jobPostingService.getByFilter(values)
+        .then((result) => console.log(result.data.data))
+        handleOnFilter(values)
+    },
+  });
 
-
-const [workTypes, setWorkTypes] = useState([])
-const [selectedJobTitle, setSelectedJobTitle] = useState(null)
-const [selectedCity, setSelectedCity] = useState(null);
-const [selectedWorkType, setSelectedWorkType] = useState(null);
-
-
-useEffect(() => {
-    workTypeService.getWorkTypes().then((result) => setWorkTypes(result.data.data));
-  },[]);
+  const [workTypes, setWorkTypes] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [jobTitles, setJobTitles] = useState([]);
 
   useEffect(() => {
-    let filteredJobByJobPostings;
-    if(selectedJobTitle && selectedCity && selectedWorkType){
-        // filteredJobByJobPostings = 
-    }
-},[]);
+    let workTypeService = new WorkTypeService();
+    let cityService = new CityService();
+    let jobTitleService = new JobTitleService();
 
-
-
-
-
-
-
-
-
-
-
-
-
-  const filtered = (jobTitle="Software Developer", cityName="Ankara", workTypeId=3) =>{
-    jobPostingService.getByJobTitleAndCityNameAndWorkTypeId(jobTitle, cityName, workTypeId).then(result=>console.log(result.data.data))
-    // jobPostingService.getByJobTitleAndCityNameAndWorkTypeId("Software Developer", "Ankara", 3).then(result=>console.log(result.data.data))
-  }
-
-    return (
-        <div className="row">
-        <div className="col-md-12 nav-link-wrap">
-          <div
-            className="nav nav-pills text-center"
-            id="v-pills-tab"
-            role="tablist"
-            aria-orientation="vertical"
-          >
-            <a
-              className="nav-link active mr-md-1"
-              id="v-pills-1-tab"
-              data-toggle="pill"
-              href="#v-pills-1"
-              role="tab"
-              aria-controls="v-pills-1"
-              aria-selected="true"
-            >
-              Haydi İş Aramaya Başlayalım
-            </a>
-          </div>
-        </div>
-        <div className="col-md-12 tab-wrap">
-          <div className="tab-content p-4" id="v-pills-tabContent">
-            <div
-              className="tab-pane fade show active"
-              id="v-pills-1"
-              role="tabpanel"
-              aria-labelledby="v-pills-nextgen-tab"
-            >
-                <div className="row no-gutters">
-                  <div className="col-md mr-md-2">
-                    <div className="form-groupx">
-                      <div className="form-field">
-                        <div className="icon">
-                          <span className="icon-briefcase" />
-                        </div>
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="örn: Web Developer"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md mr-md-2">
-                    <div className="form-groupx">
-                      <div className="form-field">
-                        <div className="select-wrap">
-                          <div className="icon">
-                            <span className="ion-ios-arrow-down" />
-                          </div>
-                          <select name id className="form-control">
-                          <option selected disabled>Çalışma Tipi</option>
-                            {
-                              workTypes.map((workType)=>(
-                                <option>{workType.type}</option>
-                              ))
-                            }
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md mr-md-2">
-                    <div className="form-groupx">
-                      <div className="form-field">
-                        <div className="icon">
-                          <span className="icon-map-marker" />
-                        </div>
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Location"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md">
-                    <div className="form-groupx">
-                      <div className="form-field">
-                        <button
-                          type="submit"
-                          onClick={()=>filtered()}
-                          className="form-control btn btn-secondary"
-                        >
-                          Ara
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            </div>
-        </div>
-      </div>
     
-    )
+    workTypeService
+      .getWorkTypes()
+      .then((result) => setWorkTypes(result.data.data));
+    cityService.getCities().then((result) => setCities(result.data.data));
+    jobTitleService
+      .getJobTitles()
+      .then((result) => setJobTitles(result.data.data));
+  }, []);
+
+
+  const workTypeOption = workTypes.map((workType, index) => ({
+    key: index,
+    text: workType.type,
+    value: workType.id,
+  }));
+
+  const cityOption = cities.map((city, index) => ({
+    key: index,
+    text: city.name,
+    value: city.id,
+  }));
+
+  const jobTitleOption = jobTitles.map((jobTitle, index) => ({
+    key: index,
+    text: jobTitle.title,
+    value: jobTitle.id,
+  }));
+
+  const handleChangeSemantic = (value, fieldName) => {
+    formik.setFieldValue(fieldName, value);
+  };
+
+  return (
+        
+        <Grid padded className="form-xxx">
+        
+          <Grid.Column>
+                
+              <Form onSubmit={formik.handleSubmit}>
+                <Form.Field >
+                <Input
+                style={{width:"14rem"}}
+              name="searchText"
+              placeholder="Ara"
+              icon="search"
+              iconPosition="right"
+            />
+                </Form.Field>
+                    <Form.Field>
+                      <Dropdown
+                        clearable
+                        item
+                        placeholder="İş Başlığı"
+                        search
+                        selection
+                        onChange={(event, data) =>
+                          handleChangeSemantic(data.value, "jobTitleId")
+                        }
+                        onBlur={formik.onBlur}
+                        id="jobTitleId"
+                        value={formik.values.jobTitleId}
+                        options={jobTitleOption}
+                      />
+                      {formik.errors.jobTitleId &&
+                        formik.touched.jobTitleId && (
+                          <div className={"ui pointing red basic label"}>
+                            {formik.errors.jobTitleId}
+                          </div>
+                        )}
+                    </Form.Field>
+
+                    <Form.Field>
+                      <Dropdown
+                        clearable
+                        item
+                        placeholder="Şehir"
+                        search
+                        selection
+                        onChange={(event, data) =>
+                          handleChangeSemantic(data.value, "cityId")
+                        }
+                        onBlur={formik.onBlur}
+                        id="cityId"
+                        value={formik.values.cityId}
+                        options={cityOption}
+                      />
+                      {formik.errors.cityId && formik.touched.cityId && (
+                        <div className={"ui pointing red basic label"}>
+                          {formik.errors.cityId}
+                        </div>
+                      )}
+                    </Form.Field>
+
+                    <Form.Field>
+                      <Dropdown
+                        clearable
+                        item
+                        placeholder="Çalışma Tipi"
+                        search
+                        selection
+                        onChange={(event, data) =>
+                          handleChangeSemantic(data.value, "workTypeId")
+                        }
+                        onBlur={formik.onBlur}
+                        id="workTypeId"
+                        value={formik.values.workTypeId}
+                        options={workTypeOption}
+                      />
+
+                      {formik.errors.workTypeId &&
+                        formik.touched.workTypeId && (
+                          <div className={"ui pointing red basic label"}>
+                            {formik.errors.workTypeId}
+                          </div>
+                        )}
+                    </Form.Field>
+
+                    <Button
+                      content="Filtrele"
+                      labelPosition="right"
+                      icon="search"
+                      primary
+                      type="submit"
+                      style={{ marginLeft: "20px" }}
+                    />
+                  </Form>
+                
+          </Grid.Column>
+        </Grid>
+    
+  );
 }

@@ -70,9 +70,9 @@ export default class JobPostingService{
     }
 
      
-    getByJobTitleAndCityNameAndWorkTypeId(jobTitle, cityName, workTypeId){
-    return axios.get(`http://localhost:8080/api/jobPosting/getByJobTitleAndCityNameAndWorkTypeId?cityName=${cityName}&jobTitle=${jobTitle}&workTypeId=${workTypeId}`) 
-  }
+    getByFilter(values){
+        return axios.post("http://localhost:8080/api/jobPosting/getByFilter", values)
+    }
 
   
   

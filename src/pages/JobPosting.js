@@ -8,6 +8,7 @@ import  CityFilter  from "../layouts/CityFilter"
 import  WorkTypeFilter  from "../layouts/WorkTypeFilter"
 import { Pagination } from "semantic-ui-react";
 import { toast } from "react-toastify";
+import FilterJobPosting from "../pages/FilterJobPosting";
 
 export default function JobPosting() {
   const [jobPostings, setJobPosting] = useState([]);
@@ -17,11 +18,14 @@ export default function JobPosting() {
   const [activePage, setActivePage] = useState(1);
   const [pageSize, setPageSize] = useState(2);
 
+  const [filter, setFilter] = useState({});
+
   useEffect(() => {
     let jobPostingService = new JobPostingService();
     jobPostingService.getJobPosting(activePage, pageSize)
       .then((result) => setJobPosting(result.data.data));
   }, [activePage, pageSize]);
+
 
   useEffect(() => {
     let filteredJobByJobPostings;
@@ -60,20 +64,33 @@ export default function JobPosting() {
     })
   }
 
+  useEffect(() => {
+    let jobPostingService = new JobPostingService();
+    jobPostingService.getByFilter(filter).then((result) => {
+        setJobPosting(result.data.data);
+      });
+  }, [filter]);
+
+  const handleOnFilter = (filter) => {
+    setFilter(filter);
+  };
+
   return (
     <div>
       <Grid>
         <Grid.Row>
-         <Grid.Column width={2} className="cities" style={{marginLeft:"3rem"}}>
+
+         <Grid.Column width={2} className="cities" style={{marginLeft:"93rem"}}>
          <CityFilter onSelect={handleSelectCity}/>
+         <WorkTypeFilter onSelect={handleSelectWorkType}/>
           </Grid.Column>
  
-         <Grid.Column width={2} className="work-types" floated="right" style={{marginRight:"-10rem"}}>
-            <WorkTypeFilter onSelect={handleSelectWorkType}/>
+          <Grid.Column width={2} className="work-types"  className="filter-job-postings">
+         <FilterJobPosting handleOnFilter={handleOnFilter} />
           </Grid.Column>
 
           <Grid.Column width={14}>
-            <div className="myCards" style={{marginRight:"-14rem", marginLeft:"20rem", marginTop:"-4.3rem"}}>
+            <div className="my-cards" style={{marginRight:"0rem", marginLeft:"9rem", marginTop:"-4.3rem"}}>
               <Card.Group>
                 <Card
                   className="jobs"

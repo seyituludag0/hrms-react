@@ -3,7 +3,6 @@ import "../css/style.css";
 import banner from "../img/banners/homepagebanner.png";
 import company from "../img/icon/company.svg";
 import location from "../img/icon/location.svg";
-import favorite from "../img/icon/favorite.svg";
 import businessman from "../img/icon/businessman.svg";
 import network from "../img/icon/network.svg";
 import userIcon from "../img/icon/user.svg";
@@ -14,11 +13,9 @@ import { Icon, Table, Message} from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 // import { addToFavorite } from "../store/actions/favoriteActions";
-import { Button } from "semantic-ui-react";
 import { Pagination } from "semantic-ui-react";
 import FilterJobPosting from "../pages/FilterJobPosting";
 import ViewCount from "./ViewCount";
-import FavoriteRemoveButton from "../layouts/FavoriteRemoveButton"
 import HomePageFavoriteButton from "./HomePageFavoriteButton";
 
 export default function Home() {
@@ -28,6 +25,7 @@ export default function Home() {
   const [pageSize] = useState(3)
   const dispatch = useDispatch()
   const [jobPostingCount, setJobPostingCount] = useState(0);
+  const [filter, setFilter] = useState({});
 
   let jobPostingService = new JobPostingService();
 
@@ -49,16 +47,16 @@ export default function Home() {
       );
   },[]);
 
-  useEffect(() => {
-    let workTypeService = new WorkTypeService();
-    workTypeService.getWorkTypes().then((result) => setWorkTypes(result.data.data));
-  },[]);
+  // useEffect(() => {
+  //   let workTypeService = new WorkTypeService();
+  //   workTypeService.getWorkTypes().then((result) => setWorkTypes(result.data.data));
+  // },[]);
 
   useEffect(() => {
     let jobPostingService = new JobPostingService();
-    jobPostingService.getByJobTitleAndCityNameAndWorkTypeId().then((result) => setjobPostings(result.data.data)
-      );
-  },[]);
+    jobPostingService.getByFilter(filter).then(result=>console.log(result.data.data))
+    
+  },[filter]);
 
 
   // const handleToFavorite = (jobPosting)=>{
@@ -67,12 +65,15 @@ export default function Home() {
   //   } 
 
 
-
-    
-
     const onChange = (e, pageInfo) => {
       setActivePage(pageInfo.activePage);
     };
+
+  const handleFilterJobPosting = (filter) => {
+    setFilter(filter);
+  };
+    
+
  
   return (
   <div>
@@ -121,7 +122,7 @@ export default function Home() {
         {/* ---------------------------------------------------------------------------------------------------------------------- */}
 
         <div className="ftco-search" style={{ width: "60rem" }}>
-          <FilterJobPosting />
+          <FilterJobPosting handleFilterJobPosting={handleFilterJobPosting}  />
            </div>
         {/* ----------------------------------------------------------------------------------------------------------------------------------- */}
 
