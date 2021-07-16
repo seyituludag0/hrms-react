@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import EmployeeService from "../../services/EmployeeService"
 import { Card, Table, Image, Grid } from "semantic-ui-react";
-// import EmployeeUpdate from "./EmployeeUpdate"
+import EmployeeUpdate from "./EmployeeUpdate"
 export default function EmployeeList() {
     const [employee, setEmployee] = useState(null);
 
     useEffect(() => {
       let employeeService = new EmployeeService();
       employeeService.getByEmployeeId(19).then((result) => setEmployee(result.data.data));
-    }, []);
+    }, [employee]);
 
 
     return (
@@ -37,7 +37,7 @@ export default function EmployeeList() {
                 </Table.Row>
               </Table.Body>
             </Table>
-            {/* <EmployeeUpdate employee={employee}/> */}
+            <EmployeeUpdate employee={employee}/>
           </Grid.Column>
         </Grid>
       </Card>

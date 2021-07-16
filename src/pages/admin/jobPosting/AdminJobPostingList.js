@@ -12,7 +12,7 @@ export default function AdminJobPostingList() {
     jobPostingService
       .getAllOpenJobPosting()
       .then((result) => setJobPostings(result.data.data));
-  },[]);
+  },[jobPostings]);
 
   let changeIsActiveEmployee = (id) => {
     let jobPostingService = new JobPostingService();

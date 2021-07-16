@@ -18,7 +18,7 @@ export default function JobPosting() {
   const [activePage, setActivePage] = useState(1);
   const [pageSize, setPageSize] = useState(2);
 
-  const [filter, setFilter] = useState({});
+  const [filter, setFilter] = useState([]);
 
   useEffect(() => {
     let jobPostingService = new JobPostingService();
@@ -85,12 +85,12 @@ export default function JobPosting() {
          <WorkTypeFilter onSelect={handleSelectWorkType}/>
           </Grid.Column>
  
-          <Grid.Column width={2} className="work-types"  className="filter-job-postings">
+          <Grid.Column width={2} className="work-types"  className="filter-job-postings" style={{marginLeft:"3rem", marginTop:"-7rem"}}>
          <FilterJobPosting handleOnFilter={handleOnFilter} />
           </Grid.Column>
 
           <Grid.Column width={14}>
-            <div className="my-cards" style={{marginRight:"0rem", marginLeft:"9rem", marginTop:"-4.3rem"}}>
+            <div className="my-cards" style={{marginRight:"-12rem", marginLeft:"21rem", marginTop:"-19.3rem"}}>
               <Card.Group>
                 <Card
                   className="jobs"

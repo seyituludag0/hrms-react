@@ -17,6 +17,7 @@ import { Pagination } from "semantic-ui-react";
 import FilterJobPosting from "../pages/FilterJobPosting";
 import ViewCount from "./ViewCount";
 import HomePageFavoriteButton from "./HomePageFavoriteButton";
+import HomePageFilter from "../pages/HomePageFilter";
 
 export default function Home() {
   const [jobPostings, setjobPostings] = useState([]);
@@ -121,9 +122,8 @@ export default function Home() {
 
         {/* ---------------------------------------------------------------------------------------------------------------------- */}
 
-        <div className="ftco-search" style={{ width: "60rem" }}>
-          <FilterJobPosting handleFilterJobPosting={handleFilterJobPosting}  />
-           </div>
+          <HomePageFilter />
+        
         {/* ----------------------------------------------------------------------------------------------------------------------------------- */}
 
         <div
