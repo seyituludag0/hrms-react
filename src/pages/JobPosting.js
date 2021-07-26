@@ -9,8 +9,13 @@ import  WorkTypeFilter  from "../layouts/WorkTypeFilter"
 import { Pagination } from "semantic-ui-react";
 import { toast } from "react-toastify";
 import FilterJobPosting from "../pages/FilterJobPosting";
+import moment from "moment";
+import "moment/locale/tr";
 
 export default function JobPosting() {
+
+  moment.locale("tr")
+
   const [jobPostings, setJobPosting] = useState([]);
   const [filteredJobPostings, setFilteredJobPostings] = useState(null);
   const [selectedWorkType, setSelectedWorkType] = useState(null);
@@ -75,6 +80,14 @@ export default function JobPosting() {
     setFilter(filter);
   };
 
+  function handleSelectCity(cityId) {
+    setSelectedCity(cityId);
+  }
+
+  function handleSelectWorkType(workTypeId) {
+    setSelectedWorkType(workTypeId);
+  }
+
   return (
     <div>
       <Grid>
@@ -131,6 +144,8 @@ export default function JobPosting() {
                         
                         <Card.Meta className="postedDate">
                         <h3>{jobPosting.postedDate}</h3>
+                        {/* <h3>{moment(jobPosting.postedDate).locale("tr").fromNow()}</h3> */}
+                        {/* {moment(data.createdDate).locale("tr").fromNow()} */}
                         </Card.Meta>
 
                         <Dropdown.Header icon="calendar times outline" style={{ float: "left", marginTop:"5.9rem", marginLeft:"-13.1rem", color:"black"}}></Dropdown.Header>
@@ -310,14 +325,6 @@ totalPages={10}
     
     </div>
   );
-
-  function handleSelectCity(cityId) {
-    setSelectedCity(cityId);
-  }
-
-  function handleSelectWorkType(workTypeId) {
-    setSelectedWorkType(workTypeId);
-  }
 
 }
 
