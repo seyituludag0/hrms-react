@@ -19,25 +19,18 @@ export default function AbilityAdd({ability}) {
   let abilityService = new AbilityService();
   const [open, setOpen] = useState(false)
 
-  const { values, errors, handleChange, handleSubmit, touched } = useFormik({
-    initialValues: {
-      candidateId:1,
-      abilityId:ability?.id
-    },
-    enableReinitialize:true,
-  
-    onSubmit: (values) => {
-      
-      console.log(values)
-      abilityService.add(values)
-        .then(toast.success("Eklendi"));
-    },
-  });
-
   const formik = useFormik({
     initialValues: {
-      abilityId: "",
-    },})
+      candidateId:1,
+      abilityId:""
+    },
+    enableReinitialize:true,
+    onSubmit: (values) => {
+      console.log(values);
+      abilityService.add(values).then(toast.success("Dil bilgisi eklendi!"));
+    },
+  })
+
 
   const [abilities, setAbilities] = useState([]);
 
@@ -49,7 +42,7 @@ export default function AbilityAdd({ability}) {
 
   const abilityOption = abilities.map((ability, index) => ({
     key: index,
-    text: ability.name,
+    text: ability.abilityName,
     value: ability.id,
   }));
 
@@ -78,7 +71,7 @@ export default function AbilityAdd({ability}) {
         <Modal.Header>Yetenek Ekle</Modal.Header>
         <Modal.Description>
           <Form
-            onSubmit={handleSubmit}
+            onSubmit={formik.handleSubmit}
             style={{ marginTop: "1em", marginLeft: "1em", marginBottom: "1em" }}
           >
             <Grid stackable>

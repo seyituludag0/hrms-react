@@ -176,7 +176,7 @@ export default function JobPostingDetail() {
 
                        jobPostingDetail.lastApplyDate!==null?<b>{moment(jobPostingDetail.lastApplyDate)
                       .endOf(jobPostingDetail.posted_date)
-                      .from(jobPostingDetail.posted_date)}{" "}bitiyor</b>:<b>Son Başvuru Tarihi Mevcut Değil</b>
+                      .from(jobPostingDetail.posted_date)}{" "}bitiyor</b>:<b>Son Başvuru Tarihi Bilinmiyor</b>
 
                       // jobPostingDetail.lastApplyDate!==null?<b>{moment(jobPostingDetail.lastApplyDate)
                       // .endOf(jobPostingDetail.posted_date)

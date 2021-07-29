@@ -49,70 +49,66 @@ export default function AbilityUpdate({ability}) {
 
 
     return ( 
-      <div>
-        <Modal
-          onClose={() => setOpen(false)}
-          onOpen={() => setOpen(true)}
-          open={open}
-          trigger={
-            <Button
-              floated="right"
-              positive
-              style={{ marginBottom: ".5em", marginRight: ".5em" }}
-            >
-              <Icon name="pencil"></Icon>Düzenle
-            </Button>
-          }
-                style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
+      
+      <Modal
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      open={open}
+      trigger={
+        // <Button style={{backgroundColor:"transparent"}}>
+          <Icon name="pencil"></Icon>
+        // </Button>
+      }
+      style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
+    >
+      <Modal.Header>Yetenek Güncelle</Modal.Header>
+      <Modal.Description>
+        <Form
+          onSubmit={formik.handleSubmit}
+          style={{ marginTop: "1em", marginLeft: "1em", marginBottom: "1em" }}
         >
-          <Modal.Header>Yetenek Güncelle</Modal.Header>
-          <Modal.Description>
-            <Form
-              onSubmit={formik.handleSubmit}
-              style={{ marginTop: "1em", marginLeft: "1em", marginBottom: "1em" }}
-            >
-              <Grid stackable>
-                <GridColumn width={14}>
-                <Dropdown
-                      clearable
-                      item
-                      placeholder="Yetenek"
-                      search
-                      selection
-                      onChange={(event, data) =>
-                        handleChangeSemantic(data.value, "abilityId")
-                      }
-                      onBlur={formik.onBlur}
-                      id="abilityId"
-                      value={formik.values.abilityId}
-                      options={abilityOption}
-                    />
+          <Grid stackable>
+            <GridColumn width={14}>
+            <Dropdown
+                  clearable
+                  item
+                  placeholder="Yetenek"
+                  search
+                  selection
+                  onChange={(event, data) =>
+                    handleChangeSemantic(data.value, "abilityId")
+                  }
+                  onBlur={formik.onBlur}
+                  id="abilityId"
+                  value={formik.values.abilityId}
+                  options={abilityOption}
+                />
 
-                    {formik.errors.abilityId &&
-                      formik.touched.abilityId && (
-                        <div className={"ui pointing red basic label"}>
-                          {formik.errors.abilityId}
-                        </div>
-                      )}
-                </GridColumn>
-                <GridColumn width={14}>
-                  </GridColumn>
-                </Grid>
-              <Modal.Actions>
-                <Button color="red" onClick={() => setOpen(false)}>
-                  Vazgeç
-                </Button>
-                <Button
-                  type="submit"
-                  color="teal"
-                  style={{ marginLeft: "22em", marginTop: "1em" }}
-                >
-                  Güncelle
-                </Button>
-              </Modal.Actions>
-            </Form>
-          </Modal.Description>
-        </Modal>
-      </div>
+                {formik.errors.abilityId &&
+                  formik.touched.abilityId && (
+                    <div className={"ui pointing red basic label"}>
+                      {formik.errors.abilityId}
+                    </div>
+                  )}
+            </GridColumn>
+            <GridColumn width={14}>
+              </GridColumn>
+            </Grid>
+          <Modal.Actions>
+            <Button color="red" onClick={() => setOpen(false)}>
+              Vazgeç
+            </Button>
+            <Button
+              type="submit"
+              color="teal"
+              style={{ marginLeft: "22em", marginTop: "1em" }}
+            >
+              Güncelle
+            </Button>
+          </Modal.Actions>
+        </Form>
+      </Modal.Description>
+    </Modal>
+  
     );
 }

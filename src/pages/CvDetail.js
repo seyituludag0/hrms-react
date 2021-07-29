@@ -33,7 +33,7 @@ export default function CvDetail() {
     candidateService
       .getCandidateCvByCandidateId(candidateId)
       .then((result) => setCvDetail(result.data.data));
-  }, []);
+  }, [cvDetail]);
 
   return (
     <div className="ana div">
@@ -372,133 +372,50 @@ export default function CvDetail() {
 
           <div className="section" id="school" style={{ marginTop: "10rem" }}>
             <div className="container cc-school">
-              <AbilityAdd ability={cvDetail?.abilityCandidates[0]} />
+              <AbilityAdd />
               <div className="h4 text-center mb-4 title">Yeteneklerim</div>
 
               {cvDetail?.abilityCandidates.map((ability) => (
-                <div className="card">
-                  <div className="row">
-                    <div
-                      className="col-md-3 bg-primary"
-                      data-aos="fade-right"
-                      data-aos-offset="50"
-                      data-aos-duration="500"
+
+                <div className="card" style={{borderRadius:"40px", width:"13rem", color:"black", height:"4rem", alignItems:"center",
+                  backgroundColor:"#12CBC4", display:"inline-block"
+                }}>
+                  <div
+                      className="col-md-9" style={{marginTop:"10px", marginLeft:"18px"}}
                     >
-                      <div
-                        className="card-body cc-school-header"
-                        style={{ marginTop: "3rem" }}
-                      >
-                        <p>March 2016 - Present</p>
-                        <div className="h5"></div>
-                      </div>
-                    </div>
-                    <div
-                      className="col-md-9"
-                      data-aos="fade-left"
-                      data-aos-offset="50"
-                      data-aos-duration="500"
-                    >
-                      <div className="card-body">
-                        <AbilityDelete id={ability?.id} />
-                        <AbilityUpdate
+                      
+                      <AbilityUpdate
                           ability={ability}
                           candidate={cvDetail?.candidate}
                         />
-                        <div
-                          className="h5"
-                          style={{ marginLeft: "-23rem", fontSize: "1.8rem" }}
-                        >
-                          {ability?.ability.abilityName}
-                        </div>
-                        <p>
-                          Euismod massa scelerisque suspendisse fermentum
-                          habitant vitae ullamcorper magna quam iaculis,
-                          tristique sapien taciti mollis interdum sagittis
-                          libero nunc inceptos tellus, hendrerit vel eleifend
-                          primis lectus quisque cubilia sed mauris. Lacinia
-                          porta vestibulum diam integer quisque eros pulvinar
-                          curae, curabitur feugiat arcu vivamus parturient
-                          aliquet laoreet at, eu etiam pretium molestie
-                          ultricies sollicitudin dui.
-                        </p>
-                      </div>
+                        {ability?.ability.abilityName}
+                        <AbilityDelete id={ability?.id} />
                     </div>
-                  </div>
                 </div>
+              
               ))}
             </div>
           </div>
 
           <div className="section" id="school" style={{ marginTop: "10rem" }}>
             <div className="container cc-school">
-              <LanguageAdd language={cvDetail?.languageCandidates[0]} />
+              <LanguageAdd />
               <div className="h4 text-center mb-4 title">Dillerim</div>
 
               {cvDetail?.languageCandidates.map((languageCandidate) => (
-                <div className="card">
-                  <div className="row">
-                    <div
-                      className="col-md-3 bg-primary"
-                      data-aos="fade-right"
-                      data-aos-offset="50"
-                      data-aos-duration="500"
-                    >
-                      <div
-                        className="card-body cc-school-header"
-                        style={{ marginTop: "3rem" }}
-                      >
-                        <p>March 2016 - Present</p>
-                        <div className="h5"></div>
-                      </div>
-                    </div>
-                    <div
-                      className="col-md-9"
-                      data-aos="fade-left"
-                      data-aos-offset="50"
-                      data-aos-duration="500"
-                    >
-                      <div className="card-body">
-                        <LanguageDelete
-                          id={languageCandidate?.id}
-                        />
-                        {/* <LanguageUpdate dil={cvDetail?.languageCandidates.id} /> */}
-                        <LanguageUpdate dil={languageCandidate} />
-
-                        <div
-                          className="h5"
-                          style={{ marginLeft: "-23rem", fontSize: "1.8rem" }}
-                        >
-                          {languageCandidate?.language.languageName}
-                        </div>
-                        <p
-                          className="category"
-                          style={{
-                            color: "gray",
-                            marginLeft: "-34rem",
-                            marginTop: "-7px",
-                            marginBottom: "7px",
-                            fontWeight: "bold",
-                          }}
-                        >
-                          Dil Seviyesi:{" "}
-                          {languageCandidate?.languageLevel.levelName}
-                        </p>
-                        <p>
-                          Euismod massa scelerisque suspendisse fermentum
-                          habitant vitae ullamcorper magna quam iaculis,
-                          tristique sapien taciti mollis interdum sagittis
-                          libero nunc inceptos tellus, hendrerit vel eleifend
-                          primis lectus quisque cubilia sed mauris. Lacinia
-                          porta vestibulum diam integer quisque eros pulvinar
-                          curae, curabitur feugiat arcu vivamus parturient
-                          aliquet laoreet at, eu etiam pretium molestie
-                          ultricies sollicitudin dui.
-                        </p>
-                      </div>
-                    </div>
+                
+                <div className="card" style={{borderRadius:"40px", width:"17rem", color:"black", height:"4rem", alignItems:"center",
+                backgroundColor:"#12CBC4", display:"inline-block"}}>
+                  
+                  <div className="col-md-9" style={{marginTop:"10px", marginLeft:"25px"}}>
+                      <LanguageUpdate dil={languageCandidate} />
+                      {languageCandidate?.language.languageName} ({languageCandidate?.languageLevel.levelName})
+                      <LanguageDelete id={languageCandidate?.id}/>
                   </div>
+
                 </div>
-              ))}
+                
+                ))}
             </div>
           </div>
 

@@ -61,20 +61,13 @@ const [languageLevels, setLanguageLevels] = useState([]);
     }));
 
         return (
-        <div>
           <Modal
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
             open={open}
             trigger={
-              <Button
-                floated="right"
-                positive
-                style={{ marginBottom: ".5em", marginRight: ".5em" }}
-              >
-                <Icon name="pencil"></Icon>Düzenle
-              </Button>
-            }
+                    <Icon name="pencil"/>
+                }
             
             style={{height:"18rem", marginLeft:"23rem", marginTop:"17rem"}}
           >
@@ -149,6 +142,5 @@ const [languageLevels, setLanguageLevels] = useState([]);
               </Form>
             </Modal.Description>
           </Modal>
-        </div>
       );
 }

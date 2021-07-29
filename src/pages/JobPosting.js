@@ -10,6 +10,7 @@ import { Pagination } from "semantic-ui-react";
 import { toast } from "react-toastify";
 import FilterJobPosting from "../pages/FilterJobPosting";
 import moment from "moment";
+import Moment from 'react-moment';
 import "moment/locale/tr";
 
 export default function JobPosting() {
@@ -236,9 +237,16 @@ export default function JobPosting() {
                         </Card.Meta>
 
                         <Dropdown.Header icon="calendar times outline" style={{ float: "left", marginTop:"5.9rem", marginLeft:"-13.1rem", color:"black"}}></Dropdown.Header>
-
                         <Card.Meta className="lastApplyDate">
                         <h3 style={{marginLeft:"-2.3rem"}}>{jobPosting.lastApplyDate}</h3>
+                        {/* {
+                              jobPosting.lastApplyDate!==null?<b>({moment(jobPosting.lastApplyDate)
+                              .endOf(jobPosting.posted_date)
+                              .from(jobPosting.posted_date)}){" "}bitiyor</b>:<b>Son Başvuru Tarihi Bilinmiyor</b>
+                          } */}
+
+                        <Moment durationFromNow>{jobPosting.lastApplyDate}</Moment>
+
                         </Card.Meta>
 
                         <Dropdown.Header icon="money" style={{ float: "left", marginTop:"3rem", marginLeft:"2.5rem"}}></Dropdown.Header>

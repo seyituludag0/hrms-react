@@ -14,12 +14,14 @@ export default function LanguageDelete({id}) {
     }
 
     return (
-        <div>
             <Modal
                 onClose={() => setOpen(false)}
                 onOpen={() => setOpen(true)}
                 open={open}
-                trigger={<Button floated="right" negative><Icon name="trash alternate" />Sil</Button>}
+                // trigger={<Button floated="right" negative><Icon name="trash alternate" />Sil</Button>}
+                trigger={
+                    <Icon name="x"/>
+                }
                 style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
             >
                 <Modal.Header>Cv'deki dili  silmek üzeresiniz!</Modal.Header>
@@ -41,6 +43,5 @@ export default function LanguageDelete({id}) {
                     />
                 </Modal.Actions>
             </Modal>
-        </div>
     )
 }
