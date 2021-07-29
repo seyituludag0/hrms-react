@@ -23,6 +23,8 @@ import SocialMediaUpdate from "../layouts/cv/SocialMedia/SocialMediaUpdate";
 
 import BasicInformation from "../layouts/cv/BasicInformations/BasicInformations";
 
+import { Message } from "semantic-ui-react";
+
 export default function CvDetail() {
   let { candidateId } = useParams();
 
@@ -38,7 +40,6 @@ export default function CvDetail() {
   return (
     <div className="ana div">
       <div>
-        
         <div
           style={{
             backgroundColor: "#6c63ff",
@@ -54,7 +55,7 @@ export default function CvDetail() {
             >
               <img
                 src={cvDetail?.cvDetail.cvPhotoUrl}
-                style={{ width: "12rem", marginTop: "-2rem" }}
+                style={{ height: "15rem", marginTop: "-2rem" }}
                 alt=""
               />
             </div>
@@ -106,6 +107,7 @@ export default function CvDetail() {
             }}
           >
             <a
+              // href={`http://${cvDetail?.socialMedias[0].link}`}
               href={`http://${cvDetail?.socialMedias[0].link}`}
               target="_blank"
             >
@@ -224,72 +226,77 @@ export default function CvDetail() {
               {/* <SchoolAdd school={cvDetail?.schoolCandidates[0]} /> */}
               <div className="h4 text-center mb-4 title">Okullarım</div>
 
-              {cvDetail?.schoolCandidates.map((school) => (
-                <div className="card">
-                  <div className="row">
-                    <div
-                      className="col-md-3 bg-primary"
-                      data-aos="fade-right"
-                      data-aos-offset="50"
-                      data-aos-duration="500"
-                    >
-                      <div
-                        className="card-body cc-school-header"
-                        style={{ marginTop: "3rem" }}
-                      >
-                        <p>March 2016 - Present</p>
-                        <div className="h5">
-                          {school?.dateOfEntry} - {school?.dateOfGraduation}
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="col-md-9"
-                      data-aos="fade-left"
-                      data-aos-offset="50"
-                      data-aos-duration="500"
-                    >
-                      <div className="card-body">
-                        <div
-                          className="h5"
-                          style={{ marginLeft: "-23rem", fontSize: "1.8rem" }}
-                        >
-                          {school.schoolDepartment.school.schoolName}
-                        </div>
-                        <p
-                          className="category"
-                          style={{
-                            color: "gray",
-                            marginLeft: "-34rem",
-                            marginTop: "-7px",
-                            marginBottom: "7px",
-                            fontWeight: "bold",
-                          }}
-                        >
-                          {cvDetail?.schoolCandidates
-                            .map(
-                              (schoolCandidate) =>
-                                schoolCandidate.schoolDepartment.department
-                                  .departmentName
-                            )
-                            .join(", ")}
-                        </p>
-                        <p>
-                          Euismod massa scelerisque suspendisse fermentum
-                          habitant vitae ullamcorper magna quam iaculis,
-                          tristique sapien taciti mollis interdum sagittis
-                          libero nunc inceptos tellus, hendrerit vel eleifend
-                          primis lectus quisque cubilia sed mauris. Lacinia
-                          porta vestibulum diam integer quisque eros pulvinar
-                          curae, curabitur feugiat arcu vivamus parturient
-                          aliquet laoreet at, eu etiam pretium molestie
-                          ultricies sollicitudin dui.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              { cvDetail?.schoolCandidates.length==0?<Message
+                  icon="warning circle"
+                  header="Henüz kayıtlı okul bilgileriniz bulunmamaktadır"
+                />:
+                <p>{cvDetail?.schoolCandidates.map((school) => (
+    <div className="card">
+      <div className="row">
+        <div
+          className="col-md-3 bg-primary"
+          data-aos="fade-right"
+          data-aos-offset="50"
+          data-aos-duration="500"
+        >
+          <div
+            className="card-body cc-school-header"
+            style={{ marginTop: "3rem" }}
+          >
+            <p>March 2016 - Present</p>
+            <div className="h5">
+              {school?.dateOfEntry} - {school?.dateOfGraduation}
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-md-9"
+          data-aos="fade-left"
+          data-aos-offset="50"
+          data-aos-duration="500"
+        >
+          <div className="card-body">
+            <div
+              className="h5"
+              style={{ marginLeft: "-23rem", fontSize: "1.8rem" }}
+            >
+              {school.schoolDepartment.school.schoolName}
+            </div>
+            <p
+              className="category"
+              style={{
+                color: "gray",
+                marginLeft: "-34rem",
+                marginTop: "-7px",
+                marginBottom: "7px",
+                fontWeight: "bold",
+              }}
+            >
+              {cvDetail?.schoolCandidates
+                .map(
+                  (schoolCandidate) =>
+                    schoolCandidate.schoolDepartment.department
+                      .departmentName
+                )
+                .join(", ")}
+            </p>
+            <p>
+              Euismod massa scelerisque suspendisse fermentum
+              habitant vitae ullamcorper magna quam iaculis,
+              tristique sapien taciti mollis interdum sagittis
+              libero nunc inceptos tellus, hendrerit vel eleifend
+              primis lectus quisque cubilia sed mauris. Lacinia
+              porta vestibulum diam integer quisque eros pulvinar
+              curae, curabitur feugiat arcu vivamus parturient
+              aliquet laoreet at, eu etiam pretium molestie
+              ultricies sollicitudin dui.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}</p> }
+              
             </div>
           </div>
 
@@ -300,73 +307,74 @@ export default function CvDetail() {
               <WorkPlaceAdd />
               <div className="h4 text-center mb-4 title">İş Deneyimlerim</div>
 
-              {cvDetail?.workPlaceCandidate?.map((workPlaceCandidate) => (
-                <div className="card">
-                  <div className="row">
-                    <div
-                      className="col-md-3 bg-primary"
-                      data-aos="fade-right"
-                      data-aos-offset="50"
-                      data-aos-duration="500"
-                    >
-                      <div
-                        className="card-body cc-experience-header"
-                        style={{ marginTop: "3rem" }}
-                      >
-                        <p>March 2016 - Present</p>
-                        <div className="h5">
-                          {workPlaceCandidate?.dateOfEntry} -{" "}
-                          {workPlaceCandidate?.dateOfQuit}
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="col-md-9"
-                      data-aos="fade-left"
-                      data-aos-offset="50"
-                      data-aos-duration="500"
-                    >
-                      <div className="card-body">
-                        <WorkPlaceDelete
-                          id={workPlaceCandidate?.id}
-                        />
-                        <WorkPlaceUpdate
-                          workPlace={workPlaceCandidate}
-                        />
+              {cvDetail?.workPlaceCandidate?.length == 0 ? (
+                <Message
+                  icon="warning circle"
+                  header="Henüz kayıtlı iş deneyiminiz bulunmamaktadır"
+                />
+              ) : (
+                <p>
+                  {cvDetail?.workPlaceCandidate?.map((workPlaceCandidate) => (
+                    <div className="card">
+                      <div className="row">
                         <div
-                          className="h5"
-                          style={{ marginLeft: "-23rem", fontSize: "1.8rem" }}
+                          className="col-md-3 bg-primary"
+                          data-aos="fade-right"
+                          data-aos-offset="50"
+                          data-aos-duration="500"
                         >
-                          {workPlaceCandidate?.workPlaceName}
+                          <div
+                            className="card-body cc-experience-header"
+                            style={{ marginTop: "3rem" }}
+                          >
+                            <p>March 2016 - Present</p>
+                            <div className="h5">
+                              {workPlaceCandidate?.dateOfEntry} -{" "}
+                              {workPlaceCandidate?.dateOfQuit}
+                            </div>
+                          </div>
                         </div>
-                        <p
-                          className="category"
-                          style={{
-                            color: "gray",
-                            marginLeft: "-34rem",
-                            marginTop: "-7px",
-                            marginBottom: "7px",
-                            fontWeight: "bold",
-                          }}
+                        <div
+                          className="col-md-9"
+                          data-aos="fade-left"
+                          data-aos-offset="50"
+                          data-aos-duration="500"
                         >
-                          {workPlaceCandidate?.jobTitle.title}
-                        </p>
-                        <p>
-                          Euismod massa scelerisque suspendisse fermentum
-                          habitant vitae ullamcorper magna quam iaculis,
-                          tristique sapien taciti mollis interdum sagittis
-                          libero nunc inceptos tellus, hendrerit vel eleifend
-                          primis lectus quisque cubilia sed mauris. Lacinia
-                          porta vestibulum diam integer quisque eros pulvinar
-                          curae, curabitur feugiat arcu vivamus parturient
-                          aliquet laoreet at, eu etiam pretium molestie
-                          ultricies sollicitudin dui.
-                        </p>
+                          <div className="card-body">
+                            <WorkPlaceDelete id={workPlaceCandidate?.id} />
+                            <WorkPlaceUpdate workPlace={workPlaceCandidate} />
+                            <div
+                              className="h5"
+                              style={{
+                                marginLeft: "-23rem",
+                                fontSize: "1.8rem",
+                              }}
+                            >
+                              {workPlaceCandidate?.workPlaceName}
+                            </div>
+                            <p
+                              style={{
+                                color: "gray",
+                                marginLeft: "-34rem",
+                                marginTop: "-7px",
+                                marginBottom: "7px",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              <p style={{ color: "black" }}>
+                                {workPlaceCandidate?.jobTitle}
+                              </p>
+                            </p>
+                            <p style={{ color: "black" }}>
+                              {workPlaceCandidate?.description}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  ))}
+                </p>
+              )}
             </div>
           </div>
 
@@ -375,25 +383,42 @@ export default function CvDetail() {
               <AbilityAdd />
               <div className="h4 text-center mb-4 title">Yeteneklerim</div>
 
-              {cvDetail?.abilityCandidates.map((ability) => (
-
-                <div className="card" style={{borderRadius:"40px", width:"13rem", color:"black", height:"4rem", alignItems:"center",
-                  backgroundColor:"#12CBC4", display:"inline-block"
-                }}>
-                  <div
-                      className="col-md-9" style={{marginTop:"10px", marginLeft:"18px"}}
+              {cvDetail?.abilityCandidates.length == 0 ? (
+                <Message
+                  icon="warning circle"
+                  header="Henüz kayıtlı yeteneğiniz bulunmamaktadır"
+                />
+              ) : (
+                <p>
+                  {cvDetail?.abilityCandidates.map((ability) => (
+                    <div
+                      className="card"
+                      style={{
+                        borderRadius: "40px",
+                        width: "13rem",
+                        color: "black",
+                        height: "4rem",
+                        alignItems: "center",
+                        backgroundColor: "#12CBC4",
+                        display: "inline-block",
+                        marginRight: "10px",
+                      }}
                     >
-                      
-                      <AbilityUpdate
+                      <div
+                        className="col-md-9"
+                        style={{ marginTop: "10px", marginLeft: "18px" }}
+                      >
+                        <AbilityUpdate
                           ability={ability}
                           candidate={cvDetail?.candidate}
                         />
                         {ability?.ability.abilityName}
                         <AbilityDelete id={ability?.id} />
+                      </div>
                     </div>
-                </div>
-              
-              ))}
+                  ))}
+                </p>
+              )}
             </div>
           </div>
 
@@ -402,20 +427,40 @@ export default function CvDetail() {
               <LanguageAdd />
               <div className="h4 text-center mb-4 title">Dillerim</div>
 
-              {cvDetail?.languageCandidates.map((languageCandidate) => (
-                
-                <div className="card" style={{borderRadius:"40px", width:"17rem", color:"black", height:"4rem", alignItems:"center",
-                backgroundColor:"#12CBC4", display:"inline-block"}}>
-                  
-                  <div className="col-md-9" style={{marginTop:"10px", marginLeft:"25px"}}>
-                      <LanguageUpdate dil={languageCandidate} />
-                      {languageCandidate?.language.languageName} ({languageCandidate?.languageLevel.levelName})
-                      <LanguageDelete id={languageCandidate?.id}/>
-                  </div>
-
-                </div>
-                
-                ))}
+              {cvDetail?.languageCandidates.length == 0 ? (
+                <Message
+                  icon="warning circle"
+                  header="Henüz kayıtlı dil bilginiz bulunmamaktadır"
+                />
+              ) : (
+                <p>
+                  {cvDetail?.languageCandidates.map((languageCandidate) => (
+                    <div
+                      className="card"
+                      style={{
+                        borderRadius: "40px",
+                        width: "17rem",
+                        color: "black",
+                        height: "4rem",
+                        alignItems: "center",
+                        backgroundColor: "#12CBC4",
+                        display: "inline-block",
+                        marginRight: "10px",
+                      }}
+                    >
+                      <div
+                        className="col-md-9"
+                        style={{ marginTop: "10px", marginLeft: "25px" }}
+                      >
+                        <LanguageUpdate dil={languageCandidate} />
+                        {languageCandidate?.language.languageName} (
+                        {languageCandidate?.languageLevel.levelName})
+                        <LanguageDelete id={languageCandidate?.id} />
+                      </div>
+                    </div>
+                  ))}
+                </p>
+              )}
             </div>
           </div>
 

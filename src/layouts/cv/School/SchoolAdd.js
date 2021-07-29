@@ -39,7 +39,7 @@ const { values, errors, handleChange, handleSubmit, touched } = useFormik({
       
       // console.log(values)
       schoolService.add(values)
-        .then(toast.success("Okul Eklendi"));
+      .then(result=>toast.success(result.data.message));
     },
   });
 

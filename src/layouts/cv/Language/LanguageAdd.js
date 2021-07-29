@@ -29,7 +29,7 @@ const formik = useFormik({
   enableReinitialize:true,
   onSubmit: (values) => {
     console.log(values);
-    languageService.update(values).then(toast.success("Dil bilgisi eklendi!"));
+    languageService.add(values).then(result=>toast.success(result.data.message));
   },
 })
 
@@ -71,7 +71,7 @@ useEffect(()=>{
           </Button>
         }
         
-        style={{height:"17rem", marginLeft:"23rem", marginTop:"17rem"}}
+        style={{height:"30rem", marginLeft:"23rem", marginTop:"17rem"}}
       >
         <Modal.Header>Dil Ekle</Modal.Header>
         <Modal.Description>

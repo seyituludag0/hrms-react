@@ -28,7 +28,7 @@ export default function AbilityUpdate({ability}) {
       onSubmit: (values) => {
         console.log(values);
         let abilityService = new AbilityService();
-        abilityService.update(values).then(toast.success("Yetenek bilgisi güncellendi!"));
+        abilityService.update(values).then(result=>toast.success(result.data.message));
       },
     })
 
@@ -59,7 +59,7 @@ export default function AbilityUpdate({ability}) {
           <Icon name="pencil"></Icon>
         // </Button>
       }
-      style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
+      style={{height:"20rem", marginLeft:"23rem", marginTop:"17rem"}}
     >
       <Modal.Header>Yetenek Güncelle</Modal.Header>
       <Modal.Description>

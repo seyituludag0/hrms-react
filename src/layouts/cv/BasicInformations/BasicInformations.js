@@ -32,7 +32,7 @@ export default function BasicInformations({basicInformation}) {
             let basicInformationService = new BasicInformationService();
             console.log(basicInformation)
             basicInformationService.update(values)
-              .then(toast.success("Temel bilgiler güncellendi!"));
+            .then(result=>toast.success(result.data.message));
           },
     })
 

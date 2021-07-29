@@ -32,7 +32,7 @@ export default function Update({socialMediaLink}) {
       onSubmit: (values) => {
         console.log(values);
         let socialMediaLinkService = new SocialMediaService();
-        socialMediaLinkService.update(values).then(toast.success("Sosyal medya hesap bilgileri güncellendi!"));
+        socialMediaLinkService.update(values).then(result=>toast.success(result.data.message));
       },
     })
 

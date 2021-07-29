@@ -27,7 +27,7 @@ export default function AbilityAdd({ability}) {
     enableReinitialize:true,
     onSubmit: (values) => {
       console.log(values);
-      abilityService.add(values).then(toast.success("Dil bilgisi eklendi!"));
+      abilityService.add(values).then(result=>toast.success(result.data.message));
     },
   })
 
@@ -66,7 +66,7 @@ export default function AbilityAdd({ability}) {
             <Icon name="add"></Icon>Ekle
           </Button>
         }
-                style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
+                style={{height:"20rem", marginLeft:"23rem", marginTop:"17rem"}}
       >
         <Modal.Header>Yetenek Ekle</Modal.Header>
         <Modal.Description>

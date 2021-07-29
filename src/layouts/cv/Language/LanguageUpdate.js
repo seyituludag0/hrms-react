@@ -30,9 +30,8 @@ const [languageLevels, setLanguageLevels] = useState([]);
       },
       enableReinitialize:true,
       onSubmit: (values) => {
-        console.log(values);
         let languageService = new LanguageService();
-        languageService.update(values).then(toast.success("Dil bilgisi güncellendi!"));
+        languageService.update(values).then(result=>toast.success(result.data.message));
       },
 
     });
@@ -69,7 +68,7 @@ const [languageLevels, setLanguageLevels] = useState([]);
                     <Icon name="pencil"/>
                 }
             
-            style={{height:"18rem", marginLeft:"23rem", marginTop:"17rem"}}
+            style={{height:"30rem", marginLeft:"23rem", marginTop:"17rem"}}
           >
             <Modal.Header>Dil Güncelle</Modal.Header>
             <Modal.Description>

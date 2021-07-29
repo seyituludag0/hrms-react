@@ -42,7 +42,7 @@ export default function SchoolUpdate({ schoolCandidate }) {
       let schoolService = new SchoolService();
       console.log(schoolCandidate)
       schoolService.update(values)
-        .then(toast.success("Okul Bilgisi güncellendi!"));
+      .then(result=>toast.success(result.data.message));
     },
   
   })

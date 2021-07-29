@@ -9,8 +9,7 @@ export default function LanguageDelete({id}) {
 
     const deleteLanguage = () => {
         let languageService = new LanguageService();
-        console.log("silindi");
-        languageService.delete(id).then(toast.success("Dil silindi!"));
+        languageService.delete(id).then(result=>toast.success(result.data.message));
     }
 
     return (

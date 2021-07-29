@@ -10,7 +10,7 @@ export default function WorkPlaceDelete({id}) {
     const deleteWorkPlace = () => {
         let workPlaceService = new WorkPlaceService();
         console.log("silindi");
-        workPlaceService.delete(id).then(toast.success("Deneyim silindi!"));
+        workPlaceService.delete(id).then(result=>toast.success(result.data.message));
     }
 
     return (
