@@ -243,9 +243,9 @@ export default function CvDetail() {
             className="card-body cc-school-header"
             style={{ marginTop: "3rem" }}
           >
-            <p>March 2016 - Present</p>
+            {/* <p>March 2016 - Present</p> */}
             <div className="h5">
-              {school?.dateOfEntry} - {school?.dateOfGraduation}
+            Başlama Tarihi:  {school?.dateOfEntry} {(school.dateOfGraduation)==null?<p>Devam Ediyor</p>:<p>Mezun Olma Tarihi: {school.dateOfGraduation}</p>}
             </div>
           </div>
         </div>
@@ -277,19 +277,10 @@ export default function CvDetail() {
                   (schoolCandidate) =>
                     schoolCandidate.schoolDepartment.department
                       .departmentName
-                )
-                .join(", ")}
+                )}
             </p>
             <p>
-              Euismod massa scelerisque suspendisse fermentum
-              habitant vitae ullamcorper magna quam iaculis,
-              tristique sapien taciti mollis interdum sagittis
-              libero nunc inceptos tellus, hendrerit vel eleifend
-              primis lectus quisque cubilia sed mauris. Lacinia
-              porta vestibulum diam integer quisque eros pulvinar
-              curae, curabitur feugiat arcu vivamus parturient
-              aliquet laoreet at, eu etiam pretium molestie
-              ultricies sollicitudin dui.
+              {school?.description}
             </p>
           </div>
         </div>
@@ -327,10 +318,9 @@ export default function CvDetail() {
                             className="card-body cc-experience-header"
                             style={{ marginTop: "3rem" }}
                           >
-                            <p>March 2016 - Present</p>
+                            {/* <p>March 2016 - Present</p> */}
                             <div className="h5">
-                              {workPlaceCandidate?.dateOfEntry} -{" "}
-                              {workPlaceCandidate?.dateOfQuit}
+                              Başlama Tarihi:  {workPlaceCandidate?.dateOfEntry} {(workPlaceCandidate?.dateOfQuit)==null?<p>Devam Ediyor</p>:<p>İşten Ayrılma Tarihi: {workPlaceCandidate?.dateOfQuit}</p>}
                             </div>
                           </div>
                         </div>
