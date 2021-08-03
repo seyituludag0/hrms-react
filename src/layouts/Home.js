@@ -22,7 +22,7 @@ import HomePageFavoriteButton from "./HomePageFavoriteButton";
 import PastDatePosts from "./PastDatePosts";
 
 export default function Home() {
-  const [jobPostings, setjobPostings] = useState([]);
+  const [jobPostings, setJobPostings] = useState([]);
   const [workTypes, setWorkTypes] = useState([]);
   const [activePage, setActivePage] = useState(1);
   const [pageSize] = useState(3);
@@ -35,7 +35,7 @@ export default function Home() {
   useEffect(() => {
     jobPostingService
       .findAllByOrderByPostedDateDesc(activePage, pageSize) //Yeni Eklenen İlanlar
-      .then((result) => setjobPostings(result.data.data));
+      .then((result) => setJobPostings(result.data.data));
     jobPostingService
       .countGetAll()
       .then((result) => setJobPostingCount(result.data));
@@ -45,7 +45,7 @@ export default function Home() {
     let jobPostingService = new JobPostingService();
     jobPostingService
       .findAllByOrderByPostedDateAsc(activePage, pageSize)
-      .then((result) => setjobPostings(result.data.data));
+      .then((result) => setJobPostings(result.data.data));
   }, []);
 
   // useEffect(() => {
@@ -59,6 +59,11 @@ export default function Home() {
       .getByFilter(filter)
       .then((result) => console.log(result.data.data));
   }, [filter]);
+
+  useEffect(()=>{
+    let jobPostingService = new JobPostingService();
+    jobPostingService.findAllByOrderByPostedDateDesc(activePage, pageSize).then(result=>setJobPostings(result.data.data))
+},[])
 
   // const handleToFavorite = (jobPosting)=>{
   //     dispatch(addToFavorite(jobPosting));
@@ -233,12 +238,6 @@ export default function Home() {
         {/* ----------------------------------------------LastAddedJobPostings---------------------------------------------------------------------------- */}
 
         <LastAddedJobPostings />
-
-        <Pagination
-          activePage={activePage}
-          onPageChange={onChange}
-          totalPages={10}
-        />
 
         {/* -------------------------------------------------------------------------------------------------------------------------- */}
 

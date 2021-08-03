@@ -15,7 +15,7 @@ export default function PastDatePosts() {
           .findAllByOrderByPostedDateAsc(activePage, pageSize)
           .then((result) => setjobPostings(result.data.data)
           );
-      },[]);
+      },[activePage, pageSize]);
 
       const onChange = (e, pageInfo) => {
         setActivePage(pageInfo.activePage);

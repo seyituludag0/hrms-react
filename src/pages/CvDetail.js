@@ -95,44 +95,52 @@ export default function CvDetail() {
 
         {/* --------------------------------------------------------------------------- */}
 
+
         <div className="social-medias">
-          <div
-            className="github"
-            style={{
-              backgroundColor: "gray",
-              width: "3rem",
-              marginLeft: "48rem",
-              borderRadius: "42px",
-              marginTop: "-2rem ",
-            }}
-          >
-            <a
-              // href={`http://${cvDetail?.socialMedias[0].link}`}
-              href={`http://${cvDetail?.socialMedias[0].link}`}
-              target="_blank"
-            >
-              <img src={github} alt="Github" style={{ width: "3.1rem" }} />
-            </a>
-          </div>
 
-          <div
-            className="github"
-            style={{
-              backgroundColor: "gray",
-              width: "3rem",
-              marginLeft: "52rem",
-              borderRadius: "42px",
-              marginTop: "-3rem ",
-            }}
+        {
+          cvDetail?.socialMedias.map((socialMedia)=>(
+            <div
+          className="github"
+          style={{
+            backgroundColor: "gray",
+            width: "3rem",
+            marginLeft: "48rem",
+            borderRadius: "42px",
+            marginTop: "-2rem ",
+          }}
+        >
+          <a
+            // href={`http://${cvDetail?.socialMedias[0].link}`}
+            href={`http://${socialMedia.link}`}
+            target="_blank"
           >
-            <a
-              href={`http://${cvDetail?.socialMedias[0].link}`}
-              target="_blank"
-            >
-              <img src={linkedin} alt="Linkedin" style={{ width: "3.1rem" }} />
-            </a>
-          </div>
+            <img src={socialMedia.socialMediaLogo} alt="Github" style={{ width: "3.1rem" }} />
+          </a>
+        </div>
+          ))
+        }
+         
+           
+        <div
+          className="edit"
+          style={{
+            backgroundColor: "gray",
+            width: "3rem",
+            marginLeft: "56rem",
+            borderRadius: "42px",
+            marginTop: "-3rem ",
+          }}
+        >
+          {/* <SocialMediaUpdate socialMediaLink={cvDetail?.socialMedias[0]} /> */}
+          {/* <WorkPlaceUpdate workPlace={workPlaceCandidate} /> */}
+          {/* <SocialMediaUpdate socialMediaLink={cvDetail?.socialMedias} /> */}
+        </div>
+      
+      
+          
 
+    
           <div
             className="edit"
             style={{
@@ -146,6 +154,9 @@ export default function CvDetail() {
             <SocialMediaUpdate socialMediaLink={cvDetail?.socialMedias[0]} />
           </div>
         </div>
+        
+
+
         {/* <SocialMediaUpdate socialMediaLink={cvDetail?.socialMedias[0]} /> */}
         {/* --------------------------------------------------------------------------- */}
 

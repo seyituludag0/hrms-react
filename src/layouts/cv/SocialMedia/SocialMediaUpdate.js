@@ -43,7 +43,7 @@ export default function Update({socialMediaLink}) {
       useEffect(()=>{
         let socialMediaService = new SocialMediaService();
         socialMediaService.getSocialMediaLinkTypes().then(result=>setLinkTypes(result.data.data))
-        socialMediaService.getSocialMediaByCandidateId(1).then(result=>console.log(result.data.data))
+        socialMediaService.getSocialMediaByCandidateId(1).then(result=>setCandidateSocialMedias(result.data.data))
       },[])
       
       

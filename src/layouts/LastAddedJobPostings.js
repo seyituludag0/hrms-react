@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import company from "../img/icon/company.svg";
 import location from "../img/icon/location.svg";
 import HomePageFavoriteButton from "./HomePageFavoriteButton";
-import { Icon, Table, Message} from "semantic-ui-react";
+import { Table, Message, Pagination } from "semantic-ui-react";
 import JobPostingService from "../services/JobPostingService";
 
 export default function HomePageJobPosting() {
@@ -15,10 +15,14 @@ export default function HomePageJobPosting() {
     useEffect(()=>{
         let jobPostingService = new JobPostingService();
         jobPostingService.findAllByOrderByPostedDateDesc(activePage, pageSize).then(result=>setJobPostings(result.data.data))
-    },[])
+    },[activePage, pageSize])
+
+    const onChange = (e, pageInfo) => {
+      setActivePage(pageInfo.activePage);
+    };
 
     return (
-        <div className="ftco-section bg-light hotjobs">
+<div className="ftco-section bg-light hotjobs">
           <div className="container" style={{ marginLeft: "15rem" }}>
             <div className="row">
               <div className=" pr-lg-5">
@@ -105,6 +109,11 @@ export default function HomePageJobPosting() {
               </div>
             </div>
           </div>
+           <Pagination
+          activePage={activePage}
+          onPageChange={onChange}
+          totalPages={10}
+        />
         </div>
       );
 
