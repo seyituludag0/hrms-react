@@ -13,6 +13,10 @@ export default class SocialMediaService{
         return axios.get("http://localhost:8080/api/linkTypes/getAll")
     }
 
+    add(socialMedia){
+        return axios.post("http://localhost:8080/api/socialMedias/add", socialMedia)
+    }
+
     update(socialMedia){
         return axios.post("http://localhost:8080/api/socialMedias/update", socialMedia)
     }

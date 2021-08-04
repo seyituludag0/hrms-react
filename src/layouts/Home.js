@@ -101,7 +101,7 @@ export default function Home() {
           }}
         >
           <p style={{ color: "black" }}>
-            Hak ettiğiniz {jobPostingCount} harika iş ilanımız var!
+            Size {jobPostingCount} harika iş ilanımız var!
           </p>
         </div>
 

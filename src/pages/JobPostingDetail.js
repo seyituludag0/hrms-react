@@ -33,7 +33,7 @@ export default function JobPostingDetail() {
       .then((result) => setJobPosting(result.data.data));
 
     jobPostingService
-      .getJobPostingByEmployerId(18) // Fake id verildi ilerde düzeltilecek
+      .getJobPostingByEmployerId(106) // Fake id verildi ilerde düzeltilecek
       .then((result) => setJobPostingByEmployer(result.data.data));
   }, []);
 

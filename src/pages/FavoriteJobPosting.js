@@ -18,7 +18,7 @@ export default function FavoriteJobPosting() {
   return (
     <div style={{marginLeft:"20rem"}}>
         {/* <Card fluid color='red' header='Option 1' /> */}
-        {favorites.length==0?<div>
+        {favorites.length===0?<div>
           <Card fluid color='red' header='Henüz favori iş ilanınız yok Hemen favorilerinize ilan eklemek için iş ilanlarına göz atın' />
           <Link to="/jobPostings">İş İlanlarına Göz At</Link>
         </div>:<div>

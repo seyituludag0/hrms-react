@@ -67,7 +67,7 @@ export default function SchoolUpdate({ schoolCandidate }) {
             
             style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
           >
-            <Modal.Header>Sosyal Medya Güncelle</Modal.Header>
+            <Modal.Header>Okul Bilgilerini Güncelle</Modal.Header>
             <Modal.Description>
               <Form
                 onSubmit={handleSubmit}

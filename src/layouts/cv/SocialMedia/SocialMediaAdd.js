@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from "react";
 import { useFormik } from "formik";
-import * as Yup from "yup";
 import { toast } from "react-toastify";
 import {
     Button,
@@ -10,30 +9,27 @@ import {
     Label,
     Modal,
     Icon,
-    Dropdown,
-    Input
+    Dropdown
   } from "semantic-ui-react";
   import SocialMediaService from "../../../services/SocialMediaService";
 
 
-export default function SocialMediaUpdate({socialMedia}) {
+export default function SocialMediaAdd({socialMedia}) {
  
     const [open, setOpen] = useState(false)
     const [linkTypes, setLinkTypes] = useState([])
-    const [candidateSocialMedias, setCandidateSocialMedias] = useState([])
 
     const formik = useFormik({
       initialValues: {
-        id:socialMedia?.id,
-        candidateId:socialMedia?.candidate.id,
-        link:socialMedia?.link,
-        linkTypeId: socialMedia?.linkType.id
+        id:"",
+        candidateId:1,
+        link:"",
+        linkTypeId: ""
       },
       enableReinitialize:true,
       onSubmit: (values) => {
-        console.log(values);
         let socialMediaService = new SocialMediaService();
-        socialMediaService.update(values).then(result=>toast.success(result.data.message));
+        socialMediaService.add(values).then(result=>toast.success(result.data.message));
       },
     })
 
@@ -44,7 +40,6 @@ export default function SocialMediaUpdate({socialMedia}) {
       useEffect(()=>{
         let socialMediaService = new SocialMediaService();
         socialMediaService.getSocialMediaLinkTypes().then(result=>setLinkTypes(result.data.data))
-        socialMediaService.getSocialMediaByCandidateId(1).then(result=>setCandidateSocialMedias(result.data.data))
       },[])
       
       
@@ -60,18 +55,18 @@ export default function SocialMediaUpdate({socialMedia}) {
             onOpen={() => setOpen(true)}
             open={open}
             trigger={
-              <Icon
-                floated="right"
-                primary
-                style={{ marginBottom: "0.5em", marginRight: "0.5em", height:"2rem", marginTop:"6px", marginLeft:"6px", fontSize:"1.3rem", color:"black" }}
-              >
-                <Icon name="pencil"></Icon>
-              </Icon>
+               <Button
+            floated="right"
+            primary
+            style={{ marginBottom: ".5em", marginRight: ".5em" }}
+          >
+            <Icon name="add"></Icon>Ekle
+          </Button>
             }
             
             style={{height:"35rem", marginLeft:"23rem", marginTop:"17rem"}}
           >
-            <Modal.Header>Sosyal Medya Hesap Bilgilerini Güncelle</Modal.Header>
+            <Modal.Header>Sosyal Medya Hesabı Ekle</Modal.Header>
             <Modal.Description>
               <Form
                 onSubmit={formik.handleSubmit}
@@ -83,10 +78,10 @@ export default function SocialMediaUpdate({socialMedia}) {
                 <GridColumn width={7}>
                 <Form.Field>
                     <label>Url Link</label>
-                    <Input
+                    <input
                       name="link"
                       label='http://'
-                      placeholder="site Adı"
+                      placeholder="Site Adı"
                       value={formik.values.link}
                       onChange={formik.handleChange}
                     />
@@ -105,7 +100,6 @@ export default function SocialMediaUpdate({socialMedia}) {
                       placeholder="Sosyal Medya Sitesi"
                       search
                       selection
-                      value={formik.values.linkTypeId}
                       onChange={(event, data) =>
                         handleChangeSemantic(data.value, "linkTypeId")
                       }
@@ -133,7 +127,7 @@ export default function SocialMediaUpdate({socialMedia}) {
                     color="teal"
                     style={{ marginLeft: "22em", marginTop: "1em" }}
                   >
-                    Güncelle
+                    Ekle
                   </Button>
                 </Modal.Actions>
               </Form>

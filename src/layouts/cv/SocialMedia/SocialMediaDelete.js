@@ -9,17 +9,15 @@ export default function SocialMediaDelete({id}) {
 
     const deleteSocialMedia = () => {
         let socialMediaService = new SocialMediaService();
-        console.log("silindi");
-        socialMediaService.delete(id).then(toast.success("Sosyal medya silindi!"));
+        socialMediaService.delete(id).then(result=>toast.success(result.data.mesage));
     }
 
     return (
-        <div>
             <Modal
                 onClose={() => setOpen(false)}
                 onOpen={() => setOpen(true)}
                 open={open}
-                trigger={<Button floated="right" negative><Icon name="trash alternate" />Sil</Button>}
+                trigger={<Icon name="x"/>}
                 style={{height:"15rem", marginLeft:"23rem", marginTop:"17rem"}}
             >
                 <Modal.Header>Cv'deki sosyal medya hesabınızı silmek üzeresiniz!</Modal.Header>
@@ -41,6 +39,5 @@ export default function SocialMediaDelete({id}) {
                     />
                 </Modal.Actions>
             </Modal>
-        </div>
     )
 }

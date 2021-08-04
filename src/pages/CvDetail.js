@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 import "../css/Footer.css";
-import linkedin from "../img/icon/linkedin.png";
-import github from "../img/icon/github.svg";
 
 import CandidateService from "../services/CandidateService";
 
@@ -19,7 +17,9 @@ import WorkPlaceAdd from "../layouts/cv/WorkPlace/WorkPlaceAdd";
 import WorkPlaceUpdate from "../layouts/cv/WorkPlace/WorkPlaceUpdate";
 import WorkPlaceDelete from "../layouts/cv/WorkPlace/WorkPlaceDelete";
 
+import SocialMediaAdd from "../layouts/cv/SocialMedia/SocialMediaAdd";
 import SocialMediaUpdate from "../layouts/cv/SocialMedia/SocialMediaUpdate";
+import SocialMediaDelete from "../layouts/cv/SocialMedia/SocialMediaDelete";
 
 import BasicInformation from "../layouts/cv/BasicInformations/BasicInformations";
 
@@ -96,65 +96,6 @@ export default function CvDetail() {
         {/* --------------------------------------------------------------------------- */}
 
 
-        <div className="social-medias">
-
-        {
-          cvDetail?.socialMedias.map((socialMedia)=>(
-            <div
-          className="github"
-          style={{
-            backgroundColor: "gray",
-            width: "3rem",
-            marginLeft: "48rem",
-            borderRadius: "42px",
-            marginTop: "-2rem ",
-          }}
-        >
-          <a
-            // href={`http://${cvDetail?.socialMedias[0].link}`}
-            href={`http://${socialMedia.link}`}
-            target="_blank"
-          >
-            <img src={socialMedia.socialMediaLogo} alt="Github" style={{ width: "3.1rem" }} />
-          </a>
-        </div>
-          ))
-        }
-         
-           
-        <div
-          className="edit"
-          style={{
-            backgroundColor: "gray",
-            width: "3rem",
-            marginLeft: "56rem",
-            borderRadius: "42px",
-            marginTop: "-3rem ",
-          }}
-        >
-          {/* <SocialMediaUpdate socialMediaLink={cvDetail?.socialMedias[0]} /> */}
-          {/* <WorkPlaceUpdate workPlace={workPlaceCandidate} /> */}
-          {/* <SocialMediaUpdate socialMediaLink={cvDetail?.socialMedias} /> */}
-        </div>
-      
-      
-          
-
-    
-          <div
-            className="edit"
-            style={{
-              backgroundColor: "gray",
-              width: "3rem",
-              marginLeft: "56rem",
-              borderRadius: "42px",
-              marginTop: "-3rem ",
-            }}
-          >
-            <SocialMediaUpdate socialMediaLink={cvDetail?.socialMedias[0]} />
-          </div>
-        </div>
-        
 
 
         {/* <SocialMediaUpdate socialMediaLink={cvDetail?.socialMedias[0]} /> */}
@@ -237,7 +178,7 @@ export default function CvDetail() {
               {/* <SchoolAdd school={cvDetail?.schoolCandidates[0]} /> */}
               <div className="h4 text-center mb-4 title">Okullarım</div>
 
-              { cvDetail?.schoolCandidates.length==0?<Message
+              { cvDetail?.schoolCandidates.length===0?<Message
                   icon="warning circle"
                   header="Henüz kayıtlı okul bilgileriniz bulunmamaktadır"
                 />:
@@ -256,7 +197,7 @@ export default function CvDetail() {
           >
             {/* <p>March 2016 - Present</p> */}
             <div className="h5">
-            Başlama Tarihi:  {school?.dateOfEntry} {(school.dateOfGraduation)==null?<p>Devam Ediyor</p>:<p>Mezun Olma Tarihi: {school.dateOfGraduation}</p>}
+            Başlama Tarihi:  {school?.dateOfEntry} {(school.dateOfGraduation)===null?<p>Devam Ediyor</p>:<p>Mezun Olma Tarihi: {school.dateOfGraduation}</p>}
             </div>
           </div>
         </div>
@@ -309,7 +250,7 @@ export default function CvDetail() {
               <WorkPlaceAdd />
               <div className="h4 text-center mb-4 title">İş Deneyimlerim</div>
 
-              {cvDetail?.workPlaceCandidate?.length == 0 ? (
+              {cvDetail?.workPlaceCandidate?.length === 0 ? (
                 <Message
                   icon="warning circle"
                   header="Henüz kayıtlı iş deneyiminiz bulunmamaktadır"
@@ -331,7 +272,7 @@ export default function CvDetail() {
                           >
                             {/* <p>March 2016 - Present</p> */}
                             <div className="h5">
-                              Başlama Tarihi:  {workPlaceCandidate?.dateOfEntry} {(workPlaceCandidate?.dateOfQuit)==null?<p>Devam Ediyor</p>:<p>İşten Ayrılma Tarihi: {workPlaceCandidate?.dateOfQuit}</p>}
+                              Başlama Tarihi:  {workPlaceCandidate?.dateOfEntry} {(workPlaceCandidate?.dateOfQuit)===null?<p>Devam Ediyor</p>:<p>İşten Ayrılma Tarihi: {workPlaceCandidate?.dateOfQuit}</p>}
                             </div>
                           </div>
                         </div>
@@ -384,7 +325,7 @@ export default function CvDetail() {
               <AbilityAdd />
               <div className="h4 text-center mb-4 title">Yeteneklerim</div>
 
-              {cvDetail?.abilityCandidates.length == 0 ? (
+              {cvDetail?.abilityCandidates.length === 0 ? (
                 <Message
                   icon="warning circle"
                   header="Henüz kayıtlı yeteneğiniz bulunmamaktadır"
@@ -428,7 +369,7 @@ export default function CvDetail() {
               <LanguageAdd />
               <div className="h4 text-center mb-4 title">Dillerim</div>
 
-              {cvDetail?.languageCandidates.length == 0 ? (
+              {cvDetail?.languageCandidates.length === 0 ? (
                 <Message
                   icon="warning circle"
                   header="Henüz kayıtlı dil bilginiz bulunmamaktadır"
@@ -464,6 +405,50 @@ export default function CvDetail() {
               )}
             </div>
           </div>
+
+          
+          <div className="section" id="school" style={{ marginTop: "10rem" }}>
+            <div className="container cc-school">
+              {cvDetail?.socialMedias.length<2?<SocialMediaAdd />:<div></div>}
+              
+              <div className="h4 text-center mb-4 title">Sosyal Medya Hesaplarım</div>
+              {cvDetail?.socialMedias.length === 0 ? (
+                <Message
+                  icon="warning circle"
+                  header="Henüz kayıtlı sosyal medya hesabınız bulunmamaktadır"
+                />
+              ) : (
+                <p>
+                  {cvDetail?.socialMedias.map((socialMedia) => (
+                    <div
+                      className="card"
+                      style={{
+                        borderRadius: "40px",
+                        width: "17rem",
+                        color: "black",
+                        height: "4rem",
+                        alignItems: "center",
+                        backgroundColor: "#12CBC4",
+                        display: "inline-block",
+                        marginRight: "10px",
+                      }}
+                    >
+                      <div
+                        className="col-md-9"
+                        style={{ marginTop: "10px", marginLeft: "25px" }}
+                      >
+                        
+                        <SocialMediaUpdate socialMedia={socialMedia}/>
+                        <a href={`http://${socialMedia.link}`} target="_blank" style={{color:"black"}}>{socialMedia.linkType.linkType}</a>
+                      <SocialMediaDelete id={socialMedia.id}/>
+                      </div>
+                    </div>
+                  ))}
+                </p>
+              )}
+            </div>
+          </div>
+
 
           <div
             style={{

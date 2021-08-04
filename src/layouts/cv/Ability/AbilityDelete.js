@@ -42,7 +42,6 @@ export default function AbilityDelete({id}) {
                 primary
                 onClick={() => setOpen(false)}
                 onClick={() => deleteAbility()}
-                danger
             />
         </Modal.Actions>
     </Modal>
