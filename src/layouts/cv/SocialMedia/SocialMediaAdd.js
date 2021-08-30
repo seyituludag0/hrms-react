@@ -9,7 +9,8 @@ import {
     Label,
     Modal,
     Icon,
-    Dropdown
+    Dropdown,
+    Input
   } from "semantic-ui-react";
   import SocialMediaService from "../../../services/SocialMediaService";
 
@@ -76,22 +77,8 @@ export default function SocialMediaAdd({socialMedia}) {
                       
             <Grid stackable>
                 <GridColumn width={7}>
-                <Form.Field>
-                    <label>Url Link</label>
-                    <input
-                      name="link"
-                      label='http://'
-                      placeholder="Site Adı"
-                      value={formik.values.link}
-                      onChange={formik.handleChange}
-                    />
-                    {formik.errors.link && formik.touched.link && (
-                      <Label basic color="red" pointing>
-                        {formik.errors}
-                      </Label>
-                    )}
-                  </Form.Field>
-                  <Form.Field>
+               
+                 <Form.Field>
                     <label>Sosyal Medya Sitesi</label>
                     <Dropdown
                     name="linkTypeId"
@@ -114,6 +101,24 @@ export default function SocialMediaAdd({socialMedia}) {
                         </div>
                       )}
                   </Form.Field>
+                
+                 
+                  <Form.Field>
+                    <label>Url Link</label>
+                    <Input
+                      name="link"
+                      placeholder="Site Adı"
+                      value={formik.values.link}
+                      onChange={formik.handleChange}
+                    />
+                    {formik.errors.link && formik.touched.link && (
+                      <Label basic color="red" pointing>
+                        {formik.errors}
+                      </Label>
+                    )}
+                  </Form.Field>
+                 
+                
                 </GridColumn>
               </Grid>
               

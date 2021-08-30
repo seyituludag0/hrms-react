@@ -37,7 +37,7 @@ const { values, errors, handleChange, handleSubmit, touched } = useFormik({
   
     onSubmit: (values) => {
       
-      // console.log(values)
+      console.log(values)
       schoolService.add(values)
       .then(result=>toast.success(result.data.message));
     },

@@ -85,7 +85,6 @@ export default function SocialMediaUpdate({socialMedia}) {
                     <label>Url Link</label>
                     <Input
                       name="link"
-                      label='http://'
                       placeholder="site Adı"
                       value={formik.values.link}
                       onChange={formik.handleChange}

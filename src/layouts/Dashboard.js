@@ -22,6 +22,7 @@ import Employers from "../pages/admin/Employer/Employers";
 import AdminByFalseEmployers from "../pages/admin/Employer/AdminByFalseEmployers";
 import ViewCount from "./ViewCount";
 import FavoriteJobPosting from "../pages/FavoriteJobPosting";
+import ContactForm from "../pages/ContactForm";
 
 
 export default function Dashboard() {
@@ -49,6 +50,7 @@ export default function Dashboard() {
               <Route exact path="/employee" component={EmployeeList} />
               <Route exact path="/adminbyfalseemployers" component={AdminByFalseEmployers} />
               <Route exact path="/myfavorites" component={FavoriteJobPosting} />
+              <Route exact path="/contact" component={ContactForm} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

@@ -5,6 +5,8 @@ import "../css/Footer.css";
 
 import CandidateService from "../services/CandidateService";
 
+import SchoolAdd from "../layouts/cv/School/SchoolAdd";
+
 import LanguageAdd from "../layouts/cv/Language/LanguageAdd";
 import LanguageUpdate from "../layouts/cv/Language/LanguageUpdate";
 import LanguageDelete from "../layouts/cv/Language/LanguageDelete";
@@ -25,7 +27,9 @@ import BasicInformation from "../layouts/cv/BasicInformations/BasicInformations"
 
 import { Message } from "semantic-ui-react";
 
+
 export default function CvDetail() {
+
   let { candidateId } = useParams();
 
   const [cvDetail, setCvDetail] = useState(null);
@@ -35,11 +39,10 @@ export default function CvDetail() {
     candidateService
       .getCandidateCvByCandidateId(candidateId)
       .then((result) => setCvDetail(result.data.data));
-  }, [cvDetail]);
+  }, []);
 
   return (
-    <div className="ana div">
-      <div>
+      <div id="cv">
         <div
           style={{
             backgroundColor: "#6c63ff",
@@ -73,20 +76,20 @@ export default function CvDetail() {
                   backgroundColor: "#262444 !important",
                 }}
                 className="btn btn-primary smooth-scroll mr-2"
-                href="/"
+                href="#"
                 data-aos="zoom-in"
                 data-aos-anchor="data-aos-anchor"
               >
                 Beni işe al
               </a>
-              <a
+               <a
+                id="download"
                 className="btn btn-primary"
-                href="/"
                 data-aos="zoom-in"
                 data-aos-anchor="data-aos-anchor"
               >
                 Cv'yi indir
-              </a>
+              </a> 
             </div>
           </div>
         </div>
@@ -175,7 +178,7 @@ export default function CvDetail() {
           <div className="update-btns" style={{ marginTop: "12rem" }}></div>
           <div className="section" id="school" style={{ marginTop: "10rem" }}>
             <div className="container cc-school">
-              {/* <SchoolAdd school={cvDetail?.schoolCandidates[0]} /> */}
+              <SchoolAdd school={cvDetail?.schoolCandidates[0]} />
               <div className="h4 text-center mb-4 title">Okullarım</div>
 
               { cvDetail?.schoolCandidates.length===0?<Message
@@ -424,7 +427,7 @@ export default function CvDetail() {
                       className="card"
                       style={{
                         borderRadius: "40px",
-                        width: "17rem",
+                        width: "19rem",
                         color: "black",
                         height: "4rem",
                         alignItems: "center",
@@ -439,7 +442,8 @@ export default function CvDetail() {
                       >
                         
                         <SocialMediaUpdate socialMedia={socialMedia}/>
-                        <a href={`http://${socialMedia.link}`} target="_blank" style={{color:"black"}}>{socialMedia.linkType.linkType}</a>
+                        {/* <a href={`http://${socialMedia.link}`} target="_blank" style={{color:"black"}}>{socialMedia.linkType.linkType}</a> */}
+                        <a href={`http://${socialMedia.link}`} target="_blank" style={{color:"black"}}><img src={socialMedia.linkType.socialMediaLogo}style={{width:"25%", marginRight:"4px"}}></img>{socialMedia.linkType.linkType}</a>
                       <SocialMediaDelete id={socialMedia.id}/>
                       </div>
                     </div>
@@ -461,6 +465,5 @@ export default function CvDetail() {
           </div>
         </div>
       </div>
-    </div>
   );
 }

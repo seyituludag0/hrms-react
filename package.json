@@ -31,7 +31,8 @@
     "stringify": "^5.2.0",
     "sweetalert2": "^11.0.20",
     "web-vitals": "^1.1.2",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "react-to-pdf": "0.0.14"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -111,7 +111,6 @@ export default function JobPostingAdd() {
   };
 
   return (
-    <div>
       <div className="my-div" style={{marginLeft:"10rem", marginRight:"-3rem"}}>
         <Card fluid color="blue" header="ŞİRKETİNİZ İÇİN BİR İLAN EKLEYİN" />
         <Grid columns={2} padded>
@@ -329,6 +328,5 @@ export default function JobPostingAdd() {
           </Grid.Column>
         </Grid>
       </div>
-    </div>
   );
 }

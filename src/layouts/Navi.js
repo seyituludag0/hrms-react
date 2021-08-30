@@ -41,6 +41,10 @@ export default function Navi() {
           <Menu.Item>
               <Link to="/about">Hakkımızda</Link>
           </Menu.Item>
+
+          <Menu.Item>
+              <Link to="/contact">İletişim</Link>
+          </Menu.Item>
          
           <Menu.Menu position="right">
           <Menu.Item>
@@ -51,9 +55,6 @@ export default function Navi() {
               <Link to="/employer">Şirketim</Link>
           </Menu.Item>
 
-          <Menu.Item>
-              <Link to="/candidate/1">Öz Geçmiş</Link>
-          </Menu.Item>
 
           <Menu.Item>
               <Favorite />
